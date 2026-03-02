@@ -47,6 +47,15 @@ Domain Name System (DNS) and Transport Layer Security (TLS) to
 establish skill identity and authenticity, eliminating the need for
 centralized skill registries.
 
+Trust in DVS is anchored to a Trust Root: an HTTPS URL prefix that
+scopes the trust boundary for a set of skills.  For first-party
+brand hosting, the Trust Root is typically the domain itself (e.g.,
+`https://microsoft.com/`).  For user-generated content platforms
+where the domain operator does not control all content (e.g.,
+GitHub), the Trust Root MUST be scoped to a path that the brand
+controls (e.g., `https://github.com/microsoft/`), providing
+equivalent trust guarantees without trusting the entire platform.
+
 --- middle
 
 # Introduction
@@ -67,15 +76,27 @@ creates several friction points:
   platforms to exfiltrate data.
 
 The Domain-Verified Skills (DVS) protocol returns to the fundamental
-logic of the Web: the Domain is the Identity.  By serving skills
-directly from a brand's domain, we leverage the existing global trust
-of the DNS and HTTPS infrastructure.
+logic of the Web: the URL is the Identity.  By serving skills
+directly from a brand-controlled URL prefix, we leverage the existing
+global trust of the DNS and HTTPS infrastructure.
+
+For brands with first-party domains, the Trust Root is the domain
+itself (e.g., `https://microsoft.com/`).  For brands that publish on
+user-generated content platforms such as GitHub or Hugging Face,
+the Trust Root is scoped to the brand's path on that platform (e.g.,
+`https://github.com/microsoft/`).  This allows DVS to provide
+brand-verified skill identity across all hosting configurations,
+without requiring brands to self-host infrastructure.
 
 This protocol is designed to be compatible with existing skill
-formats.  In particular, a skill directory conforming to DVS can be
-directly consumed by any agent that understands the SKILL.md
-convention, while also gaining the identity and trust properties
-conferred by domain-verified hosting.
+formats and distributions.  A skill already hosted on GitHub
+(e.g., `https://github.com/microsoft/repo/blob/main/.../SKILL.md`)
+is immediately usable under DVS by registering
+`https://github.com/microsoft/` as the Trust Root, with no changes
+to the skill files themselves.  In particular, a skill directory
+conforming to DVS can be directly consumed by any agent that
+understands the SKILL.md convention, while also gaining the identity
+and trust properties conferred by domain-verified hosting.
 
 # Conventions and Definitions
 
@@ -103,9 +124,19 @@ Skill URL:
   entry point).  This URL serves as the globally unique identifier
   of the Skill.
 
+Trust Root:
+: An HTTPS URL prefix that defines the trust boundary for a skill
+  or set of skills.  A skill is considered verified under a Trust
+  Root if and only if its Skill URL begins with the Trust Root
+  prefix.  For first-party brand domains, the Trust Root is
+  typically the domain origin (e.g., `https://microsoft.com/`).
+  For user-generated content platforms, the Trust Root MUST be
+  scoped to a path controlled by the brand (e.g.,
+  `https://github.com/microsoft/`).
+
 Hosting Domain:
-: The domain component of the Skill URL, considered
-  the authoritative endorser of the Skill.
+: The domain component of the Trust Root URL, considered the
+  network-level endorser of the Skill via DNS and TLS.
 
 Bundled Resource:
 : Any file within the skill directory other than
@@ -121,9 +152,25 @@ The identity of a skill is defined strictly by its HTTPS URL.
 Skills MUST be served via HTTPS {{RFC9110}}.  Agents MUST NOT fetch or
 execute skills served over plain HTTP.
 
-The hosting domain is considered the authoritative endorser of the
-skill.  A skill served from `https://example.com/.well-known/skills/customer-support/SKILL.md`
-is attributed to and endorsed by the operator of `example.com`.
+The identity and trust of a skill is defined by its Trust Root.  A
+skill's URL MUST begin with its declared Trust Root prefix for the
+skill to be considered verified under that root.
+
+For first-party brand hosting, the Trust Root is the domain origin:
+
+    Trust Root: https://example.com/
+    Skill URL:  https://example.com/.well-known/skills/customer-support/SKILL.md
+
+For user-generated content platforms, the Trust Root MUST be scoped
+to a path controlled by the brand.  Agents MUST NOT accept a bare
+UGC platform domain (e.g., `https://github.com/`) as a Trust Root,
+as this would confer trust to all content on the platform:
+
+    Trust Root: https://github.com/microsoft/GitHub-Copilot-for-Azure/
+    Skill URL:  https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugin/skills/azure-ai/SKILL.md
+
+A skill URL that does not begin with its declared Trust Root prefix
+MUST be rejected by the Agent.
 
 ## Discovery
 
@@ -299,19 +346,20 @@ metadata of registered skills is persistently loaded.
 ## Same-Origin Isolation
 
 Agents MUST restrict a skill's automated access to resources within
-its hosting domain and skill directory (same-origin policy).  A
-skill served from `https://example.com` MUST NOT be permitted to
-automatically access resources on `https://other.com` without
-explicit user consent.
+its Trust Root prefix.  A skill with Trust Root
+`https://github.com/microsoft/GitHub-Copilot-for-Azure/` MUST NOT
+be permitted to automatically access resources outside that prefix
+(including other GitHub users or repos) without explicit user
+consent.
 
 Bundled resources (scripts, data files, templates) referenced by a
-skill MUST reside within the same origin as the SKILL.md file.
-Agents MUST reject references to resources outside the skill's
-origin unless the user explicitly approves cross-origin access.
+skill MUST reside within the same Trust Root prefix as the SKILL.md
+file.  Agents MUST reject references to resources outside the
+skill's Trust Root unless the user explicitly approves the access.
 
 This prevents a compromised or malicious skill from leveraging its
-trusted domain context to exfiltrate data from, or perform actions
-on, unrelated origins.
+trusted context to exfiltrate data from, or perform actions on,
+unrelated origins or paths.
 
 ## Explicit Consent {#explicit-consent}
 
@@ -322,7 +370,7 @@ operations, running bundled scripts).
 
 The consent prompt SHOULD clearly indicate:
 
-- The hosting domain of the skill.
+- The Trust Root of the skill.
 - A description of the action to be performed.
 - Any resources that will be accessed or modified.
 
@@ -343,10 +391,10 @@ an Agent encounters a referenced skill URL during execution, it
 SHOULD dynamically fetch and load the referenced skill if the current
 context requires the extended capabilities it provides.
 
-Each referenced skill is subject to its own origin's trust and
+Each referenced skill is subject to its own Trust Root's trust and
 security policies.  Agents MUST apply the Same-Origin Isolation
 policy ({{same-origin-isolation}}) independently to each loaded skill
-based on its own hosting domain.
+based on its own Trust Root.
 
 When composing skills across domains, agents SHOULD clearly
 communicate to the user that the trust context is being extended
@@ -371,6 +419,12 @@ risks:
 
 - Subdomain delegation: Skills on subdomains should be treated as
   distinct trust contexts from the parent domain.
+
+- UGC platform Trust Roots: On user-generated content platforms,
+  agents MUST enforce path-scoped Trust Roots.  Accepting a bare
+  platform domain (e.g., `https://github.com/`) as a Trust Root
+  would allow any user on that platform to publish skills that
+  appear equally trusted as a legitimate brand's skills.
 
 - Transitive trust in composition: When skills reference other
   skills ({{composition}}), the trust chain extends across domains.
