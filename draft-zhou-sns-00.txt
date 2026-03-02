@@ -1,0 +1,392 @@
+
+
+
+
+Network Working Group                                         Z. V. Zhou
+Internet-Draft                                                    Namefi
+Intended status: Informational                              2 March 2026
+Expires: 3 September 2026
+
+
+                   Simple Named Skills (SNS) Protocol
+                           draft-zhou-sns-00
+
+Abstract
+
+   This document defines the Simple Named Skills (SNS) protocol, a
+   lightweight mechanism for AI Agents to discover, verify, and execute
+   skill definitions served over HTTPS.  A skill is a directory
+   containing a SKILL.md entry point and optional bundled resources.
+   The protocol leverages the existing trust infrastructure of the
+   Domain Name System (DNS) and Transport Layer Security (TLS) to
+   establish skill identity and authenticity, eliminating the need for
+   centralized skill registries.
+
+   name: customer-support description: Handles common customer support
+   inquiries for Acme Corp products.  Use when the user asks about
+   product returns, warranty claims, or order status.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 3 September 2026.
+
+Copyright Notice
+
+   Copyright (c) 2026 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+
+
+
+
+
+Zhou                    Expires 3 September 2026                [Page 1]
+
+Internet-Draft                     SNS                        March 2026
+
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Conventions and Definitions . . . . . . . . . . . . . . . . .   3
+   3.  Core Protocol . . . . . . . . . . . . . . . . . . . . . . . .   3
+     3.1.  Identity and Trust  . . . . . . . . . . . . . . . . . . .   3
+     3.2.  Discovery . . . . . . . . . . . . . . . . . . . . . . . .   4
+   4.  Skill Specification . . . . . . . . . . . . . . . . . . . . .   4
+     4.1.  Directory Structure . . . . . . . . . . . . . . . . . . .   4
+     4.2.  SKILL.md Entry Point  . . . . . . . . . . . . . . . . . .   5
+     4.3.  Metadata (Frontmatter)  . . . . . . . . . . . . . . . . .   5
+   5.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     5.1.  Normative References  . . . . . . . . . . . . . . . . . .   6
+     5.2.  Informative References  . . . . . . . . . . . . . . . . .   6
+   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .   7
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
+
+1.  Introduction
+
+   Current AI Agent skills (such as those in the Claude Agent Skills
+   protocol [CLAUDE-SKILLS]) are primarily distributed via centralized
+   code repositories or platform-specific upload mechanisms.  This
+   creates several friction points:
+
+   *  Identity Ambiguity: Users cannot easily verify if a skill hosted
+      on a third-party platform genuinely belongs to a brand.
+
+   *  Hosting Friction: Brands must manage external accounts and
+      synchronization instead of using their existing web
+      infrastructure.
+
+   *  Security Risks: Malicious skills can spoof brand names on open
+      platforms to exfiltrate data.
+
+   The Simple Named Skills (SNS) protocol returns to the fundamental
+   logic of the Web: the Domain is the Identity.  By serving skills
+   directly from a brand's domain, we leverage the existing global trust
+   of the DNS and HTTPS infrastructure.
+
+
+
+
+
+
+
+Zhou                    Expires 3 September 2026                [Page 2]
+
+Internet-Draft                     SNS                        March 2026
+
+
+   This protocol is designed to be compatible with existing skill
+   formats.  In particular, a skill directory conforming to SNS can be
+   directly consumed by any agent that understands the SKILL.md
+   convention, while also gaining the identity and trust properties
+   conferred by domain-based hosting.
+
+2.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   The following terms are used in this document:
+
+   Skill:  A directory containing a SKILL.md entry point and optional
+      bundled resources (scripts, templates, data files, additional
+      instructions) that directs an AI Agent to perform a specific task
+      or adopt a specific behavior.
+
+   SKILL.md:  The mandatory Markdown entry-point file within a skill
+      directory.  It contains YAML frontmatter metadata and human-
+      readable instructions for the Agent.
+
+   Agent:  An AI system capable of fetching, interpreting, and executing
+      Skill instructions.
+
+   Skill URL:  The HTTPS URL of the skill directory (or its SKILL.md
+      entry point).  This URL serves as the globally unique identifier
+      of the Skill.
+
+   Hosting Domain:  The domain component of the Skill URL, considered
+      the authoritative endorser of the Skill.
+
+   Bundled Resource:  Any file within the skill directory other than
+      SKILL.md, including additional instruction files, executable
+      scripts, templates, schemas, and data files.
+
+3.  Core Protocol
+
+   The identity of a skill is defined strictly by its HTTPS URL.
+
+3.1.  Identity and Trust
+
+   Skills MUST be served via HTTPS [RFC9110].  Agents MUST NOT fetch or
+   execute skills served over plain HTTP.
+
+
+
+
+Zhou                    Expires 3 September 2026                [Page 3]
+
+Internet-Draft                     SNS                        March 2026
+
+
+   The hosting domain is considered the authoritative endorser of the
+   skill.  A skill served from https://example.com/.well-known/skills/
+   customer-support/SKILL.md is attributed to and endorsed by the
+   operator of example.com.
+
+3.2.  Discovery
+
+   Skills MAY be hosted at any valid URL path on a domain (e.g.,
+   https://example.com/skills/my-assistant/SKILL.md).
+
+   Official brand skills SHOULD be served from the well-known path
+   prefix:
+
+   /.well-known/skills/{skill-name}/SKILL.md
+
+   This follows the conventions established by [RFC8615] for well-known
+   URIs.
+
+   Skills MAY be indexed in the domain's sitemap.xml [SITEMAP] to enable
+   automated agent discovery.  Agents supporting discovery SHOULD check
+   for skill entries in the sitemap when exploring a domain's available
+   skills.
+
+   A domain MAY serve a skill index document at:
+
+   /.well-known/skills/index.json
+
+   The index document, if present, SHOULD contain an array of objects,
+   each with name, description, and path fields pointing to available
+   skills on the domain.
+
+4.  Skill Specification
+
+4.1.  Directory Structure
+
+   A Simple Named Skill is a directory containing at minimum a SKILL.md
+   file.  The directory MAY contain additional files organized by
+   purpose:
+
+
+
+
+
+
+
+
+
+
+
+
+
+Zhou                    Expires 3 September 2026                [Page 4]
+
+Internet-Draft                     SNS                        March 2026
+
+
+   my-skill/
+   ├── SKILL.md              (entry point - REQUIRED)
+   ├── ADVANCED.md           (additional instructions - OPTIONAL)
+   ├── REFERENCE.md          (detailed reference docs - OPTIONAL)
+   ├── scripts/
+   │   ├── process.py        (executable script - OPTIONAL)
+   │   └── validate.sh       (executable script - OPTIONAL)
+   ├── templates/
+   │   └── report.html       (template file - OPTIONAL)
+   └── data/
+       └── schema.json       (data/reference file - OPTIONAL)
+
+   When served over HTTPS, the directory structure is represented by URL
+   paths relative to the skill's base URL.  For example, a skill at
+   https://example.com/.well-known/skills/my-skill/ would have its entry
+   point at:
+
+   https://example.com/.well-known/skills/my-skill/SKILL.md
+
+   And a bundled script at:
+
+   https://example.com/.well-known/skills/my-skill/scripts/process.py
+
+4.2.  SKILL.md Entry Point
+
+   Every skill directory MUST contain a file named SKILL.md.  This file
+   MUST be encoded in UTF-8 and served with the media type text/markdown
+   [RFC7763].
+
+   The file consists of two parts:
+
+   1.  YAML frontmatter (metadata) - REQUIRED
+
+   2.  Markdown body (instructions) - REQUIRED
+
+4.3.  Metadata (Frontmatter)
+
+   SKILL.md files MUST begin with a YAML frontmatter block delimited by
+   --- lines.  The frontmatter MUST contain the following fields:
+
+   name:  A short, human-readable name for the skill.  MUST NOT exceed
+      64 characters.  MUST contain only lowercase letters, numbers, and
+      hyphens.
+
+   description:  A brief description of the skill's purpose and
+      capabilities, including guidance on when an Agent should trigger
+      the skill.  MUST NOT be empty.  MUST NOT exceed 1024 characters.
+
+
+
+
+Zhou                    Expires 3 September 2026                [Page 5]
+
+Internet-Draft                     SNS                        March 2026
+
+
+   Example:
+
+   ~~~
+
+5.  References
+
+5.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC4033]  Arends, R., Austein, R., Larson, M., Massey, D., and S.
+              Rose, "DNS Security Introduction and Requirements",
+              RFC 4033, DOI 10.17487/RFC4033, March 2005,
+              <https://www.rfc-editor.org/rfc/rfc4033>.
+
+   [RFC7763]  Leonard, S., "The text/markdown Media Type", RFC 7763,
+              DOI 10.17487/RFC7763, March 2016,
+              <https://www.rfc-editor.org/rfc/rfc7763>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8615]  Nottingham, M., "Well-Known Uniform Resource Identifiers
+              (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
+              <https://www.rfc-editor.org/rfc/rfc8615>.
+
+   [RFC9110]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "HTTP Semantics", STD 97, RFC 9110,
+              DOI 10.17487/RFC9110, June 2022,
+              <https://www.rfc-editor.org/rfc/rfc9110>.
+
+5.2.  Informative References
+
+   [CLAUDE-SKILLS]
+              Anthropic, "Agent Skills Overview", n.d.,
+              <https://platform.claude.com/docs/en/agents-and-tools/
+              agent-skills/overview>.
+
+   [SITEMAP]  Sitemaps.org, "Sitemaps XML Format", n.d.,
+              <https://www.sitemaps.org/protocol.html>.
+
+
+
+
+
+
+
+Zhou                    Expires 3 September 2026                [Page 6]
+
+Internet-Draft                     SNS                        March 2026
+
+
+Acknowledgments
+
+   The authors would like to thank the broader AI agent community for
+   discussions that informed this protocol design.
+
+Author's Address
+
+   Zainan Victor Zhou
+   Namefi
+   Email: zzn@namefi.io
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Zhou                    Expires 3 September 2026                [Page 7]
