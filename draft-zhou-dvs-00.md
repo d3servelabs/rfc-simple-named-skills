@@ -41,20 +41,32 @@ informative:
 This document defines the Domain-Verified Skills (DVS) protocol, a
 lightweight mechanism for AI Agents to discover, verify, and execute
 skill definitions served over HTTPS.  A skill is a directory
-containing a SKILL.md entry point and optional bundled resources.
-The protocol leverages the existing trust infrastructure of the
-Domain Name System (DNS) and Transport Layer Security (TLS) to
-establish skill identity and authenticity, eliminating the need for
-centralized skill registries.
+containing a SKILL.md entry point and optional bundled resources
+that instructs an AI Agent to perform a specific task or adopt a
+specific behavior.
 
-Trust in DVS is anchored to a Trust Root: an HTTPS URL prefix that
-scopes the trust boundary for a set of skills.  For first-party
-brand hosting, the Trust Root is typically the domain itself (e.g.,
-`https://microsoft.com/`).  For user-generated content platforms
-where the domain operator does not control all content (e.g.,
-GitHub), the Trust Root MUST be scoped to a path that the brand
-controls (e.g., `https://github.com/microsoft/`), providing
-equivalent trust guarantees without trusting the entire platform.
+The central design principle of DVS is that a skill's identity and
+trustworthiness are derived entirely from the HTTPS URL at which it
+is served — no centralized registry or third-party certification is
+required.  The operator of the URL's origin is the authoritative
+endorser of the skill.
+
+This trust is formalized through the concept of a Trust Root: an
+HTTPS URL prefix declared by the skill publisher that scopes the
+trust boundary for their skills.  A skill is considered verified
+if and only if its URL begins with the declared Trust Root.  For
+brands with first-party domains, the Trust Root is the domain
+origin (e.g., `https://microsoft.com/`).  For brands publishing on
+user-generated content platforms where the platform operator does
+not vouch for individual publishers (e.g., GitHub), the Trust Root
+MUST be path-scoped to content the brand controls (e.g.,
+`https://github.com/microsoft/`), ensuring that trust does not
+extend to the entire platform.
+
+The protocol leverages the existing trust infrastructure of the
+Domain Name System (DNS) and Transport Layer Security (TLS) and is
+backward compatible with skills already served over HTTPS, including
+those hosted on GitHub or other platforms.
 
 --- middle
 
