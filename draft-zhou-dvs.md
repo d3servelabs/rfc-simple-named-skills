@@ -1,7 +1,7 @@
 ---
 title: "Domain-Verified Skills (DVS) Protocol"
 abbrev: "DVS"
-docname: draft-zhou-dvs-00
+docname: draft-zhou-dvs-latest
 category: info
 ipr: trust200902
 submissiontype: independent
