@@ -1,0 +1,210 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+<style><![CDATA[
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+    :root {
+        --bg: #0a0c10;
+        --card-bg: #161b22;
+        --text-dim: #8b949e;
+        --text-main: #c9d1d9;
+        --accent-err: #f85149;
+        --accent-eth: #8c8c8c;
+        --accent-git: #f0883e;
+        --accent-safe: #3fb950;
+        --accent-blue: #58a6ff;
+    }
+
+    text { font-family: 'Inter', sans-serif; fill: var(--text-main); }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    
+    .fade-in { animation: fadeIn 1s ease-out forwards; opacity: 0; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+    @keyframes slideUp { 
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse {
+        0% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.02); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    .float { animation: float 4s ease-in-out infinite; }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .glitch { animation: glitch 3s infinite; }
+    @keyframes glitch {
+        0% { transform: translate(0); }
+        2% { transform: translate(-2px, 2px); }
+        4% { transform: translate(2px, -2px); }
+        6% { transform: translate(0); }
+    }
+
+    .gas-rise { animation: gasRise 6s linear infinite; opacity: 0; }
+    @keyframes gasRise {
+        0% { transform: translateY(20px); opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateY(-60px); opacity: 0; }
+    }
+
+    .dash { stroke-dasharray: 10; animation: dashMove 10s linear infinite; }
+    @keyframes dashMove { to { stroke-dashoffset: -100; } }
+
+    .shimmer {
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        animation: shimmer 2s infinite;
+    }
+    @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+]]></style>
+
+    <rect width="1600" height="900" fill="var(--bg)"/>
+    
+    <!-- Background grid -->
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff08" stroke-width="1"/>
+        </pattern>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#2188ff"/>
+            <stop offset="100%" stop-color="#3fb950"/>
+        </linearGradient>
+    </defs>
+    <rect width="1600" height="900" fill="url(#grid)"/>
+
+    <!-- Left Panel: The Complexity -->
+    <g transform="translate(80, 160)">
+        <text font-size="28" font-weight="900" fill="var(--text-dim)" letter-spacing="2">THE REINVENTORS</text>
+        <text y="40" font-size="16" fill="#f85149" font-weight="700">FRAGEMENTED &amp; COMPLICATED</text>
+        
+        <!-- Card 1: Skill Marketplace -->
+        <g transform="translate(0, 80)" class="slide-up" style="animation-delay: 0.2s;">
+            <rect width="600" height="140" rx="12" fill="var(--card-bg)" stroke="#30363d"/>
+            <text x="20" y="35" font-size="18" font-weight="700" fill="#f2cc60">Skill Marketplace</text>
+            <text x="20" y="65" font-size="14" fill="var(--text-dim)">Namespace Ambiguity:</text>
+            <rect x="20" y="80" width="220" height="35" rx="6" fill="#0d1117"/>
+            <text x="35" y="103" font-size="14" class="mono" fill="var(--accent-err)">ns:acme-official</text>
+            <text x="260" y="103" font-size="18" fill="var(--text-dim)">vs</text>
+            <rect x="300" y="80" width="220" height="35" rx="6" fill="#0d1117"/>
+            <text x="315" y="103" font-size="14" class="mono" fill="var(--accent-err)">ns:acme_real</text>
+            <circle cx="560" cy="40" r="10" fill="#f85149" class="pulse"/>
+        </g>
+
+        <!-- Card 2: GitHub Hierarchy -->
+        <g transform="translate(0, 240)" class="slide-up" style="animation-delay: 0.4s;">
+            <rect width="600" height="140" rx="12" fill="var(--card-bg)" stroke="#30363d"/>
+            <text x="20" y="35" font-size="18" font-weight="700" fill="#f0883e">GitHub Org Structure</text>
+            <text x="20" y="65" font-size="14" fill="var(--text-dim)">Nested Trust Anchors:</text>
+            <text x="20" y="100" font-size="14" class="mono" fill="var(--text-main)">github.com/acme-corp/identity/main/cert.json</text>
+            <path d="M 530 40 L 550 60 M 550 40 L 530 60" stroke="#f0883e" stroke-width="3" stroke-linecap="round"/>
+        </g>
+
+        <!-- Card 3: Ethereum Registry -->
+        <g transform="translate(0, 400)" class="slide-up" style="animation-delay: 0.6s;">
+            <rect width="600" height="180" rx="12" fill="var(--card-bg)" stroke="#30363d"/>
+            <text x="20" y="35" font-size="18" font-weight="700" fill="#8c8c8c">Smart Contract Registry</text>
+            <text x="20" y="65" font-size="14" class="mono" fill="#58a6ff">0x71C444E24222AC167181591A82C1EF1</text>
+            <text x="20" y="100" font-size="14" fill="var(--text-dim)">Verification Cost:</text>
+            <text x="160" y="100" font-size="14" font-weight="700" fill="#f85149">$14.20 Gas Fee</text>
+            
+            <!-- Gas icons -->
+            <g transform="translate(480, 100)">
+                <path d="M10,0 Q15,-10 10,-20 Q5,-10 10,0" fill="#f0883e" class="gas-rise" style="animation-delay: 0s;"/>
+                <path d="M30,10 Q35,0 30,-10 Q25,0 30,10" fill="#f0883e" class="gas-rise" style="animation-delay: 2s;"/>
+                <path d="M50,-10 Q55,-20 50,-30 Q45,-20 50,-10" fill="#f0883e" class="gas-rise" style="animation-delay: 4s;"/>
+            </g>
+        </g>
+    </g>
+
+    <!-- Center Divider -->
+    <line x1="800" y1="200" x2="800" y2="800" stroke="#30363d" stroke-width="2" stroke-dasharray="8 8" class="dash"/>
+    <circle cx="800" cy="500" r="40" fill="var(--bg)" stroke="#30363d" stroke-width="2"/>
+    <text x="800" y="508" font-size="24" font-weight="900" text-anchor="middle" fill="var(--text-dim)">VS</text>
+
+    <!-- Right Panel: The Domain Solution -->
+    <g transform="translate(880, 160)">
+        <text font-size="28" font-weight="900" fill="var(--accent-safe)" letter-spacing="2">THE ESTABLISHED</text>
+        <text y="40" font-size="16" fill="var(--accent-blue)" font-weight="700">UNIVERSAL &amp; SECURE</text>
+        
+        <!-- Large Browser Bar Hero -->
+        <g transform="translate(0, 80)" class="fade-in" style="animation-delay: 1s;">
+            <rect width="640" height="100" rx="50" fill="#0d1117" stroke="url(#grad-blue)" stroke-width="3" filter="url(#glow)"/>
+            
+            <!-- Padlock -->
+            <g transform="translate(40, 30)" fill="var(--accent-safe)">
+                <rect x="5" y="15" width="26" height="20" rx="4"/>
+                <path d="M10,15 V10 A8,8 0 0,1 26,10 V15" fill="none" stroke="var(--accent-safe)" stroke-width="4"/>
+                <circle cx="18" cy="25" r="3" fill="var(--bg)"/>
+            </g>
+
+            <text x="90" y="62" font-size="36" font-weight="900" fill="var(--text-main)">https://<tspan fill="#fff">acme.com</tspan></text>
+            
+            <!-- Floating features -->
+            <g transform="translate(0, 150)">
+                <g class="slide-up" style="animation-delay: 1.2s;">
+                    <rect width="130" height="40" rx="20" fill="#23863622" stroke="#238636" stroke-width="1"/>
+                    <text x="65" y="26" font-size="14" font-weight="700" text-anchor="middle" fill="#3fb950">DNSSEC</text>
+                </g>
+                <g transform="translate(150, 0)" class="slide-up" style="animation-delay: 1.4s;">
+                    <rect width="110" height="40" rx="20" fill="#1f6feb22" stroke="#1f6feb" stroke-width="1"/>
+                    <text x="55" y="26" font-size="14" font-weight="700" text-anchor="middle" fill="#58a6ff">TLS 1.3</text>
+                </g>
+                <g transform="translate(280, 0)" class="slide-up" style="animation-delay: 1.6s;">
+                    <rect width="180" height="40" rx="20" fill="#8957e522" stroke="#8957e5" stroke-width="1"/>
+                    <text x="90" y="26" font-size="14" font-weight="700" text-anchor="middle" fill="#bc8cff">Transparency</text>
+                </g>
+            </g>
+        </g>
+
+        <!-- Stats Section -->
+        <g transform="translate(0, 350)" class="fade-in" style="animation-delay: 1.8s;">
+            <text font-size="80" font-weight="900" fill="#fff" class="float">4.5B</text>
+            <text x="210" y="0" font-size="24" fill="var(--text-dim)" font-weight="400">USERS ALREADY<tspan x="210" dy="30">ONBOARDED</tspan></text>
+            
+            <line x1="0" y1="80" x2="500" y2="80" stroke="#30363d" stroke-width="1"/>
+            
+            <g transform="translate(0, 120)">
+                <text font-size="24" fill="var(--text-dim)">COST TO VERIFY</text>
+                <text x="250" font-size="48" font-weight="900" fill="var(--accent-safe)">$0.00</text>
+            </g>
+        </g>
+
+        <!-- Ubiquity -->
+        <g transform="translate(0, 560)" class="fade-in" style="animation-delay: 2.2s;">
+            <text font-size="16" fill="var(--text-dim)" font-style="italic">Universal presence in:</text>
+            <text y="35" font-size="20" font-weight="700" fill="#fff">Business Cards • Email Signatures • Invoices • TV Ads</text>
+        </g>
+    </g>
+
+    <!-- Top Headline -->
+    <g transform="translate(800, 80)" text-anchor="middle">
+        <text font-size="42" font-weight="900" fill="#fff">REINVENTING THE ADDRESS?</text>
+        <text y="40" font-size="20" fill="var(--text-dim)">The building already has one. It’s called a domain.</text>
+    </g>
+
+    <!-- Bottom Punchline -->
+    <g transform="translate(800, 840)" text-anchor="middle">
+        <rect x="-400" y="-40" width="800" height="60" rx="30" fill="#23863611" stroke="#238636" stroke-width="1" class="pulse"/>
+        <text font-size="24" font-weight="700" fill="#3fb950">The domain system already solved this. Why build it again?</text>
+    </g>
+
+    <!-- Visual connection: Domain to User -->
+    <path d="M 1200 240 Q 1350 350 1200 450" fill="none" stroke="var(--accent-safe)" stroke-width="2" stroke-dasharray="5 5" opacity="0.3" class="dash"/>
+</svg>

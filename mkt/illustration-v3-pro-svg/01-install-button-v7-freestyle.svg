@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="Inter, system-ui, -apple-system, sans-serif">
+    <style>
+        <![CDATA[
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400;700&display=swap');
+
+        :root {
+            --bg: #0a0a0c;
+            --panel-bg: #141418;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+            --text-muted: #94a3b8;
+            --text-bright: #f8fafc;
+        }
+
+        .bg { fill: var(--bg); }
+        .panel { fill: var(--panel-bg); stroke: #27272a; stroke-width: 2; }
+        
+        /* Central Button */
+        .install-btn { cursor: pointer; transition: transform 0.3s; }
+        .install-btn:hover { transform: scale(1.05); }
+        .btn-rect { fill: var(--accent-green); filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.4)); }
+        .btn-text { fill: white; font-weight: 900; font-size: 28px; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* Left Side Styles */
+        .left-title { fill: var(--accent-blue); font-weight: 900; font-size: 32px; }
+        .left-label { fill: var(--text-muted); font-size: 18px; font-family: 'Fira Code', monospace; }
+        .left-bubble { fill: rgba(59, 130, 246, 0.1); stroke: var(--accent-blue); stroke-width: 2; }
+
+        /* Right Side Styles */
+        .right-title { fill: var(--accent-red); font-weight: 900; font-size: 32px; }
+        .right-label { fill: var(--text-bright); font-size: 16px; font-weight: 700; font-family: 'Fira Code', monospace; }
+        .node-circle { fill: var(--bg); stroke: var(--accent-red); stroke-width: 2; }
+        .warning-text { fill: var(--accent-red); font-size: 14px; font-weight: bold; }
+
+        /* Animations */
+        @keyframes pulse-green {
+            0% { filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.4)); }
+            50% { filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.8)); }
+            100% { filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.4)); }
+        }
+        .animate-pulse { animation: pulse-green 2s infinite ease-in-out; }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+        .scanline { fill: linear-gradient(to bottom, transparent, var(--accent-red), transparent); animation: scanline 4s infinite linear; }
+
+        @keyframes flow {
+            from { stroke-dashoffset: 100; }
+            to { stroke-dashoffset: 0; }
+        }
+        .flow-line { 
+            stroke-dasharray: 10; 
+            animation: flow 3s infinite linear; 
+            stroke-width: 1.5;
+            opacity: 0.6;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(0.8); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .blast-ring { fill: none; stroke: var(--accent-red); stroke-width: 2; animation: explode 4s infinite cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .blast-ring-delay { animation-delay: 2s; }
+
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0); }
+            10%, 30%, 50%, 70%, 90% { transform: translate(-2px, -1px); }
+            20%, 40%, 60%, 80% { transform: translate(2px, 1px); }
+        }
+        .danger-shake { animation: shake 0.5s infinite; transform-origin: center; }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .flicker { animation: flicker 0.1s infinite; }
+        ]]>
+    </style>
+
+    <!-- Background -->
+    <rect width="1600" height="900" class="bg" />
+    
+    <!-- Panels -->
+    <rect x="50" y="180" width="700" height="650" rx="20" class="panel" />
+    <rect x="850" y="180" width="700" height="650" rx="20" class="panel" />
+
+    <!-- Header Section -->
+    <g transform="translate(800, 80)">
+        <text text-anchor="middle" font-size="52" font-weight="900" fill="white">
+            SAME <tspan fill="#10b981">INSTALL</tspan> BUTTON, 10x THE BLAST RADIUS
+        </text>
+        <text text-anchor="middle" y="50" font-size="22" fill="#94a3b8" letter-spacing="4">
+            A VISUAL EVOLUTION OF PERMISSION OVERREACH
+        </text>
+    </g>
+
+    <!-- Left Side: 2023 -->
+    <g transform="translate(50, 180)">
+        <text x="50" y="60" class="left-title">2023: THE PASSIVE CHATBOT</text>
+        <text x="50" y="100" fill="#64748b" font-size="16">Input: Prompt | Output: Text</text>
+        
+        <!-- Chat Simulation -->
+        <rect x="100" y="180" width="500" height="300" rx="10" class="left-bubble" />
+        <g transform="translate(130, 230)">
+            <rect width="300" height="15" rx="5" fill="#3b82f6" opacity="0.4" />
+            <rect y="30" width="400" height="15" rx="5" fill="#3b82f6" opacity="0.2" />
+            <rect y="60" width="350" height="15" rx="5" fill="#3b82f6" opacity="0.2" />
+            
+            <g transform="translate(0, 150)">
+                <text class="left-label">Worst case scenario:</text>
+                <text y="40" class="left-label" fill="#f8fafc">&gt; "The capital of France is Lyon"</text>
+                <text y="80" class="left-label" fill="#94a3b8" font-size="14">// Harmless hallucination</text>
+            </g>
+        </g>
+    </g>
+
+    <!-- Right Side: 2024 -->
+    <g transform="translate(850, 180)">
+        <text x="50" y="60" class="right-title">2024: THE AUTONOMOUS AGENT</text>
+        <text x="50" y="100" fill="#64748b" font-size="16">Permissions: Total | Scope: Production</text>
+
+        <!-- Blast Radius Circles -->
+        <circle cx="350" cy="350" r="50" class="blast-ring" />
+        <circle cx="350" cy="350" r="50" class="blast-ring blast-ring-delay" />
+
+        <!-- Nodes and Connections -->
+        <g transform="translate(350, 350)">
+            <!-- Connections -->
+            <path d="M0,0 L-200,-180" fill="none" stroke="#ef4444" class="flow-line" />
+            <path d="M0,0 L200,-180" fill="none" stroke="#ef4444" class="flow-line" />
+            <path d="M0,0 L250,0" fill="none" stroke="#ef4444" class="flow-line" />
+            <path d="M0,0 L200,180" fill="none" stroke="#ef4444" class="flow-line" />
+            <path d="M0,0 L-200,180" fill="none" stroke="#ef4444" class="flow-line" />
+            <path d="M0,0 L-250,0" fill="none" stroke="#ef4444" class="flow-line" />
+            <path d="M0,0 L-100,-220" fill="none" stroke="#ef4444" class="flow-line" />
+            <path d="M0,0 L100,220" fill="none" stroke="#ef4444" class="flow-line" />
+
+            <!-- Node Icons -->
+            <g transform="translate(-200, -180)">
+                <circle r="40" class="node-circle danger-shake" />
+                <text y="60" text-anchor="middle" class="right-label">DB ACCESS</text>
+                <text y="80" text-anchor="middle" class="warning-text flicker">EXPOSED</text>
+            </g>
+            <g transform="translate(200, -180)">
+                <circle r="40" class="node-circle danger-shake" />
+                <text y="60" text-anchor="middle" class="right-label">API KEYS</text>
+                <text y="80" text-anchor="middle" class="warning-text flicker">LEAKED</text>
+            </g>
+            <g transform="translate(250, 0)">
+                <circle r="40" class="node-circle" />
+                <text y="60" text-anchor="middle" class="right-label">PAYMENT API</text>
+            </g>
+            <g transform="translate(200, 180)">
+                <circle r="40" class="node-circle danger-shake" />
+                <text y="60" text-anchor="middle" class="right-label">KUBERNETES</text>
+                <text y="80" text-anchor="middle" class="warning-text flicker">ROOT SHELL</text>
+            </g>
+            <g transform="translate(-200, 180)">
+                <circle r="40" class="node-circle" />
+                <text y="60" text-anchor="middle" class="right-label">CI/CD PIPELINE</text>
+            </g>
+            <g transform="translate(-250, 0)">
+                <circle r="40" class="node-circle danger-shake" />
+                <text y="60" text-anchor="middle" class="right-label">FILESYSTEM</text>
+                <text y="80" text-anchor="middle" class="warning-text flicker">ENCRYPTED</text>
+            </g>
+            <g transform="translate(-100, -220)">
+                <circle r="30" class="node-circle" />
+                <text y="50" text-anchor="middle" class="right-label" font-size="12">EMAIL/SLACK</text>
+            </g>
+            <g transform="translate(100, 220)">
+                <circle r="30" class="node-circle" />
+                <text y="50" text-anchor="middle" class="right-label" font-size="12">SHELL</text>
+            </g>
+        </g>
+    </g>
+
+    <!-- Central Control -->
+    <g transform="translate(800, 450)">
+        <!-- Vertical Connector Lines -->
+        <line x1="-300" y1="0" x2="-80" y2="0" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" />
+        <line x1="80" y1="0" x2="300" y2="0" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5" />
+        
+        <g class="install-btn animate-pulse">
+            <rect x="-100" y="-40" width="200" height="80" rx="10" class="btn-rect" />
+            <text text-anchor="middle" y="10" class="btn-text">INSTALL</text>
+        </g>
+        
+        <g transform="translate(0, 100)">
+            <text text-anchor="middle" fill="white" font-weight="700" font-size="18">IDENTICAL UX</text>
+            <path d="M-60,20 L60,20" stroke="white" stroke-width="1" opacity="0.3" />
+            <text text-anchor="middle" y="45" fill="#94a3b8" font-size="14">ZERO VERIFICATION REQUIRED</text>
+        </g>
+    </g>
+
+    <!-- Overlay Info -->
+    <rect x="0" y="850" width="1600" height="50" fill="rgba(0,0,0,0.8)" />
+    <text x="50" y="882" fill="#64748b" font-family="monospace" font-size="14">
+        THREAT MODEL: [2023] Incorrect Information &lt; [2024] Supply Chain Takeover / Total Data Exfiltration
+    </text>
+    <text x="1550" y="882" text-anchor="end" fill="#ef4444" font-family="monospace" font-size="14" font-weight="bold">
+        STATUS: CRITICAL VULNERABILITY IN DEFAULT TRUST
+    </text>
+
+</svg>

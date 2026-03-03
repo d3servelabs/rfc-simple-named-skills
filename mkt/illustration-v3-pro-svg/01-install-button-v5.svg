@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <style type="text/css">
+    <![CDATA[
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideDown { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes drawLine { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+    @keyframes scaleIn { from { transform: scale(0); } to { transform: scale(1); } }
+    @keyframes growWidth { from { transform: scaleX(0); transform-origin: left; } to { transform: scaleX(1); transform-origin: left; } }
+
+    .bg-grid { stroke: #E0E0E0; stroke-width: 1; opacity: 0; animation: fadeIn 1s forwards; }
+    .border-line { stroke: #333; stroke-width: 1; stroke-dasharray: 10; stroke-dashoffset: 1000; animation: drawLine 2s linear forwards 0.5s; }
+    .header { font-family: 'Courier New', monospace; font-weight: bold; font-size: 32px; fill: #000; opacity: 0; animation: slideDown 0.8s ease-out forwards 1s; }
+    .subheading { font-family: 'Courier New', monospace; font-weight: bold; font-size: 24px; fill: #000; opacity: 0; animation: fadeIn 0.8s forwards; }
+    .label { font-family: 'Courier New', monospace; font-size: 14px; fill: #333; opacity: 0; animation: fadeIn 0.5s forwards; }
+    .dim-text { font-family: 'Courier New', monospace; font-size: 14px; opacity: 0; animation: slideUp 0.5s forwards; }
+    .btn-text { font-family: 'Courier New', monospace; font-weight: bold; font-size: 16px; fill: #FFF; }
+    
+    .shape { fill: #FFF; stroke: #000; stroke-width: 2; stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: drawLine 1.5s linear forwards; }
+    .radial-line { stroke: #000; stroke-width: 2; stroke-dasharray: 500; stroke-dashoffset: 500; animation: drawLine 1s ease-out forwards; }
+    .blue-arrow { fill: #0047AB; stroke: #0047AB; stroke-width: 8; transform: scaleX(0); animation: growWidth 0.8s ease-out forwards 6s; }
+    
+    .install-btn { fill: #00AA00; opacity: 0; animation: fadeIn 0.5s forwards; }
+    
+    .last-year-group { animation-delay: 1.5s; }
+    .today-group { animation-delay: 3s; }
+    
+    .red { fill: #CC0000; font-weight: bold; }
+    .green { fill: #00AA00; }
+    ]]>
+  </style>
+
+  <!-- Background Grid -->
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#E0E0E0" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="white" />
+  <rect width="1600" height="900" fill="url(#grid)" class="bg-grid" />
+
+  <!-- Borders -->
+  <line x1="30" y1="50" x2="30" y2="850" class="border-line" />
+  <line x1="1570" y1="50" x2="1570" y2="850" class="border-line" />
+
+  <!-- Header -->
+  <text x="800" y="60" text-anchor="middle" class="header">SAME INSTALL BUTTON, 10x THE BLAST RADIUS</text>
+
+  <!-- LEFT HALF: LAST YEAR -->
+  <g transform="translate(390, 0)">
+    <text x="0" y="150" text-anchor="middle" class="subheading" style="animation-delay: 1.5s;">LAST YEAR</text>
+    
+    <!-- Chatbot -->
+    <rect x="-40" y="270" width="80" height="60" rx="5" class="shape" style="animation-delay: 1.5s;" />
+    <circle cx="-15" cy="290" r="3" fill="#000" class="label" style="animation-delay: 1.8s;" />
+    <circle cx="15" cy="290" r="3" fill="#000" class="label" style="animation-delay: 1.8s;" />
+    <line x1="-10" y1="310" x2="10" y2="310" stroke="#000" stroke-width="2" class="label" style="animation-delay: 1.8s;" />
+    
+    <!-- Generation Line -->
+    <line x1="40" y1="300" x2="140" y2="300" class="radial-line" style="animation-delay: 2s;" />
+    <rect x="140" y="280" width="120" height="40" class="shape" style="animation-delay: 2s;" />
+    <text x="200" y="305" text-anchor="middle" class="label" style="animation-delay: 2.2s;">GENERATE TEXT</text>
+
+    <!-- Install Button -->
+    <rect x="-60" y="500" width="120" height="45" rx="10" class="install-btn" style="animation-delay: 2.5s;" />
+    <text x="0" y="528" text-anchor="middle" class="btn-text label" style="animation-delay: 2.6s;">INSTALL</text>
+    
+    <!-- Dimensions -->
+    <text x="0" y="580" text-anchor="middle" class="dim-text" style="animation-delay: 2.7s;">CAPABILITY: ANSWER QUESTIONS</text>
+    <text x="0" y="605" text-anchor="middle" class="dim-text" style="animation-delay: 2.8s;">ACCESS: NONE</text>
+    <text x="0" y="630" text-anchor="middle" class="dim-text green" style="animation-delay: 2.9s;">WORST CASE: WRONG ANSWER</text>
+  </g>
+
+  <!-- CENTER: TRANSITION -->
+  <g transform="translate(730, 420)">
+    <path d="M 0 0 L 120 0 L 120 -20 L 160 10 L 120 40 L 120 20 L 0 20 Z" class="blue-arrow" />
+    <text x="80" y="60" text-anchor="middle" class="label" style="fill: #0047AB; font-weight: bold; animation-delay: 6.5s;">SAME BUTTON</text>
+  </g>
+
+  <!-- RIGHT HALF: TODAY -->
+  <g transform="translate(1230, 0)">
+    <text x="0" y="150" text-anchor="middle" class="subheading" style="animation-delay: 3s;">TODAY</text>
+    
+    <!-- Agent Core -->
+    <circle cx="0" cy="350" r="70" class="shape" style="animation-delay: 3s;" />
+    <circle cx="0" cy="350" r="55" stroke="#000" fill="none" stroke-width="1" class="label" style="animation-delay: 3.2s;" />
+    <text x="0" y="358" text-anchor="middle" class="subheading" style="animation-delay: 3.3s; font-size: 18px;">AGENT</text>
+
+    <!-- RADIAL SYSTEM (1-4) -->
+    <g style="animation-delay: 3.5s;">
+      <!-- Database (0 deg) -->
+      <line x1="70" y1="350" x2="180" y2="350" class="radial-line" style="animation-delay: 3.5s;" />
+      <path d="M 180 335 A 20 10 0 1 1 220 335 A 20 10 0 1 1 180 335 Z M 180 335 L 180 365 A 20 10 0 0 0 220 365 L 220 335" class="shape" style="animation-delay: 3.6s;" />
+      <text x="200" y="390" text-anchor="middle" class="label" style="animation-delay: 3.7s;">DATABASE</text>
+
+      <!-- API KEYS (90 deg) -->
+      <line x1="0" y1="420" x2="0" y2="530" class="radial-line" style="animation-delay: 3.8s;" />
+      <circle cx="0" cy="545" r="10" class="shape" style="animation-delay: 3.9s;" />
+      <path d="M 0 555 L 0 575 L 10 575 M 0 565 L 10 565" stroke="#000" fill="none" stroke-width="2" class="label" style="animation-delay: 4.0s;" />
+      <text x="0" y="595" text-anchor="middle" class="label" style="animation-delay: 4.1s;">API KEYS</text>
+
+      <!-- FILE SYSTEM (180 deg) -->
+      <line x1="-70" y1="350" x2="-180" y2="350" class="radial-line" style="animation-delay: 4.2s;" />
+      <rect x="-220" y="330" width="40" height="40" class="shape" style="animation-delay: 4.3s;" />
+      <line x1="-215" y1="340" x2="-185" y2="340" stroke="#000" class="label" style="animation-delay: 4.4s;" />
+      <line x1="-215" y1="350" x2="-185" y2="350" stroke="#000" class="label" style="animation-delay: 4.4s;" />
+      <text x="-200" y="390" text-anchor="middle" class="label" style="animation-delay: 4.5s;">FILE SYSTEM</text>
+
+      <!-- SHELL ACCESS (270 deg) -->
+      <line x1="0" y1="280" x2="0" y2="170" class="radial-line" style="animation-delay: 4.6s;" />
+      <rect x="-25" y="130" width="50" height="35" fill="#000" class="label" style="animation-delay: 4.7s;" />
+      <text x="0" y="153" text-anchor="middle" class="label" style="fill: #FFF; animation-delay: 4.8s;">&gt;_</text>
+      <text x="0" y="120" text-anchor="middle" class="label" style="animation-delay: 4.9s;">SHELL ACCESS</text>
+    </g>
+
+    <!-- RADIAL SYSTEM (5-8) -->
+    <g style="animation-delay: 5s;">
+      <!-- CI/CD (45 deg) -->
+      <line x1="49" y1="399" x2="127" y2="477" class="radial-line" style="animation-delay: 5.0s;" />
+      <rect x="127" y="477" width="40" height="30" class="shape" style="animation-delay: 5.1s;" />
+      <path d="M 135 492 L 155 492 L 150 487 M 155 492 L 150 497" stroke="#000" fill="none" class="label" style="animation-delay: 5.2s;" />
+      <text x="147" y="525" text-anchor="middle" class="label" style="animation-delay: 5.3s;">CI/CD</text>
+
+      <!-- KUBERNETES (135 deg) -->
+      <line x1="-49" y1="399" x2="-127" y2="477" class="radial-line" style="animation-delay: 5.4s;" />
+      <polygon points="-127,462 -107,472 -107,492 -127,502 -147,492 -147,472" class="shape" style="animation-delay: 5.5s;" />
+      <text x="-127" y="525" text-anchor="middle" class="label" style="animation-delay: 5.6s;">KUBERNETES</text>
+
+      <!-- EMAIL (225 deg) -->
+      <line x1="-49" y1="301" x2="-127" y2="223" class="radial-line" style="animation-delay: 5.7s;" />
+      <rect x="-147" y="193" width="40" height="30" class="shape" style="animation-delay: 5.8s;" />
+      <path d="M -147 193 L -127 208 L -107 193" stroke="#000" fill="none" class="label" style="animation-delay: 5.9s;" />
+      <text x="-127" y="180" text-anchor="middle" class="label" style="animation-delay: 6.0s;">EMAIL</text>
+
+      <!-- PAYMENT API (315 deg) -->
+      <line x1="49" y1="301" x2="127" y2="223" class="radial-line" style="animation-delay: 6.1s;" />
+      <rect x="107" y="193" width="45" height="30" rx="3" class="shape" style="animation-delay: 6.2s;" />
+      <line x1="107" y1="203" x2="152" y2="203" stroke="#000" stroke-width="4" class="label" style="animation-delay: 6.3s;" />
+      <text x="130" y="180" text-anchor="middle" class="label" style="animation-delay: 6.4s;">PAYMENTS</text>
+    </g>
+
+    <!-- Right Install Button -->
+    <rect x="-60" y="700" width="120" height="45" rx="10" class="install-btn" style="animation-delay: 5.5s;" />
+    <text x="0" y="728" text-anchor="middle" class="btn-text label" style="animation-delay: 5.6s;">INSTALL</text>
+    
+    <!-- Dimensions -->
+    <text x="0" y="780" text-anchor="middle" class="dim-text red" style="animation-delay: 5.7s;">CAPABILITY: EVERYTHING</text>
+    <text x="0" y="805" text-anchor="middle" class="dim-text red" style="animation-delay: 5.8s;">ACCESS: EVERYTHING</text>
+    <text x="0" y="830" text-anchor="middle" class="dim-text red" style="animation-delay: 5.9s;">WORST CASE: DATA BREACH, EXFILTRATION, SUPPLY CHAIN ATTACK</text>
+  </g>
+</svg>

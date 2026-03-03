@@ -1,0 +1,219 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-web" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad-app" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#9b59b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad-ai-open" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f1c40f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f39c12;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    <![CDATA[
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+    svg {
+      background-color: #0a0a0f;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .path-base {
+      fill: none;
+      stroke: #1a1a2e;
+      stroke-width: 8;
+      stroke-linecap: round;
+    }
+
+    .path-animated {
+      fill: none;
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 2000;
+      animation: draw 8s ease-out forwards infinite;
+    }
+
+    .path-gated {
+      stroke: #444;
+      stroke-dasharray: 10, 10;
+    }
+
+    .path-open {
+      stroke: url(#grad-ai-open);
+      filter: url(#glow);
+    }
+
+    @keyframes draw {
+      0% { stroke-dashoffset: 2000; opacity: 0; }
+      10% { opacity: 1; }
+      100% { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+
+    .node {
+      animation: fadeIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .node-1 { animation-delay: 1s; }
+    .node-2 { animation-delay: 3s; }
+    .node-3 { animation-delay: 5s; }
+    
+    .label-title { fill: #fff; font-weight: 900; font-size: 32px; text-transform: uppercase; letter-spacing: 2px; }
+    .label-year { fill: #666; font-weight: 700; font-size: 24px; }
+    .label-desc { fill: #aaa; font-size: 18px; line-height: 1.4; }
+    .label-status-open { fill: #2ecc71; font-weight: 700; font-size: 16px; }
+    .label-status-gated { fill: #e74c3c; font-weight: 700; font-size: 16px; }
+
+    .highlight-box {
+      fill: rgba(241, 196, 15, 0.1);
+      stroke: #f1c40f;
+      stroke-width: 2;
+      rx: 10;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .dead-end-marker {
+      fill: #444;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .main-title {
+      fill: #fff;
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+    ]]>
+  </style>
+
+  <!-- Background Decoration -->
+  <circle cx="1400" cy="150" r="300" fill="url(#grad-app)" opacity="0.05" />
+  <circle cx="200" cy="750" r="250" fill="url(#grad-web)" opacity="0.05" />
+
+  <!-- Header -->
+  <g transform="translate(100, 80)">
+    <text class="main-title">EVERY COMPANY WILL NEED ONE <tspan fill="#f1c40f">(AGAIN)</tspan></text>
+    <rect x="0" y="20" width="800" height="4" fill="url(#grad-web)" opacity="0.3" />
+  </g>
+
+  <!-- Timeline Paths -->
+  <path class="path-base" d="M 150 450 L 450 450 L 850 450 Q 1100 450 1250 250" />
+  <path class="path-base" d="M 850 450 Q 1100 450 1250 650" />
+
+  <!-- Animated Segments -->
+  <path class="path-animated" style="stroke: url(#grad-web);" d="M 150 450 L 450 450" />
+  <path class="path-animated" style="stroke: url(#grad-app); animation-delay: 2s;" d="M 450 450 L 850 450" />
+  
+  <!-- The Fork - Gated (Top) -->
+  <path class="path-animated path-gated" style="animation-delay: 4.5s;" d="M 850 450 Q 1100 450 1250 250" />
+  
+  <!-- The Fork - Open Road (Bottom) -->
+  <path class="path-animated path-open" style="animation-delay: 5s;" d="M 850 450 Q 1100 450 1250 650" />
+
+  <!-- Nodes & Content -->
+  
+  <!-- 2000s -->
+  <g class="node node-1" transform="translate(150, 450)">
+    <circle r="12" fill="#2ecc71" filter="url(#glow)" />
+    <g transform="translate(-20, -150)">
+      <text class="label-year">2000s</text>
+      <text y="40" class="label-title">WEBSITES</text>
+      <text y="70" class="label-status-open">PERMISSIONLESS</text>
+      <text y="100" class="label-desc">Buy a domain, upload HTML.</text>
+      <text y="125" class="label-desc">The open frontier.</text>
+    </g>
+  </g>
+
+  <!-- 2010s -->
+  <g class="node node-2" transform="translate(450, 450)">
+    <circle r="12" fill="#e74c3c" filter="url(#glow)" />
+    <g transform="translate(-20, 60)">
+      <text class="label-year">2010s</text>
+      <text y="40" class="label-title">MOBILE APPS</text>
+      <text y="70" class="label-status-gated">GATED ACCESS</text>
+      <text y="100" class="label-desc">App Store approval required.</text>
+      <text y="125" class="label-desc">The era of the middleman.</text>
+    </g>
+  </g>
+
+  <!-- 2020s Fork Point -->
+  <g class="node node-3" transform="translate(850, 450)">
+    <circle r="15" fill="#fff" filter="url(#glow)" />
+    <text x="25" y="-20" class="label-year" style="fill: #fff;">2020s</text>
+    <text x="25" y="20" class="label-title" style="font-size: 40px;">AI SKILLS</text>
+  </g>
+
+  <!-- Gated AI Dead End -->
+  <g class="node" style="animation-delay: 6s;" transform="translate(1270, 250)">
+    <rect x="0" y="-50" width="280" height="120" fill="#111" stroke="#444" rx="10" />
+    <text x="20" y="-15" class="label-title" style="font-size: 20px; fill: #666;">GATED AI</text>
+    <text x="20" y="15" class="label-desc" style="font-size: 14px;">• Marketplace Listings</text>
+    <text x="20" y="35" class="label-desc" style="font-size: 14px;">• 30% Platform Fees</text>
+    <text x="20" y="55" class="label-desc" style="font-size: 14px;">• Arbitrary Approval</text>
+    <line x1="280" y1="-50" x2="310" y2="70" stroke="#e74c3c" stroke-width="4" />
+    <line x1="310" y1="-50" x2="280" y2="70" stroke="#e74c3c" stroke-width="4" />
+  </g>
+
+  <!-- Open AI DVS Road -->
+  <g class="node" style="animation-delay: 7s;" transform="translate(1270, 600)">
+    <rect x="-10" y="-60" width="310" height="180" class="highlight-box" />
+    <text x="15" y="-20" class="label-title" style="font-size: 24px; fill: #f1c40f;">DVS: PERMISSIONLESS</text>
+    <text x="15" y="15" class="label-desc" style="color: #fff; font-weight: bold;">Publish on your own domain.</text>
+    <text x="15" y="45" class="label-desc" style="font-size: 16px;">• Instant &amp; Global</text>
+    <text x="15" y="70" class="label-desc" style="font-size: 16px;">• No Gatekeepers</text>
+    <text x="15" y="95" class="label-desc" style="font-size: 16px;">• Zero Listing Fees</text>
+    
+    <!-- Pulse Icon -->
+    <circle cx="260" cy="-20" r="8" fill="#f1c40f">
+        <animate attributeName="r" values="8;12;8" dur="1.5s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Footer Insight -->
+  <g transform="translate(800, 840)">
+    <text text-anchor="middle" class="label-desc" style="fill: #f1c40f; font-weight: 700; font-size: 22px; letter-spacing: 1px;">
+      DVS MAKES AI SKILL PUBLISHING AS OPEN AS PUTTING UP A WEBSITE.
+    </text>
+  </g>
+
+  <!-- Decorative Sparkles on the Open Path -->
+  <g>
+    <circle r="2" fill="white">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M 850 450 Q 1100 450 1250 650" />
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle r="2" fill="white" begin="1s">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M 850 450 Q 1100 450 1250 650" />
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle r="2" fill="white" begin="2s">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M 850 450 Q 1100 450 1250 650" />
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>

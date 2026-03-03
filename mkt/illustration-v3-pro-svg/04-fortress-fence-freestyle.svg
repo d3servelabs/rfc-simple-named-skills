@@ -1,0 +1,174 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+<style><![CDATA[
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+    :root {
+        --bg: #0f172a;
+        --accent-gray: #334155;
+        --accent-red: #ef4444;
+        --accent-green: #10b981;
+        --text-main: #f8fafc;
+        --text-dim: #94a3b8;
+    }
+
+    svg {
+        background: var(--bg);
+        font-family: 'Inter', sans-serif;
+    }
+
+    .title { font-size: 32px; font-weight: 900; fill: var(--text-main); letter-spacing: 2px; text-transform: uppercase; }
+    .subtitle { font-size: 18px; fill: var(--text-dim); }
+    .label { font-size: 14px; font-weight: 700; fill: var(--text-main); }
+    .loc-count { font-size: 42px; font-weight: 900; fill: var(--accent-red); }
+    .sop-text { font-size: 42px; font-weight: 900; fill: var(--accent-green); }
+
+    /* Animations */
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes gear-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes crane-move { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(40px); } }
+    @keyframes drift { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+    @keyframes grow-fence { 0% { stroke-dashoffset: 800; } 100% { stroke-dashoffset: 0; } }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    @keyframes slide-in { from { transform: translateX(-50px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+    .anim-pulse { animation: pulse 2s infinite ease-in-out; }
+    .anim-gear { transform-origin: center; animation: gear-rotate 4s linear infinite; }
+    .anim-crane { animation: crane-move 6s ease-in-out infinite; }
+    .anim-drift { animation: drift 3s ease-in-out infinite; }
+    .anim-fence { stroke-dasharray: 800; animation: grow-fence 2s ease-out forwards; }
+    .anim-blink { animation: blink 1s step-end infinite; }
+    .anim-slide { animation: slide-in 0.8s ease-out forwards; }
+
+    .fortress-part { fill: var(--accent-gray); stroke: #475569; stroke-width: 2; }
+    .construction-glow { fill: var(--accent-red); filter: blur(4px); opacity: 0.2; }
+    .fence-line { stroke: var(--accent-green); stroke-width: 6; stroke-linecap: round; fill: none; filter: drop-shadow(0 0 8px #10b981); }
+    .card { fill: #1e293b; stroke: #334155; stroke-width: 1; }
+    .divider { stroke: #334155; stroke-dasharray: 8 8; }
+]]></style>
+
+    <!-- Background Decoration -->
+    <rect width="1600" height="900" fill="var(--bg)"/>
+    <line x1="800" y1="150" x2="800" y2="750" class="divider"/>
+
+    <!-- Header -->
+    <text x="800" y="80" text-anchor="middle" class="title">04 — BUILDING A FORTRESS WHEN A FENCE LINE WILL DO</text>
+    <text x="800" y="115" text-anchor="middle" class="subtitle">Contrasting Over-engineering vs. Elegant Simplicity</text>
+
+    <!-- LEFT SIDE: THE FORTRESS -->
+    <g transform="translate(100, 200)">
+        <text x="0" y="-30" class="label" fill="var(--accent-red)">THE OVER-ENGINEERED FORTRESS</text>
+        
+        <!-- Scaffolding & Base -->
+        <rect x="50" y="450" width="500" height="40" rx="4" class="fortress-part"/>
+        <path d="M100 450 L100 200 M200 450 L200 150 M300 450 L300 100 M400 450 L400 180 M500 450 L500 250" stroke="#475569" stroke-width="1"/>
+        <path d="M50 400 L550 400 M50 350 L550 350 M50 300 L550 300" stroke="#475569" stroke-width="1" stroke-dasharray="4 4"/>
+
+        <!-- Fortress Blocks (Unfinished) -->
+        <g class="anim-drift">
+            <rect x="120" y="320" width="80" height="80" class="fortress-part"/>
+            <rect x="210" y="280" width="100" height="120" class="fortress-part"/>
+            <rect x="320" y="340" width="70" height="60" class="fortress-part"/>
+            <rect x="410" y="300" width="90" height="100" class="fortress-part"/>
+        </g>
+
+        <!-- The Crane -->
+        <g class="anim-crane">
+            <rect x="150" y="50" width="20" height="400" fill="#475569"/>
+            <rect x="50" y="50" width="400" height="15" fill="#475569"/>
+            <line x1="380" y1="65" x2="380" y2="150" stroke="#94a3b8" stroke-width="2"/>
+            <rect x="340" y="150" width="80" height="40" fill="#64748b" class="anim-pulse"/>
+            <text x="380" y="175" text-anchor="middle" font-size="10" fill="white">MONITOR</text>
+        </g>
+
+        <!-- Details -->
+        <g transform="translate(600, 50)">
+            <g class="anim-slide" style="animation-delay: 0.2s;">
+                <circle cx="0" cy="0" r="15" fill="none" stroke="var(--accent-red)" stroke-width="2"/>
+                <path d="M-8 0 L8 0 M0 -8 L0 8" stroke="var(--accent-red)" stroke-width="2"/>
+                <text x="25" y="5" class="subtitle" font-size="14">Kernel-level Isolation</text>
+            </g>
+            <g transform="translate(0, 40)" class="anim-slide" style="animation-delay: 0.4s;">
+                <circle cx="0" cy="0" r="15" fill="none" stroke="var(--accent-red)" stroke-width="2"/>
+                <path d="M-8 0 L8 0 M0 -8 L0 8" stroke="var(--accent-red)" stroke-width="2"/>
+                <text x="25" y="5" class="subtitle" font-size="14">Custom VM Containers</text>
+            </g>
+            <g transform="translate(0, 80)" class="anim-slide" style="animation-delay: 0.6s;">
+                <path d="M-10,-10 L10,10 M-10,10 L10,-10" stroke="var(--accent-red)" stroke-width="2" class="anim-gear"/>
+                <text x="25" y="5" class="subtitle" font-size="14">Policy Engines</text>
+            </g>
+            <g transform="translate(0, 120)" class="anim-slide" style="animation-delay: 0.8s;">
+                <text x="25" y="5" class="subtitle" font-size="14">Capability Scanners</text>
+            </g>
+            <g transform="translate(0, 160)" class="anim-slide" style="animation-delay: 1s;">
+                <text x="25" y="5" class="subtitle" font-size="14">Runtime Monitors</text>
+            </g>
+
+            <text x="0" y="240" class="loc-count">50,000</text>
+            <text x="0" y="270" class="subtitle">Lines of code</text>
+            
+            <text x="0" y="330" class="label" fill="var(--accent-red)">6-MONTH AUDIT CYCLES</text>
+            <text x="0" y="380" class="label anim-blink" fill="var(--accent-red)">STATUS: STILL NOT FINISHED</text>
+        </g>
+    </g>
+
+    <!-- RIGHT SIDE: THE FENCE -->
+    <g transform="translate(950, 200)">
+        <text x="0" y="-30" class="label" fill="var(--accent-green)">ELEGANT SIMPLICITY</text>
+        
+        <!-- Browser Box -->
+        <rect x="0" y="50" width="550" height="300" rx="12" class="card"/>
+        <rect x="0" y="50" width="550" height="40" rx="12" fill="#334155"/>
+        <circle cx="25" cy="70" r="6" fill="#ef4444"/>
+        <circle cx="45" cy="70" r="6" fill="#fbbf24"/>
+        <circle cx="65" cy="70" r="6" fill="#10b981"/>
+        
+        <!-- URL Bar -->
+        <rect x="100" y="60" width="400" height="20" rx="10" fill="#0f172a"/>
+        <text x="115" y="75" font-size="12" fill="#94a3b8">https://app.dvs.io/secure-context/*</text>
+
+        <!-- The Fence Animation -->
+        <path d="M50 450 L50 150 L500 150 L500 450" class="fence-line anim-fence"/>
+        
+        <!-- Posts -->
+        <line x1="50" y1="450" x2="50" y2="480" stroke="var(--accent-green)" stroke-width="8"/>
+        <line x1="500" y1="450" x2="500" y2="480" stroke="var(--accent-green)" stroke-width="8"/>
+
+        <!-- The Rule -->
+        <g transform="translate(50, 520)">
+            <text x="0" y="0" class="subtitle">THE RULE:</text>
+            <text x="0" y="50" class="sop-text">"Stay within your URL prefix"</text>
+            
+            <g transform="translate(0, 100)">
+                <text x="0" y="0" class="label" fill="var(--accent-green)">SAME-ORIGIN POLICY (SOP)</text>
+                <text x="0" y="30" class="subtitle">The web's gold standard security boundary since 1995.</text>
+                
+                <g transform="translate(0, 80)">
+                    <rect x="0" y="0" width="200" height="40" rx="20" fill="#065f46"/>
+                    <text x="100" y="26" text-anchor="middle" fill="white" font-weight="bold">ZERO NEW CODE</text>
+                    
+                    <rect x="220" y="0" width="200" height="40" rx="20" fill="#065f46"/>
+                    <text x="320" y="26" text-anchor="middle" fill="white" font-weight="bold">ALREADY DONE</text>
+                </g>
+            </g>
+        </g>
+    </g>
+
+    <!-- Bottom Connection -->
+    <g transform="translate(800, 820)">
+        <rect x="-450" y="0" width="900" height="60" rx="30" fill="#1e293b"/>
+        <text x="0" y="38" text-anchor="middle" class="label" font-size="20">
+            DVS uses the URL boundary — the most successful security boundary in history.
+        </text>
+        <path d="M-470 30 L-550 30" stroke="var(--accent-red)" stroke-width="2" class="anim-pulse"/>
+        <path d="M470 30 L550 30" stroke="var(--accent-green)" stroke-width="4" class="anim-pulse"/>
+    </g>
+
+    <!-- Floating Code Elements -->
+    <g opacity="0.1" font-family="monospace" font-size="12" fill="var(--text-dim)">
+        <text x="50" y="200" class="anim-drift">if (user.hasCapability('root')) { ... }</text>
+        <text x="100" y="250" class="anim-drift" style="animation-delay: 1s;">vmm_alloc_pages(ctx, 4096);</text>
+        <text x="40" y="700" class="anim-drift" style="animation-delay: 1.5s;">audit_log("SYSCALL_FILTER_DENY");</text>
+        <text x="1200" y="180" class="anim-drift">location.origin === target.origin</text>
+    </g>
+
+</svg>

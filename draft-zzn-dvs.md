@@ -23,10 +23,10 @@ normative:
   RFC4343:
   RFC7763:
   RFC8174:
-  RFC8615:
   RFC9110:
 
 informative:
+  RFC8615:
   CLAUDE-SKILLS:
     title: "Agent Skills Overview"
     author:
@@ -173,8 +173,7 @@ verification procedure in {{trust-root-verification}} succeeds.
 For first-party brand hosting, the Trust Root is the domain origin:
 
     Trust Root: https://example.com/
-    Skill URL:  https://example.com/.well-known/
-                skills/support/SKILL.md
+    Skill URL:  https://example.com/skills/support/SKILL.md
 
 For user-generated content platforms, the Trust Root MUST be scoped
 to a path controlled by the brand.  Agents MUST NOT accept a bare
@@ -251,28 +250,23 @@ of any extension; such work is deferred to future specifications.
 ## Discovery
 
 Skills MAY be hosted at any valid URL path on a domain (e.g.,
-`https://example.com/skills/my-assistant/SKILL.md`).
+`https://example.com/skills/my-assistant/SKILL.md`).  There is no
+mandatory path structure; domain operators choose the URL layout
+that fits their infrastructure.
 
-Official brand skills SHOULD be served from the well-known path
-prefix:
-
-    /.well-known/skills/{skill-name}/SKILL.md
-
-This follows the conventions established by {{RFC8615}} for well-known
-URIs.
+Domain operators managing sensitive first-party skills MAY place
+them under the `/.well-known/skills/` path prefix per {{RFC8615}},
+but this is not required.
 
 Skills MAY be indexed in the domain's `sitemap.xml` {{SITEMAP}} to
 enable automated agent discovery.  Agents supporting discovery SHOULD
 check for skill entries in the sitemap when exploring a domain's
 available skills.
 
-A domain MAY serve a skill index document at:
-
-    /.well-known/skills/index.json
-
-The index document, if present, SHOULD contain an array of objects,
-each with `name`, `description`, and `path` fields pointing to
-available skills on the domain.
+A domain MAY serve a skill index document (e.g., at a path such as
+`/skills/index.json`).  The index document, if present, SHOULD
+contain an array of objects, each with `name`, `description`, and
+`path` fields pointing to available skills on the domain.
 
 # Skill Specification
 
@@ -298,14 +292,14 @@ my-skill/
 
 When served over HTTPS, the directory structure is represented by
 URL paths relative to the skill's base URL.  For example, a skill
-at `https://example.com/.well-known/skills/my-skill/` would have
-its entry point at:
+at `https://example.com/skills/my-skill/` would have its entry
+point at:
 
-    https://example.com/.well-known/skills/my-skill/SKILL.md
+    https://example.com/skills/my-skill/SKILL.md
 
 And a bundled script at:
 
-    https://example.com/.well-known/skills/my-skill/scripts/process.py
+    https://example.com/skills/my-skill/scripts/process.py
 
 ## SKILL.md Entry Point
 
@@ -520,17 +514,7 @@ risks:
 
 # IANA Considerations
 
-This document requests registration of the well-known URI suffix
-`skills` in the "Well-Known URIs" registry established by {{RFC8615}}.
-
-URI suffix:
-: skills
-
-Change controller:
-: Namefi
-
-Specification document:
-: This document ({{discovery}})
+This document has no IANA actions.
 
 --- back
 

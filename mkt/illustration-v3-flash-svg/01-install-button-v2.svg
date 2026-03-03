@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <style type="text/css">
+      <![CDATA[
+        @import url('https://fonts.googleapis.com/css2?family=Courier+New:wght@400;700&display=swap');
+
+        svg {
+          background-color: #FFFFFF;
+          font-family: 'Courier New', monospace;
+        }
+
+        .grid-line {
+          stroke: #E0E0E0;
+          stroke-width: 0.5;
+        }
+
+        .blueprint-line {
+          stroke: #000000;
+          stroke-width: 1.5;
+          fill: none;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+
+        .cobalt-accent {
+          stroke: #0047AB;
+          fill: #0047AB;
+        }
+
+        .red-warning {
+          fill: #CC0000;
+          stroke: #CC0000;
+        }
+
+        .green-success {
+          fill: #00AA00;
+          stroke: #00AA00;
+        }
+
+        .header {
+          font-size: 32px;
+          font-weight: 700;
+          text-anchor: middle;
+          fill: #000000;
+        }
+
+        .label {
+          font-size: 16px;
+          text-anchor: middle;
+          fill: #000000;
+        }
+
+        .dimension-label {
+          font-size: 14px;
+          text-anchor: start;
+          fill: #333333;
+        }
+
+        .button-text {
+          font-size: 18px;
+          text-anchor: middle;
+          fill: #FFFFFF;
+          font-weight: 700;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+          opacity: 0;
+          animation: fadeIn linear forwards;
+        }
+
+        .draw-on {
+          stroke-dasharray: 2000;
+          stroke-dashoffset: 2000;
+          animation: drawOn linear forwards;
+        }
+
+        @keyframes fadeIn {
+          to { opacity: 1; }
+        }
+
+        @keyframes drawOn {
+          to { stroke-dashoffset: 0; }
+        }
+
+        /* Staggered Animations */
+        #grid { animation: fadeIn 0.5s ease-out forwards; }
+
+        #left-side { animation: fadeIn 1s ease-out 0.5s forwards; opacity: 0; }
+        #left-lines { animation: drawOn 2s linear 0.5s forwards; stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+        #left-labels { animation: fadeIn 0.5s ease-out 2s forwards; opacity: 0; }
+
+        #right-side { animation: fadeIn 1s ease-out 2.5s forwards; opacity: 0; }
+        #right-lines { animation: drawOn 3s linear 2.5s forwards; stroke-dasharray: 3000; stroke-dashoffset: 3000; }
+        #right-labels { animation: fadeIn 0.5s ease-out 5s forwards; opacity: 0; }
+
+        #arrow-group { animation: fadeIn 1s ease-out 5.5s forwards; opacity: 0; }
+        #arrow-line { animation: drawOn 1s linear 5.5s forwards; stroke-dasharray: 500; stroke-dashoffset: 500; }
+        #arrow-head { animation: fadeIn 0.5s ease-out 6.2s forwards; opacity: 0; }
+
+        #header-group { animation: fadeIn 1s ease-out 6.5s forwards; opacity: 0; }
+        #final-labels { animation: fadeIn 0.5s ease-out 7s forwards; opacity: 0; }
+
+      ]]>
+    </style>
+  </defs>
+
+  <!-- Background Grid -->
+  <g id="grid">
+    <pattern id="gridPattern" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" class="grid-line"/>
+    </pattern>
+    <rect width="1000%" height="1000%" fill="url(#gridPattern)" />
+  </g>
+
+  <!-- Dashed Vertical Borders -->
+  <line x1="20" y1="50" x2="20" y2="850" stroke="#000000" stroke-width="2" stroke-dasharray="10,10" class="fade-in" style="animation-delay: 0.2s;"/>
+  <line x1="1580" y1="50" x2="1580" y2="850" stroke="#000000" stroke-width="2" stroke-dasharray="10,10" class="fade-in" style="animation-delay: 0.2s;"/>
+
+  <!-- Left Side: LAST YEAR -->
+  <g id="left-side">
+    <text x="350" y="150" class="header">LAST YEAR</text>
+    <g id="left-lines">
+      <!-- Pedestal -->
+      <rect x="250" y="550" width="200" height="100" class="blueprint-line"/>
+      <!-- Chatbot Widget -->
+      <rect x="300" y="400" width="100" height="150" rx="10" class="blueprint-line"/>
+      <circle cx="350" y="450" r="20" class="blueprint-line"/>
+      <path d="M 330 490 Q 350 510 370 490" class="blueprint-line"/>
+      <!-- Arm -->
+      <path d="M 400 475 L 500 475" class="blueprint-line"/>
+    </g>
+    <g id="left-labels">
+      <text x="505" y="480" class="label" text-anchor="start">GENERATE TEXT</text>
+      <!-- Dimension Lines -->
+      <g transform="translate(100, 680)">
+        <text x="0" y="0" class="dimension-label">DIMENSION::CAPABILITY:</text>
+        <text x="170" y="0" class="label" text-anchor="start">ANSWER QUESTIONS</text>
+        <text x="0" y="25" class="dimension-label">DIMENSION::ACCESS:</text>
+        <text x="170" y="25" class="label" text-anchor="start">NONE</text>
+        <text x="0" y="50" class="dimension-label">DIMENSION::WORST_CASE:</text>
+        <text x="170" y="50" class="label green-success" text-anchor="start">WRONG ANSWER</text>
+      </g>
+      <!-- Install Button -->
+      <rect x="275" y="780" width="150" height="50" rx="5" class="green-success" stroke-width="2"/>
+      <text x="350" y="812" class="button-text">INSTALL</text>
+    </g>
+  </g>
+
+  <!-- Right Side: TODAY -->
+  <g id="right-side">
+    <text x="1150" y="150" class="header">TODAY</text>
+    <g id="right-lines">
+      <!-- Server Racks -->
+      <rect x="950" y="600" width="400" height="150" class="blueprint-line"/>
+      <line x1="1050" y1="600" x2="1050" y2="750" class="blueprint-line"/>
+      <line x1="1150" y1="600" x2="1150" y2="750" class="blueprint-line"/>
+      <line x1="1250" y1="600" x2="1250" y2="750" class="blueprint-line"/>
+
+      <!-- Robotic Agent Body -->
+      <rect x="1050" y="300" width="200" height="300" rx="20" class="blueprint-line"/>
+      <circle cx="1150" y="380" r="40" class="blueprint-line"/>
+      <circle cx="1150" y="380" r="15" fill="#000000"/>
+
+      <!-- Arms and Systems -->
+      <!-- 1. File System -->
+      <path d="M 1050 350 L 900 250" class="blueprint-line"/>
+      <rect x="850" y="200" width="100" height="80" class="blueprint-line"/>
+      <!-- 2. Database -->
+      <path d="M 1050 400 L 900 350" class="blueprint-line"/>
+      <rect x="850" y="310" width="100" height="80" rx="5" class="blueprint-line"/>
+      <!-- 3. CI/CD Pipeline -->
+      <path d="M 1050 450 L 900 450" class="blueprint-line"/>
+      <path d="M 850 430 L 950 430 L 950 470 L 850 470 Z" class="blueprint-line"/>
+      <!-- 4. API Keys -->
+      <path d="M 1050 500 L 900 550" class="blueprint-line"/>
+      <circle cx="880" y="550" r="15" class="blueprint-line"/>
+      <rect x="850" y="545" width="20" height="10" class="blueprint-line"/>
+      <!-- 5. Kubernetes Cloud -->
+      <path d="M 1250 350 L 1400 250" class="blueprint-line"/>
+      <path d="M 1400 250 Q 1420 220 1450 230 Q 1480 210 1510 240 Q 1540 230 1550 260 Q 1540 290 1510 280 Q 1480 300 1450 280 Q 1420 290 1400 250 Z" class="blueprint-line"/>
+      <!-- 6. Email Envelope -->
+      <path d="M 1250 400 L 1400 350" class="blueprint-line"/>
+      <rect x="1400" y="330" width="80" height="50" class="blueprint-line"/>
+      <path d="M 1400 330 L 1440 360 L 1480 330" class="blueprint-line"/>
+      <!-- 7. Shell Terminal -->
+      <path d="M 1250 450 L 1400 450" class="blueprint-line"/>
+      <rect x="1400" y="420" width="100" height="60" class="blueprint-line"/>
+      <text x="1410" y="445" class="label" text-anchor="start" style="font-size: 12px; fill: #00AA00;">$&gt; _</text>
+      <!-- 8. Payment API Card -->
+      <path d="M 1250 500 L 1400 550" class="blueprint-line"/>
+      <rect x="1400" y="530" width="90" height="55" rx="5" class="blueprint-line"/>
+      <rect x="1410" y="540" width="20" height="15" class="blueprint-line"/>
+    </g>
+
+    <g id="right-labels">
+      <!-- System Labels -->
+      <text x="900" y="190" class="label">FILE SYSTEM</text>
+      <text x="900" y="300" class="label">DATABASE</text>
+      <text x="900" y="420" class="label">CI/CD</text>
+      <text x="900" y="530" class="label">API KEYS</text>
+      <text x="1450" y="210" class="label">KUBERNETES</text>
+      <text x="1440" y="320" class="label">EMAIL</text>
+      <text x="1450" y="410" class="label">SHELL ACCESS</text>
+      <text x="1445" y="520" class="label">PAYMENT API</text>
+
+      <!-- Dimension Lines -->
+      <g transform="translate(900, 680)">
+        <text x="0" y="0" class="dimension-label">DIMENSION::CAPABILITY:</text>
+        <text x="170" y="0" class="label" text-anchor="start">EVERYTHING</text>
+        <text x="0" y="25" class="dimension-label">DIMENSION::ACCESS:</text>
+        <text x="170" y="25" class="label" text-anchor="start">EVERYTHING</text>
+        <text x="0" y="50" class="dimension-label">DIMENSION::WORST_CASE:</text>
+        <text x="170" y="50" class="label red-warning" text-anchor="start">DATA BREACH, EXFILTRATION, SUPPLY CHAIN ATTACK</text>
+      </g>
+      <!-- Install Button (Identical) -->
+      <rect x="1075" y="780" width="150" height="50" rx="5" class="green-success" stroke-width="2"/>
+      <text x="1150" y="812" class="button-text">INSTALL</text>
+    </g>
+  </g>
+
+  <!-- Directional Arrow -->
+  <g id="arrow-group">
+    <path id="arrow-line" d="M 450 805 L 1050 805" class="cobalt-accent" stroke-width="6" fill="none" stroke-dasharray="10,10"/>
+    <polygon id="arrow-head" points="1050,795 1070,805 1050,815" class="cobalt-accent"/>
+    <text x="750" y="795" class="label cobalt-accent" font-weight="700">SAME BUTTON</text>
+  </g>
+
+  <!-- Header -->
+  <g id="header-group">
+    <text x="800" y="80" class="header">SAME INSTALL BUTTON, 10x THE BLAST RADIUS</text>
+    <line x1="300" y1="100" x2="1300" y2="100" class="blueprint-line" stroke-width="2"/>
+  </g>
+
+</svg>

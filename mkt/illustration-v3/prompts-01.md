@@ -1,0 +1,10 @@
+# 01 — SAME INSTALL BUTTON, 10x THE BLAST RADIUS
+
+**Point 1: Agents are dangerously powerful**
+**Framework:** Signal vs. Noise
+
+**The Logic:** A year ago, agents were chatbots — the worst failure was a wrong answer. Today's agents execute shell commands, call payment APIs, manage Kubernetes clusters, read credentials, and send emails. But the installation UX hasn't changed: it's still a single "Install" button with zero verification. The capability grew by orders of magnitude; the trust check stayed at zero.
+
+**Prompt:**
+
+A high-fidelity engineering blueprint infographic on clean white vellum with a subtle grey technical grid. On the left, a tiny, harmless-looking chatbot widget from "LAST YEAR" sitting on a small pedestal, with a single short arm labeled "GENERATE TEXT". Below it a simple green button reading "INSTALL". Dimension lines read "CAPABILITY: ANSWER QUESTIONS", "ACCESS: NONE", "WORST CASE: WRONG ANSWER". On the right, an enormous multi-armed robotic agent labeled "TODAY" towering over server racks, with eight long mechanical arms each reaching into a different system: one arm into a filing cabinet labeled "FILE SYSTEM", one into a server labeled "DATABASE", one into a pipeline labeled "CI/CD", one gripping keys labeled "API KEYS", one reaching into a cloud labeled "KUBERNETES", one holding an envelope labeled "EMAIL", one typing on a terminal labeled "SHELL ACCESS", one swiping a card labeled "PAYMENT API". Below this massive robot sits the exact same small green button reading "INSTALL" — identical to the one on the left. Dimension lines read "CAPABILITY: EVERYTHING", "ACCESS: EVERYTHING", "WORST CASE: DATA BREACH, EXFILTRATION, SUPPLY CHAIN ATTACK". A large solid cobalt blue directional arrow points from the tiny chatbot to the enormous robot, labeled "SAME BUTTON". Header at top center in bold heavy sans-serif: "SAME INSTALL BUTTON, 10x THE BLAST RADIUS". Dashed vertical borders on far left and right margins. All text sharp and legible in monospaced coding font. 4K resolution.

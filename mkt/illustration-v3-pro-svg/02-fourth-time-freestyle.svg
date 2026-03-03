@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+<style><![CDATA[
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+text { font-family: 'Inter', sans-serif; }
+
+.bg { fill: #0a0a0c; }
+.card { fill: #1a1a1e; stroke: #333; stroke-width: 2; }
+.title { font-size: 48px; font-weight: 900; fill: #fff; text-transform: uppercase; letter-spacing: 4px; }
+.subtitle { font-size: 20px; fill: #888; font-weight: 400; }
+.era-year { font-size: 28px; font-weight: 700; fill: #ff3366; }
+.era-name { font-size: 32px; font-weight: 700; fill: #fff; }
+.vuln-text { font-size: 16px; fill: #aaa; }
+.impact-text { font-size: 18px; fill: #ef4444; font-weight: 700; }
+
+.lock { fill: none; stroke: #ff3366; stroke-width: 6; stroke-linecap: round; }
+.lock-broken { stroke-dasharray: 100; stroke-dashoffset: 0; }
+
+.explosion { transform-origin: center; opacity: 0; }
+.blast-center { fill: url(#grad-blast); }
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes explode-1 {
+    0%, 10% { opacity: 0; transform: scale(0.2); }
+    15% { opacity: 0.8; transform: scale(1.2); }
+    25%, 100% { opacity: 0.4; transform: scale(1); }
+}
+
+@keyframes explode-2 {
+    0%, 35% { opacity: 0; transform: scale(0.2); }
+    40% { opacity: 0.8; transform: scale(1.8); }
+    50%, 100% { opacity: 0.4; transform: scale(1.4); }
+}
+
+@keyframes explode-3 {
+    0%, 60% { opacity: 0; transform: scale(0.2); }
+    65% { opacity: 0.8; transform: scale(2.5); }
+    75%, 100% { opacity: 0.4; transform: scale(2); }
+}
+
+@keyframes explode-4 {
+    0%, 85% { opacity: 0; transform: scale(0.2); }
+    90% { opacity: 1; transform: scale(4.5); }
+    100% { opacity: 0.6; transform: scale(4); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translate(0,0); }
+    10%, 30%, 50%, 70%, 90% { transform: translate(-2px, -2px); }
+    20%, 40%, 60%, 80% { transform: translate(2px, 2px); }
+}
+
+@keyframes lock-flicker {
+    0%, 100% { opacity: 1; stroke-dashoffset: 0; }
+    50% { opacity: 0.3; stroke-dashoffset: 20; }
+}
+
+.animate-1 { animation: fadeIn 0.8s ease-out 0.2s forwards; opacity: 0; }
+.animate-2 { animation: fadeIn 0.8s ease-out 1.2s forwards; opacity: 0; }
+.animate-3 { animation: fadeIn 0.8s ease-out 2.2s forwards; opacity: 0; }
+.animate-4 { animation: fadeIn 0.8s ease-out 3.2s forwards; opacity: 0; }
+
+.blast-1 { animation: explode-1 8s infinite; }
+.blast-2 { animation: explode-2 8s infinite; }
+.blast-3 { animation: explode-3 8s infinite; }
+.blast-4 { animation: explode-4 8s infinite; }
+
+.screen-shake { animation: shake 0.5s infinite; }
+.lock-anim { animation: lock-flicker 2s infinite; }
+
+.trust-rule { font-size: 22px; font-weight: 700; fill: #ffd700; opacity: 0.8; }
+.punchline { font-size: 42px; font-weight: 900; fill: #fff; text-align: center; }
+
+]]></style>
+
+<defs>
+    <radialGradient id="grad-blast" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ff9900" />
+        <stop offset="70%" stop-color="#ff0000" />
+        <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+    
+    <symbol id="icon-lock" viewBox="0 0 100 100">
+        <rect x="25" y="45" width="50" height="40" rx="4" class="lock" />
+        <path d="M35 45 V30 C35 20 42 15 50 15 C58 15 65 20 65 30" class="lock" style="stroke-dasharray: 60; stroke-dashoffset: 15;" />
+        <circle cx="50" cy="65" r="5" fill="#ff3366" />
+    </symbol>
+</defs>
+
+<rect width="1600" height="900" class="bg" />
+
+<!-- Header -->
+<g transform="translate(100, 100)">
+    <text class="title">02 — FOURTH TIME&apos;S THE CHARM?</text>
+    <text y="40" class="subtitle">Same broken trust model. Increasingly catastrophic results.</text>
+</g>
+
+<!-- Blast Radii (Behind Cards) -->
+<circle cx="275" cy="500" r="100" class="explosion blast-center blast-1" />
+<circle cx="625" cy="500" r="100" class="explosion blast-center blast-2" />
+<circle cx="975" cy="500" r="100" class="explosion blast-center blast-3" />
+<circle cx="1325" cy="500" r="100" class="explosion blast-center blast-4" />
+
+<!-- Card 1: npm -->
+<g transform="translate(100, 250)" class="animate-1">
+    <rect width="350" height="450" rx="12" class="card" />
+    <text x="175" y="60" text-anchor="middle" class="era-year">2015</text>
+    <text x="175" y="110" text-anchor="middle" class="era-name">npm</text>
+    <text x="175" y="160" text-anchor="middle" class="trust-rule">NAME LOOKS RIGHT → INSTALL</text>
+    <line x1="50" y1="185" x2="300" y2="185" stroke="#333" />
+    <text x="175" y="230" text-anchor="middle" class="vuln-text">Malicious post-install</text>
+    <text x="175" y="255" text-anchor="middle" class="vuln-text">shell scripts</text>
+    <text x="175" y="350" text-anchor="middle" class="impact-text">BLAST RADIUS:</text>
+    <text x="175" y="380" text-anchor="middle" class="impact-text">LOCAL DEV MACHINE</text>
+    <use href="#icon-lock" x="145" y="260" width="60" height="60" class="lock-anim" />
+</g>
+
+<!-- Card 2: Chrome -->
+<g transform="translate(450, 250)" class="animate-2">
+    <rect width="350" height="450" rx="12" class="card" />
+    <text x="175" y="60" text-anchor="middle" class="era-year">2018</text>
+    <text x="175" y="110" text-anchor="middle" class="era-name">Chrome Store</text>
+    <text x="175" y="160" text-anchor="middle" class="trust-rule">NAME LOOKS RIGHT → INSTALL</text>
+    <line x1="50" y1="185" x2="300" y2="185" stroke="#333" />
+    <text x="175" y="230" text-anchor="middle" class="vuln-text">DOM scraping &amp;</text>
+    <text x="175" y="255" text-anchor="middle" class="vuln-text">session cookie theft</text>
+    <text x="175" y="350" text-anchor="middle" class="impact-text">BLAST RADIUS:</text>
+    <text x="175" y="380" text-anchor="middle" class="impact-text">EVERY BROWSER TAB</text>
+    <use href="#icon-lock" x="145" y="260" width="60" height="60" class="lock-anim" />
+</g>
+
+<!-- Card 3: Mobile -->
+<g transform="translate(800, 250)" class="animate-3">
+    <rect width="350" height="450" rx="12" class="card" />
+    <text x="175" y="60" text-anchor="middle" class="era-year">2021</text>
+    <text x="175" y="110" text-anchor="middle" class="era-name">App Stores</text>
+    <text x="175" y="160" text-anchor="middle" class="trust-rule">NAME LOOKS RIGHT → INSTALL</text>
+    <line x1="50" y1="185" x2="300" y2="185" stroke="#333" />
+    <text x="175" y="230" text-anchor="middle" class="vuln-text">Privacy permission</text>
+    <text x="175" y="255" text-anchor="middle" class="vuln-text">over-reach</text>
+    <text x="175" y="350" text-anchor="middle" class="impact-text">BLAST RADIUS:</text>
+    <text x="175" y="380" text-anchor="middle" class="impact-text">PRIVATE PHONE DATA</text>
+    <use href="#icon-lock" x="145" y="260" width="60" height="60" class="lock-anim" />
+</g>
+
+<!-- Card 4: AI -->
+<g transform="translate(1150, 250)" class="animate-4">
+    <rect width="350" height="450" rx="12" class="card" style="stroke: #ff3366; stroke-width: 3;" />
+    <text x="175" y="60" text-anchor="middle" class="era-year">2026</text>
+    <text x="175" y="110" text-anchor="middle" class="era-name">AI Skill Market</text>
+    <text x="175" y="160" text-anchor="middle" class="trust-rule">NAME LOOKS RIGHT → INSTALL</text>
+    <line x1="50" y1="185" x2="300" y2="185" stroke="#ff3366" />
+    <text x="175" y="230" text-anchor="middle" class="vuln-text">Agentic prompt</text>
+    <text x="175" y="255" text-anchor="middle" class="vuln-text">injection hijack</text>
+    <text x="175" y="350" text-anchor="middle" class="impact-text">BLAST RADIUS:</text>
+    <text x="175" y="380" text-anchor="middle" class="impact-text">COMPLETE IDENTITY</text>
+    <use href="#icon-lock" x="145" y="260" width="60" height="60" class="lock-anim" />
+</g>
+
+<!-- Punchline -->
+<g transform="translate(800, 820)" class="animate-4">
+    <text text-anchor="middle" class="punchline" fill="#ff3366">ZERO LESSONS APPLIED.</text>
+    <text y="40" text-anchor="middle" class="subtitle">Same broken lock, bigger keys to the kingdom.</text>
+</g>
+
+<!-- Floating Shards -->
+<g opacity="0.4">
+    <circle r="2" fill="white" cx="400" cy="400">
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="-100 -200" dur="4s" infinite="true" />
+    </circle>
+    <circle r="3" fill="#ff3366" cx="1200" cy="500">
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="200 -300" dur="3s" infinite="true" />
+    </circle>
+    <circle r="2" fill="white" cx="800" cy="600">
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="50 400" dur="5s" infinite="true" />
+    </circle>
+</g>
+
+</svg>

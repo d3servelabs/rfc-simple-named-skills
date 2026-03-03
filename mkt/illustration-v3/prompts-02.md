@@ -1,0 +1,10 @@
+# 02 — FOURTH TIME'S THE CHARM?
+
+**Point 2: Current trust is vibes-based**
+**Framework:** Financial Malpractice
+
+**The Logic:** The self-declared identity model failed with npm typosquatting (2015), Chrome Web Store malicious extensions (2018), and app store fake apps (2021). Each time, the trust model was identical: name looks right, install it. Each time, the blast radius was bigger. Now the same model is being applied to AI skills, where the blast radius is everything the agent can access. We are building the fourth storefront with the same broken lock.
+
+**Prompt:**
+
+A high-fidelity engineering blueprint infographic on clean white vellum with a subtle grey technical grid. Four identical storefronts arranged left to right in chronological order. The first storefront is labeled "NPM REGISTRY 2015" with a small puff of smoke behind it and a sign in the window reading "TRUST MODEL: NAME LOOKS RIGHT". The second storefront is labeled "CHROME WEB STORE 2018" with a medium explosion behind it and the same sign "TRUST MODEL: NAME LOOKS RIGHT". The third storefront is labeled "APP STORES 2021" with a large explosion behind it and the same sign "TRUST MODEL: NAME LOOKS RIGHT". The fourth storefront is labeled "AI SKILL MARKETPLACES 2026" with a "GRAND OPENING" banner, the same sign "TRUST MODEL: NAME LOOKS RIGHT", and behind it a massive mushroom cloud dwarfing all previous explosions. Dimension lines beneath each storefront read progressively: "BLAST RADIUS: INSTALL SCRIPTS", "BLAST RADIUS: BROWSER TABS", "BLAST RADIUS: PHONE DATA", "BLAST RADIUS: EVERYTHING". A shared dimension line across the bottom reads "IDENTITY MODEL: SELF-DECLARED × 4", "LESSONS APPLIED: 0". A large solid cobalt blue directional arrow arcs from the first storefront to the fourth, labeled "SAME ARCHITECTURE, BIGGER BOOM". Header at top center in bold heavy sans-serif: "FOURTH TIME'S THE CHARM?". Dashed vertical borders on far left and right margins. All text sharp and legible in monospaced coding font. 4K resolution.

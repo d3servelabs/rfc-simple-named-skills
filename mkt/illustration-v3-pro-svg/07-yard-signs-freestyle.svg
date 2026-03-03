@@ -1,0 +1,188 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+<style><![CDATA[
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+    
+    :root {
+        --bg-left: #f8fafc;
+        --bg-right: #0f172a;
+        --text-left: #475569;
+        --text-right: #f1f5f9;
+        --accent-glow: #38bdf8;
+        --danger: #ef4444;
+    }
+
+    text { font-family: 'Inter', sans-serif; }
+    
+    .title { font-weight: 900; font-size: 42px; fill: #1e293b; }
+    .subtitle { font-size: 20px; fill: #64748b; }
+
+    /* Left Side Animations */
+    @keyframes sway {
+        0%, 100% { transform: rotate(-2deg); }
+        50% { transform: rotate(2deg); }
+    }
+    .yard-sign { transform-origin: bottom center; animation: sway 3s ease-in-out infinite; }
+    .weed { animation: sway 4s ease-in-out infinite; transform-origin: bottom; }
+    
+    @keyframes fly {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-1800px); }
+    }
+    .plane-group { animation: fly 12s linear infinite; }
+
+    /* Right Side Animations */
+    @keyframes data-flow {
+        0% { stroke-dashoffset: 100; }
+        100% { stroke-dashoffset: 0; }
+    }
+    .road-line {
+        stroke-dasharray: 10 20;
+        animation: data-flow 2s linear infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { opacity: 0.4; filter: blur(2px); }
+        50% { opacity: 1; filter: blur(0px); }
+    }
+    .window { animation: pulse 4s ease-in-out infinite; }
+    .window:nth-child(2n) { animation-delay: 1s; }
+    .window:nth-child(3n) { animation-delay: 2s; }
+
+    @keyframes float-up {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    .building { animation: float-up 6s ease-in-out infinite; }
+
+    .label-road { font-weight: 700; font-size: 14px; fill: #94a3b8; text-transform: uppercase; letter-spacing: 2px; }
+    .label-corp { font-weight: 800; font-size: 18px; fill: #ffffff; }
+    
+    .divider { stroke: #e2e8f0; stroke-width: 2; stroke-dasharray: 10 10; }
+]]></style>
+
+    <!-- Background -->
+    <rect x="0" y="0" width="800" height="900" fill="#f1f5f9" />
+    <rect x="800" y="0" width="800" height="900" fill="#0f172a" />
+    
+    <!-- Title Section -->
+    <rect x="500" y="40" width="600" height="100" rx="50" fill="white" stroke="#e2e8f0" stroke-width="4" />
+    <text x="800" y="100" text-anchor="middle" class="title">YARD SIGNS vs. CITY BLOCKS</text>
+    <text x="800" y="130" text-anchor="middle" class="subtitle">Proprietary Platforms vs. Open Infrastructure</text>
+
+    <!-- LEFT SIDE: THE YARD -->
+    <g transform="translate(100, 200)">
+        <!-- Weeds -->
+        <path d="M50,550 Q60,500 40,480" stroke="#86efac" stroke-width="3" fill="none" class="weed" />
+        <path d="M150,560 Q140,510 160,490" stroke="#86efac" stroke-width="3" fill="none" class="weed" />
+        <path d="M400,540 Q410,490 390,470" stroke="#86efac" stroke-width="3" fill="none" class="weed" />
+        <path d="M600,570 Q590,520 610,500" stroke="#86efac" stroke-width="3" fill="none" class="weed" />
+        
+        <!-- Yard Sign 1 -->
+        <g class="yard-sign" style="animation-delay: 0.2s;">
+            <rect x="100" y="450" width="4" height="100" fill="#94a3b8" />
+            <rect x="180" y="450" width="4" height="100" fill="#94a3b8" />
+            <rect x="80" y="380" width="130" height="80" fill="#ef4444" rx="4" />
+            <text x="145" y="415" text-anchor="middle" fill="white" font-weight="bold" font-size="14">TRUST MY SKILL</text>
+            <text x="145" y="435" text-anchor="middle" fill="white" font-size="10">PLATFORM v2.1</text>
+        </g>
+        
+        <!-- Yard Sign 2 -->
+        <g class="yard-sign" style="animation-delay: 1.5s;">
+            <rect x="400" y="480" width="4" height="100" fill="#94a3b8" />
+            <rect x="350" y="400" width="150" height="100" fill="white" stroke="#cbd5e1" rx="4" />
+            <text x="425" y="430" text-anchor="middle" fill="#1e293b" font-weight="bold" font-size="14">NEW REGISTRY</text>
+            <text x="425" y="455" text-anchor="middle" fill="#ef4444" font-weight="bold" font-size="16">COMING SOON</text>
+            <circle cx="365" cy="415" r="5" fill="#ef4444" />
+        </g>
+
+        <!-- Plane with Banner -->
+        <g class="plane-group" transform="translate(800, 50)">
+            <rect x="0" y="0" width="80" height="30" rx="15" fill="#475569" />
+            <path d="M10,0 L20,-20 L40,0" fill="#475569" />
+            <path d="M10,30 L20,50 L40,30" fill="#475569" />
+            <path d="M80,15 L100,5 L100,25 Z" fill="#64748b" />
+            <!-- Banner -->
+            <path d="M100,15 L140,15" stroke="#94a3b8" stroke-width="2" />
+            <rect x="140" y="-10" width="300" height="50" fill="#fef08a" stroke="#eab308" />
+            <text x="290" y="22" text-anchor="middle" fill="#854d0e" font-weight="bold" font-size="18">PROPRIETARY ECOSYSTEM</text>
+        </g>
+        
+        <text x="350" y="650" text-anchor="middle" fill="#64748b" font-weight="bold" font-size="24">Fragile &amp; Temporary</text>
+    </g>
+
+    <!-- RIGHT SIDE: THE CITY -->
+    <g transform="translate(800, 200)">
+        <!-- Roads / Infrastructure -->
+        <g transform="translate(0, 450)">
+            <path d="M50,0 L700,0" stroke="#1e293b" stroke-width="80" />
+            <path d="M50,0 L700,0" stroke="#334155" stroke-width="2" class="road-line" />
+            <text x="375" y="55" text-anchor="middle" class="label-road">HTTPS BOULEVARD</text>
+        </g>
+        <g transform="translate(0, 580)">
+            <path d="M50,0 L700,0" stroke="#1e293b" stroke-width="80" />
+            <path d="M50,0 L700,0" stroke="#334155" stroke-width="2" class="road-line" style="animation-duration: 1.5s;" />
+            <text x="375" y="55" text-anchor="middle" class="label-road">DNSSEC AVENUE</text>
+        </g>
+        <g transform="translate(100, 300) rotate(90)">
+            <path d="M0,0 L350,0" stroke="#1e293b" stroke-width="60" />
+            <path d="M0,0 L350,0" stroke="#334155" stroke-width="2" class="road-line" />
+        </g>
+        <text x="140" y="440" text-anchor="start" class="label-road" transform="rotate(-90, 140, 440)">TLS DRIVE</text>
+
+        <!-- Building 1: Stripe -->
+        <g class="building" transform="translate(180, 150)">
+            <rect x="0" y="0" width="100" height="300" fill="#1e293b" />
+            <rect x="10" y="10" width="20" height="20" fill="#38bdf8" class="window" />
+            <rect x="40" y="10" width="20" height="20" fill="#38bdf8" class="window" />
+            <rect x="70" y="10" width="20" height="20" fill="#38bdf8" class="window" />
+            <rect x="10" y="40" width="20" height="20" fill="#38bdf8" class="window" />
+            <rect x="40" y="40" width="20" height="20" fill="#38bdf8" class="window" />
+            <rect x="70" y="40" width="20" height="20" fill="#38bdf8" class="window" />
+            <rect x="0" y="-40" width="100" height="40" fill="#6366f1" />
+            <text x="50" y="-14" text-anchor="middle" class="label-corp">Stripe</text>
+        </g>
+
+        <!-- Building 2: GitHub -->
+        <g class="building" transform="translate(320, 50)" style="animation-delay: -2s;">
+            <rect x="0" y="0" width="120" height="400" fill="#1e293b" />
+            <rect x="15" y="20" width="25" height="25" fill="#818cf8" class="window" />
+            <rect x="80" y="20" width="25" height="25" fill="#818cf8" class="window" />
+            <rect x="15" y="60" width="25" height="25" fill="#818cf8" class="window" />
+            <rect x="80" y="60" width="25" height="25" fill="#818cf8" class="window" />
+            <rect x="0" y="-40" width="120" height="40" fill="#24292f" />
+            <text x="60" y="-14" text-anchor="middle" class="label-corp">GitHub</text>
+        </g>
+
+        <!-- Building 3: Cloudflare -->
+        <g class="building" transform="translate(480, 120)" style="animation-delay: -4s;">
+            <rect x="0" y="0" width="110" height="330" fill="#1e293b" />
+            <rect x="20" y="30" width="70" height="10" fill="#fb923c" class="window" />
+            <rect x="20" y="50" width="70" height="10" fill="#fb923c" class="window" />
+            <rect x="0" y="-40" width="110" height="40" fill="#f38020" />
+            <text x="55" y="-14" text-anchor="middle" class="label-corp">Cloudflare</text>
+        </g>
+        
+        <text x="350" y="750" text-anchor="middle" fill="#38bdf8" font-weight="bold" font-size="24">Established &amp; Permanent</text>
+    </g>
+
+    <!-- Center Divider Decoration -->
+    <line x1="800" y1="180" x2="800" y2="850" class="divider" />
+    <circle cx="800" cy="515" r="30" fill="white" stroke="#e2e8f0" stroke-width="2" />
+    <path d="M790,505 L810,515 L790,525" fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Bottom Legend -->
+    <rect x="200" y="800" width="1200" height="60" rx="30" fill="#1e293b" />
+    <text x="800" y="838" text-anchor="middle" fill="white" font-weight="bold" font-size="22">
+        OPEN STANDARDS OUTLAST ANY SINGLE PLATFORM
+    </text>
+
+    <!-- Data Pulse Overlay -->
+    <g opacity="0.5">
+        <circle r="4" fill="#38bdf8">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M850,650 L1500,650" />
+        </circle>
+        <circle r="4" fill="#38bdf8">
+            <animateMotion dur="2.5s" repeatCount="indefinite" path="M850,780 L1500,780" />
+        </circle>
+    </g>
+</svg>

@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" style="background-color:white; font-family: 'Courier New', monospace;">
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#E0E0E0" stroke-width="1"/>
+    </pattern>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0047AB"/>
+    </marker>
+    <marker id="arrowhead-black" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#CC0000"/>
+    </marker>
+    <style>
+      <![CDATA[
+        .fade-in { opacity: 0; animation: fadeIn 1s forwards; }
+        .draw-path { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: drawPath 2s forwards; }
+        .draw-path-fast { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: drawPath 1s forwards; }
+        .draw-path-slow { stroke-dasharray: 3000; stroke-dashoffset: 3000; animation: drawPath 3s forwards; }
+        .slide-up { transform: translateY(20px); opacity: 0; animation: slideUp 1s forwards; }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes drawPath { to { stroke-dashoffset: 0; } }
+        @keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
+
+        .delay-1 { animation-delay: 1s; }
+        .delay-2 { animation-delay: 2s; }
+        .delay-3 { animation-delay: 3s; }
+        .delay-4 { animation-delay: 4s; }
+        .delay-5 { animation-delay: 5s; }
+        .delay-6 { animation-delay: 6s; }
+        .delay-7 { animation-delay: 7s; }
+      ]]>
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#grid)" class="fade-in"/>
+  <line x1="50" y1="50" x2="50" y2="850" stroke="black" stroke-width="2" stroke-dasharray="10,10" class="fade-in"/>
+  <line x1="1550" y1="50" x2="1550" y2="850" stroke="black" stroke-width="2" stroke-dasharray="10,10" class="fade-in"/>
+
+  <text x="800" y="60" text-anchor="middle" font-size="32" font-weight="bold" class="fade-in delay-1">SAME INSTALL BUTTON, 10x THE BLAST RADIUS</text>
+
+  <!-- Left Side: LAST YEAR -->
+  <g transform="translate(150, 150)">
+    <text x="150" y="0" text-anchor="middle" font-size="24" font-weight="bold" class="fade-in delay-2">LAST YEAR</text>
+    <g class="fade-in delay-2">
+      <rect x="100" y="300" width="100" height="20" fill="#E0E0E0" stroke="black" stroke-width="2"/>
+      <rect x="125" y="220" width="50" height="80" fill="white" stroke="black" stroke-width="2"/>
+      <circle cx="150" cy="250" r="15" fill="white" stroke="black" stroke-width="2"/>
+      <line x1="140" y1="250" x2="160" y2="250" stroke="black" stroke-width="2"/>
+      <line x1="175" y1="260" x2="220" y2="260" stroke="black" stroke-width="2"/>
+      <text x="230" y="265" font-size="12">GENERATE TEXT</text>
+    </g>
+    <g transform="translate(100, 350)" class="fade-in delay-3">
+      <rect x="0" y="0" width="100" height="40" fill="#00AA00" stroke="black" stroke-width="2"/>
+      <text x="50" y="25" text-anchor="middle" font-size="16" fill="white" font-weight="bold">INSTALL</text>
+    </g>
+    <g class="fade-in delay-3">
+      <line x1="0" y1="450" x2="300" y2="450" stroke="black" stroke-width="1" marker-end="url(#arrowhead-black)"/>
+      <text x="10" y="440" font-size="14">CAPABILITY: ANSWER QUESTIONS</text>
+      <line x1="0" y1="500" x2="300" y2="500" stroke="black" stroke-width="1" marker-end="url(#arrowhead-black)"/>
+      <text x="10" y="490" font-size="14">ACCESS: NONE</text>
+      <line x1="0" y1="550" x2="300" y2="550" stroke="#CC0000" stroke-width="1" marker-end="url(#arrowhead-red)"/>
+      <text x="10" y="540" font-size="14" fill="#CC0000">WORST CASE: WRONG ANSWER</text>
+    </g>
+  </g>
+
+  <!-- Right Side: TODAY -->
+  <g transform="translate(900, 150)">
+    <text x="300" y="0" text-anchor="middle" font-size="24" font-weight="bold" class="fade-in delay-4">TODAY</text>
+    <g class="fade-in delay-4">
+      <rect x="100" y="400" width="400" height="150" fill="#E0E0E0" stroke="black" stroke-width="2"/>
+      <line x1="150" y1="400" x2="150" y2="550" stroke="black" stroke-width="1"/>
+      <line x1="250" y1="400" x2="250" y2="550" stroke="black" stroke-width="1"/>
+      <line x1="350" y1="400" x2="350" y2="550" stroke="black" stroke-width="1"/>
+      <line x1="450" y1="400" x2="450" y2="550" stroke="black" stroke-width="1"/>
+      <rect x="250" y="150" width="100" height="250" fill="white" stroke="black" stroke-width="2"/>
+      <circle cx="300" cy="200" r="30" fill="white" stroke="black" stroke-width="2"/>
+      <line x1="280" y1="200" x2="320" y2="200" stroke="black" stroke-width="2"/>
+    </g>
+    <!-- Arms -->
+    <g class="draw-path-slow delay-4">
+      <path d="M 250 250 Q 150 250 100 100" stroke="black" stroke-width="2" fill="none"/>
+      <rect x="50" y="50" width="60" height="80" fill="white" stroke="black" stroke-width="2"/>
+      <text x="80" y="150" text-anchor="middle" font-size="12">FILE SYSTEM</text>
+
+      <path d="M 250 300 Q 150 350 100 450" stroke="black" stroke-width="2" fill="none"/>
+      <rect x="50" y="420" width="60" height="60" fill="white" stroke="black" stroke-width="2"/>
+      <text x="80" y="500" text-anchor="middle" font-size="12">DATABASE</text>
+
+      <path d="M 250 350 Q 200 450 200 600" stroke="black" stroke-width="2" fill="none"/>
+      <rect x="170" y="580" width="60" height="40" fill="white" stroke="black" stroke-width="2"/>
+      <text x="200" y="640" text-anchor="middle" font-size="12">CI/CD</text>
+
+      <path d="M 300 400 Q 350 500 400 600" stroke="black" stroke-width="2" fill="none"/>
+      <rect x="370" y="580" width="60" height="40" fill="white" stroke="black" stroke-width="2"/>
+      <text x="400" y="640" text-anchor="middle" font-size="12">API KEYS</text>
+
+      <path d="M 350 350 Q 450 450 500 450" stroke="black" stroke-width="2" fill="none"/>
+      <ellipse cx="530" cy="450" rx="40" ry="25" fill="white" stroke="black" stroke-width="2"/>
+      <text x="530" y="490" text-anchor="middle" font-size="12">KUBERNETES</text>
+
+      <path d="M 350 300 Q 450 300 500 250" stroke="black" stroke-width="2" fill="none"/>
+      <rect x="500" y="220" width="60" height="40" fill="white" stroke="black" stroke-width="2"/>
+      <text x="530" y="280" text-anchor="middle" font-size="12">EMAIL</text>
+
+      <path d="M 350 250 Q 450 200 500 150" stroke="black" stroke-width="2" fill="none"/>
+      <rect x="500" y="120" width="60" height="40" fill="white" stroke="black" stroke-width="2"/>
+      <text x="530" y="180" text-anchor="middle" font-size="12">SHELL ACCESS</text>
+
+      <path d="M 300 150 Q 350 100 400 50" stroke="black" stroke-width="2" fill="none"/>
+      <rect x="370" y="30" width="60" height="40" fill="white" stroke="black" stroke-width="2"/>
+      <text x="400" y="90" text-anchor="middle" font-size="12">PAYMENT API</text>
+    </g>
+    <g transform="translate(250, 600)" class="fade-in delay-5">
+      <rect x="0" y="0" width="100" height="40" fill="#00AA00" stroke="black" stroke-width="2"/>
+      <text x="50" y="25" text-anchor="middle" font-size="16" fill="white" font-weight="bold">INSTALL</text>
+    </g>
+    <g class="fade-in delay-5">
+      <line x1="0" y1="700" x2="600" y2="700" stroke="black" stroke-width="1" marker-end="url(#arrowhead-black)"/>
+      <text x="10" y="690" font-size="14">CAPABILITY: EVERYTHING</text>
+      <line x1="0" y1="750" x2="600" y2="750" stroke="black" stroke-width="1" marker-end="url(#arrowhead-black)"/>
+      <text x="10" y="740" font-size="14">ACCESS: EVERYTHING</text>
+      <line x1="0" y1="800" x2="600" y2="800" stroke="#CC0000" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+      <text x="10" y="790" font-size="14" fill="#CC0000" font-weight="bold">WORST CASE: DATA BREACH, EXFILTRATION, SUPPLY CHAIN ATTACK</text>
+    </g>
+  </g>
+
+  <!-- Center Arrow -->
+  <g class="fade-in delay-6">
+    <line x1="500" y1="520" x2="1100" y2="520" stroke="#0047AB" stroke-width="10" marker-end="url(#arrowhead-blue)"/>
+    <text x="800" y="500" text-anchor="middle" font-size="20" fill="#0047AB" font-weight="bold">SAME BUTTON</text>
+  </g>
+
+</svg>
