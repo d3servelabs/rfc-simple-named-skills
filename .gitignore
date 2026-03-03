@@ -1,2 +1,3 @@
 .refcache/
 gen/
+.claude/settings.local.json

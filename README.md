@@ -2,7 +2,7 @@
 
 An IETF Internet-Draft defining the Domain-Verified Skills (DVS) protocol — a lightweight mechanism for AI agents to discover, verify, and execute skill definitions served over HTTPS.
 
-**Draft:** `draft-zhou-dvs-00`
+**Draft:** `draft-zzn-dvs-00`
 **Author:** Zainan Victor Zhou (Namefi)
 **Category:** Informational
 
@@ -10,10 +10,10 @@ An IETF Internet-Draft defining the Domain-Verified Skills (DVS) protocol — a 
 
 DVS enables AI agents to consume skills from any HTTPS URL without a centralized registry. A skill's identity and trustworthiness derive entirely from the URL at which it is served — the HTTPS origin operator is the authoritative endorser.
 
-**Trust Root** is the core concept: an HTTPS URL prefix declared by the skill publisher that scopes the trust boundary. A skill is verified if and only if its URL begins with the declared Trust Root.
+**Trust Root** is the core concept: an HTTPS URL prefix declared by the skill publisher that scopes the trust boundary. A skill is verified via origin-then-path matching — the domain must match exactly, then the path must match at segment boundaries.
 
-- First-party domains: Trust Root = origin (e.g., `https://microsoft.com/`)
-- UGC platforms (GitHub, etc.): Trust Root = path-scoped to the publisher's content (e.g., `https://github.com/microsoft/`) — trust does NOT extend to the entire platform
+- First-party domains: Trust Root = origin (e.g., `https://example.com/`)
+- UGC platforms (GitHub, etc.): Trust Root = path-scoped to the publisher's content (e.g., `https://github.com/example-org/`) — trust does NOT extend to the entire platform
 
 The protocol reuses existing DNS and TLS trust infrastructure and is backward-compatible with skills already served over HTTPS.
 
@@ -21,9 +21,9 @@ The protocol reuses existing DNS and TLS trust infrastructure and is backward-co
 
 | File | Description |
 |------|-------------|
-| `draft-zhou-dvs-00.md` | Source document (kramdown-rfc Markdown) |
-| `draft-zhou-dvs-00.xml` | Generated RFCXML |
-| `draft-zhou-dvs-00.txt` | Generated plain-text RFC output |
+| `draft-zzn-dvs-00.md` | Source document (kramdown-rfc Markdown) |
+| `draft-zzn-dvs-00.xml` | Generated RFCXML |
+| `draft-zzn-dvs-00.txt` | Generated plain-text RFC output |
 | `Makefile` | Build toolchain |
 | `setup.sh` | Dependency setup script |
 | `pre-commit-hook.sh` | Git pre-commit hook for auto-building |
@@ -45,11 +45,11 @@ Run the setup script to install dependencies:
 ### Build
 
 ```sh
-make          # produces draft-zhou-dvs-00.txt
+make          # produces draft-zzn-dvs-00.txt
 make clean    # remove generated files
 ```
 
-The build pipeline: `draft-zhou-dvs-00.md` → `draft-zhou-dvs-00.xml` → `draft-zhou-dvs-00.txt`
+The build pipeline: `draft-zzn-dvs-00.md` → `draft-zzn-dvs-00.xml` → `draft-zzn-dvs-00.txt`
 
 ### Auto-build on commit
 
@@ -64,7 +64,7 @@ chmod +x .git/hooks/pre-commit
 
 - **Skill:** A directory containing a `SKILL.md` entry point and optional bundled resources, served over HTTPS
 - **Trust Root:** An HTTPS URL prefix that scopes the publisher's trust boundary
-- **Verification:** A skill URL MUST begin with the declared Trust Root to be considered verified
+- **Verification:** Origin-then-path matching — domain must match exactly, path must match at segment boundaries
 - **Discovery:** Leverages `/.well-known/` endpoints and DNS/TLS for decentralized discovery
 
 ## References

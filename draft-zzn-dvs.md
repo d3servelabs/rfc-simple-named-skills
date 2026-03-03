@@ -1,7 +1,7 @@
 ---
 title: "Domain-Verified Skills (DVS) Protocol"
 abbrev: "DVS"
-docname: draft-zhou-dvs-latest
+docname: draft-zzn-dvs-latest
 category: info
 ipr: trust200902
 submissiontype: independent
@@ -18,7 +18,9 @@ author:
 
 normative:
   RFC2119:
+  RFC3986:
   RFC4033:
+  RFC4343:
   RFC7763:
   RFC8174:
   RFC8615:
@@ -56,12 +58,11 @@ HTTPS URL prefix declared by the skill publisher that scopes the
 trust boundary for their skills.  A skill is considered verified
 if and only if its URL begins with the declared Trust Root.  For
 brands with first-party domains, the Trust Root is the domain
-origin (e.g., `https://microsoft.com/`).  For brands publishing on
-user-generated content platforms where the platform operator does
-not vouch for individual publishers (e.g., GitHub), the Trust Root
-MUST be path-scoped to content the brand controls (e.g.,
-`https://github.com/microsoft/`), ensuring that trust does not
-extend to the entire platform.
+origin.  For brands publishing on user-generated content platforms
+where the platform operator does not vouch for individual
+publishers, the Trust Root MUST be path-scoped to content the
+brand controls, ensuring that trust does not extend to the entire
+platform.
 
 The protocol leverages the existing trust infrastructure of the
 Domain Name System (DNS) and Transport Layer Security (TLS) and is
@@ -93,18 +94,18 @@ directly from a brand-controlled URL prefix, we leverage the existing
 global trust of the DNS and HTTPS infrastructure.
 
 For brands with first-party domains, the Trust Root is the domain
-itself (e.g., `https://microsoft.com/`).  For brands that publish on
+itself (e.g., `https://example.com/`).  For brands that publish on
 user-generated content platforms such as GitHub or Hugging Face,
 the Trust Root is scoped to the brand's path on that platform (e.g.,
-`https://github.com/microsoft/`).  This allows DVS to provide
+`https://github.com/example-org/`).  This allows DVS to provide
 brand-verified skill identity across all hosting configurations,
 without requiring brands to self-host infrastructure.
 
 This protocol is designed to be compatible with existing skill
 formats and distributions.  A skill already hosted on GitHub
-(e.g., `https://github.com/microsoft/repo/blob/main/.../SKILL.md`)
+(e.g., `https://github.com/example-org/repo/blob/main/.../SKILL.md`)
 is immediately usable under DVS by registering
-`https://github.com/microsoft/` as the Trust Root, with no changes
+`https://github.com/example-org/` as the Trust Root, with no changes
 to the skill files themselves.  In particular, a skill directory
 conforming to DVS can be directly consumed by any agent that
 understands the SKILL.md convention, while also gaining the identity
@@ -139,12 +140,13 @@ Skill URL:
 Trust Root:
 : An HTTPS URL prefix that defines the trust boundary for a skill
   or set of skills.  A skill is considered verified under a Trust
-  Root if and only if its Skill URL begins with the Trust Root
-  prefix.  For first-party brand domains, the Trust Root is
-  typically the domain origin (e.g., `https://microsoft.com/`).
+  Root if and only if its Skill URL matches the Trust Root by
+  origin-then-path verification (see {{trust-root-verification}}).
+  For first-party brand domains, the Trust Root is
+  typically the domain origin (e.g., `https://example.com/`).
   For user-generated content platforms, the Trust Root MUST be
   scoped to a path controlled by the brand (e.g.,
-  `https://github.com/microsoft/`).
+  `https://github.com/example-org/`).
 
 Hosting Domain:
 : The domain component of the Trust Root URL, considered the
@@ -165,24 +167,86 @@ Skills MUST be served via HTTPS {{RFC9110}}.  Agents MUST NOT fetch or
 execute skills served over plain HTTP.
 
 The identity and trust of a skill is defined by its Trust Root.  A
-skill's URL MUST begin with its declared Trust Root prefix for the
-skill to be considered verified under that root.
+skill is considered verified under a Trust Root only when the
+verification procedure in {{trust-root-verification}} succeeds.
 
 For first-party brand hosting, the Trust Root is the domain origin:
 
     Trust Root: https://example.com/
-    Skill URL:  https://example.com/.well-known/skills/customer-support/SKILL.md
+    Skill URL:  https://example.com/.well-known/
+                skills/support/SKILL.md
 
 For user-generated content platforms, the Trust Root MUST be scoped
 to a path controlled by the brand.  Agents MUST NOT accept a bare
 UGC platform domain (e.g., `https://github.com/`) as a Trust Root,
 as this would confer trust to all content on the platform:
 
-    Trust Root: https://github.com/microsoft/GitHub-Copilot-for-Azure/
-    Skill URL:  https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugin/skills/azure-ai/SKILL.md
+    Trust Root: https://github.com/example-org/
+    Skill URL:  https://github.com/example-org/
+                repo/blob/main/skills/SKILL.md
 
-A skill URL that does not begin with its declared Trust Root prefix
-MUST be rejected by the Agent.
+A skill URL that fails Trust Root verification MUST be rejected by
+the Agent.
+
+### Trust Root Verification {#trust-root-verification}
+
+To verify that a Skill URL belongs to a declared Trust Root, agents
+MUST perform origin-then-path matching rather than a naive string
+prefix check.  A simple string prefix comparison is insecure because
+an attacker could register a domain such as `example.com.evil.com`
+or a path such as `github.com/example-org-malicious/` that would
+pass a prefix test.
+
+The verification procedure is:
+
+1. Parse both the Trust Root URL and the Skill URL per {{RFC3986}}.
+
+2. Verify that the scheme of both URLs is `https`.
+
+3. Verify that the host component of the Skill URL exactly matches
+   the host component of the Trust Root URL.  This comparison MUST
+   be case-insensitive per {{RFC4343}}.
+
+4. Verify that the path component of the Skill URL starts with the
+   path component of the Trust Root URL, using segment-by-segment
+   comparison.  The Trust Root path MUST end with `/` to ensure
+   matching occurs at a path segment boundary (e.g., Trust Root
+   path `/example-org/` matches Skill path `/example-org/repo/...`
+   but does NOT match `/example-org-malicious/...`).
+
+All four checks MUST pass for verification to succeed.
+
+### Trust Root Extensions {#trust-root-extensions}
+
+The base Trust Root model uses exact domain matching and path-prefix
+matching.  Future extensions MAY allow additional scoping mechanisms,
+including but not limited to:
+
+- **Subdomain matching:** A Trust Root of `https://*.example.com/`
+  could allow skills hosted on any subdomain (e.g.,
+  `skills.example.com`, `api.example.com`).
+
+- **Path pattern matching:** A Trust Root could use glob-style
+  patterns (e.g., `https://example.com/teams/*/skills/`) to allow
+  multiple path hierarchies.
+
+- **Regular expression matching:** A Trust Root could specify a
+  regex pattern for more flexible URL matching.
+
+Implementors SHOULD exercise caution when designing such extensions.
+Overly permissive matching rules can inadvertently widen the trust
+boundary and create security vulnerabilities.  In particular:
+
+- Subdomain wildcards risk matching attacker-controlled subdomains
+  on platforms that allow user-created subdomains.
+- Regex patterns are difficult to audit, may exhibit catastrophic
+  backtracking, and can be error-prone in ways that silently widen
+  the trust scope.
+
+Any Trust Root extension mechanism MUST be opt-in, clearly documented,
+and subject to the same security analysis as the base verification
+procedure.  This document does not define the syntax or semantics
+of any extension; such work is deferred to future specifications.
 
 ## Discovery
 
@@ -359,7 +423,7 @@ metadata of registered skills is persistently loaded.
 
 Agents MUST restrict a skill's automated access to resources within
 its Trust Root prefix.  A skill with Trust Root
-`https://github.com/microsoft/GitHub-Copilot-for-Azure/` MUST NOT
+`https://github.com/example-org/` MUST NOT
 be permitted to automatically access resources outside that prefix
 (including other GitHub users or repos) without explicit user
 consent.

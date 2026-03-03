@@ -1,5 +1,5 @@
-DRAFT_BASE = draft-zhou-dvs
-REVISION   = 01
+DRAFT_BASE = draft-zzn-dvs
+REVISION   = 00
 DRAFT      = $(DRAFT_BASE)-$(REVISION)
 SHELL      = /bin/bash
 GENDIR     = gen
@@ -15,7 +15,7 @@ $(GENDIR):
 	mkdir -p $(GENDIR)
 
 $(GENDIR)/$(DRAFT).xml: $(DRAFT_BASE).md | $(GENDIR)
-	$(CHRUBY_INIT) kramdown-rfc $(DRAFT_BASE).md > $(GENDIR)/$(DRAFT).xml
+	$(CHRUBY_INIT) kramdown-rfc -3 $(DRAFT_BASE).md > $(GENDIR)/$(DRAFT).xml
 	sed -i '' 's/$(DRAFT_BASE)-latest/$(DRAFT)/g' $(GENDIR)/$(DRAFT).xml
 
 $(GENDIR)/$(DRAFT).txt: $(GENDIR)/$(DRAFT).xml
