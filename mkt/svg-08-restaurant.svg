@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="800" height="418">
+    <defs>
+        <filter id="shadow-sm" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+        </filter>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.1"/>
+        </filter>
+        <filter id="shadow-lg" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.2"/>
+        </filter>
+        <clipPath id="winA">
+            <rect x="140" y="140" width="160" height="120" rx="8"/>
+        </clipPath>
+        <clipPath id="winB">
+            <rect x="940" y="140" width="160" height="120" rx="8"/>
+        </clipPath>
+        <g id="lamp">
+            <rect x="0" y="100" width="6" height="210" fill="#90a4ae"/>
+            <path d="M -10 100 L 16 100 L 6 90 L 0 90 Z" fill="#607d8b"/>
+            <circle cx="3" cy="100" r="15" fill="#fff59d" opacity="0.5"/>
+            <circle cx="3" cy="100" r="30" fill="#fff59d" opacity="0.2"/>
+        </g>
+        <style>
+            * {
+                animation-timing-function: ease-in-out;
+            }
+            @keyframes panScene {
+                0%, 35% { transform: translateX(0); }
+                45%, 85% { transform: translateX(-800px); }
+                95%, 100% { transform: translateX(0); }
+            }
+            @keyframes cloudDrift {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(400px); }
+            }
+            @keyframes gradeDrop {
+                0%, 5% { transform: translateY(-90px); opacity: 0; }
+                12%, 92% { transform: translateY(0); opacity: 1; }
+                95%, 100% { transform: translateY(-90px); opacity: 0; }
+            }
+            @keyframes c1Pos {
+                0%   { transform: translate(-80px, 310px); opacity: 1; }
+                12%  { transform: translate(220px, 310px); opacity: 1; }
+                22%  { transform: translate(220px, 310px); opacity: 1; }
+                28%  { transform: translate(390px, 310px); opacity: 1; transform-origin: center bottom; }
+                32%  { transform: translate(390px, 310px) scale(0.6); opacity: 0; }
+                100% { transform: translate(390px, 310px) scale(0.6); opacity: 0; }
+            }
+            @keyframes c1Bounce {
+                0%, 3%, 6%, 9%, 12% { transform: translateY(0); }
+                1.5%, 4.5%, 7.5%, 10.5% { transform: translateY(-8px); }
+                12%, 22% { transform: translateY(0); }
+                22%, 25%, 28% { transform: translateY(0); }
+                23.5%, 26.5% { transform: translateY(-8px); }
+                28%, 100% { transform: translateY(0); }
+            }
+            @keyframes doorOpen {
+                0%, 26% { transform: scaleX(1); }
+                30%, 36% { transform: scaleX(0.2); }
+                40%, 100% { transform: scaleX(1); }
+            }
+            @keyframes c2Pos {
+                0%, 35% { transform: translate(700px, 310px); }
+                48%  { transform: translate(1030px, 310px); }
+                62%  { transform: translate(1030px, 310px); }
+                66%  { transform: translate(1010px, 310px); }
+                70%  { transform: translate(1010px, 310px); }
+                85%, 100% { transform: translate(1650px, 310px); }
+            }
+            @keyframes c2Bounce {
+                35%, 38%, 41%, 44%, 48% { transform: translateY(0); }
+                36.5%, 39.5%, 42.5%, 45.5% { transform: translateY(-8px); }
+                48%, 62% { transform: translateY(0); }
+                62%, 66% { transform: translateY(0); }
+                64% { transform: translateY(-4px); }
+                70%, 73%, 76%, 79%, 82%, 85% { transform: translateY(0); }
+                71.5%, 74.5%, 77.5%, 80.5%, 83.5% { transform: translateY(-8px); }
+                85%, 100% { transform: translateY(0); }
+            }
+            @keyframes c2Head {
+                0%, 58% { transform: rotate(0); }
+                61%, 67% { transform: rotate(-18deg); }
+                70%, 100% { transform: rotate(0); }
+            }
+            @keyframes qMark {
+                0%, 55% { opacity: 0; transform: translateY(10px) scale(0.5); }
+                58%, 68% { opacity: 1; transform: translateY(-5px) scale(1.1); }
+                70%, 100% { opacity: 0; transform: translateY(-10px) scale(0.5); }
+            }
+            @keyframes captionAnim {
+                0%, 65% { opacity: 0; transform: translateY(20px); }
+                70%, 92% { opacity: 1; transform: translateY(0); }
+                96%, 100% { opacity: 0; transform: translateY(20px); }
+            }
+        </style>
+    </defs>
+
+    <rect width="100%" height="100%" fill="#f0f4f8"/>
+
+    <g style="animation: cloudDrift 20s linear infinite;" opacity="0.5">
+        <path d="M 50 80 Q 70 50 100 80 Q 130 60 150 90 L 50 90 Z" fill="#ffffff"/>
+        <path d="M 450 70 Q 480 40 510 70 Q 540 50 560 80 L 450 80 Z" fill="#ffffff"/>
+        <path d="M -300 90 Q -270 60 -240 90 Q -210 70 -190 100 L -300 100 Z" fill="#ffffff"/>
+    </g>
+
+    <g id="scene" style="animation: panScene 12s infinite;">
+        <!-- Background City -->
+        <g fill="#e2e8f0">
+            <rect x="30" y="40" width="150" height="280" rx="8"/>
+            <rect x="230" y="20" width="120" height="300" rx="8"/>
+            <rect x="520" y="60" width="180" height="260" rx="8"/>
+            <rect x="780" y="30" width="140" height="290" rx="8"/>
+            <rect x="1060" y="50" width="160" height="270" rx="8"/>
+            <rect x="1320" y="20" width="200" height="300" rx="8"/>
+        </g>
+
+        <!-- Sidewalk & Street -->
+        <rect y="310" width="2000" height="108" fill="#cfd8dc"/>
+        <rect y="310" width="2000" height="60" fill="#e0e0e0"/>
+        <path d="M0 370 L2000 370" stroke="#bdbdbd" stroke-width="4"/>
+        <path d="M50 394 L150 394 M250 394 L350 394 M450 394 L550 394 M650 394 L750 394 M850 394 L950 394 M1050 394 L1150 394 M1250 394 L1350 394 M1450 394 L1550 394 M1650 394 L1750 394 M1850 394 L1950 394" stroke="#ffffff" stroke-width="6" stroke-dasharray="100 100" opacity="0.6"/>
+
+        <use href="#lamp" x="40"/>
+        <use href="#lamp" x="800"/>
+        <use href="#lamp" x="1560"/>
+
+        <!-- RESTAURANT A (The Good One) -->
+        <g id="restaurant-A">
+            <rect x="100" y="80" width="400" height="230" rx="16" fill="#ffffff" filter="url(#shadow)"/>
+            <rect x="90" y="70" width="420" height="20" rx="10" fill="#1565c0" filter="url(#shadow-sm)"/>
+            <rect x="140" y="140" width="160" height="120" rx="8" fill="#e1f5fe" stroke="#b3e5fc" stroke-width="4"/>
+            <path d="M 120 140 L 140 100 L 320 100 L 340 140 Z" fill="#1e88e5" filter="url(#shadow-sm)"/>
+            
+            <g clip-path="url(#winA)">
+                <path d="M 100 260 L 260 100 L 280 100 L 120 260 Z" fill="#ffffff" opacity="0.5"/>
+                <!-- Grade Card Animates In -->
+                <g style="animation: gradeDrop 12s infinite;">
+                    <rect x="150" y="150" width="45" height="60" rx="6" fill="#ffffff" filter="url(#shadow-sm)"/>
+                    <circle cx="172.5" cy="180" r="16" fill="#e8f5e9"/>
+                    <text x="172.5" y="188" font-family="sans-serif" font-weight="900" font-size="24" fill="#2e7d32" text-anchor="middle">A</text>
+                </g>
+            </g>
+
+            <rect x="350" y="130" width="90" height="180" rx="4" fill="#cfd8dc"/>
+            <rect id="doorA" x="350" y="130" width="90" height="180" rx="4" fill="#ffffff" stroke="#90caf9" stroke-width="4" style="transform-origin: 440px 220px; animation: doorOpen 12s infinite;">
+                <rect x="365" y="150" width="60" height="80" rx="4" fill="#e1f5fe"/>
+                <circle cx="375" cy="220" r="5" fill="#9e9e9e"/>
+            </rect>
+            <path d="M 335 130 L 350 100 L 450 100 L 465 130 Z" fill="#1e88e5" filter="url(#shadow-sm)"/>
+
+            <rect x="160" y="110" width="120" height="20" rx="10" fill="#ffffff" opacity="0.3"/>
+
+            <path d="M 80 310 L 85 270 L 105 270 L 110 310 Z" fill="#795548" filter="url(#shadow-sm)"/>
+            <circle cx="95" cy="260" r="20" fill="#4caf50"/>
+            <circle cx="85" cy="250" r="16" fill="#388e3c"/>
+            <circle cx="105" cy="250" r="16" fill="#66bb6a"/>
+        </g>
+
+        <!-- RESTAURANT B (The New One) -->
+        <g id="restaurant-B">
+            <rect x="900" y="80" width="400" height="230" rx="16" fill="#fafafa" filter="url(#shadow)"/>
+            <rect x="890" y="70" width="420" height="20" rx="10" fill="#ffb300" filter="url(#shadow-sm)"/>
+            <rect x="940" y="140" width="160" height="120" rx="8" fill="#eeeeee" stroke="#e0e0e0" stroke-width="4"/>
+            <path d="M 920 140 L 940 100 L 1120 100 L 1140 140 Z" fill="#ffca28" filter="url(#shadow-sm)"/>
+            
+            <g clip-path="url(#winB)">
+                <path d="M 900 260 L 1060 100 L 1080 100 L 920 260 Z" fill="#ffffff" opacity="0.7"/>
+                <path d="M 920 160 L 1120 210 L 1120 230 L 920 180 Z" fill="#e53935"/>
+                <text x="1020" y="200" font-family="sans-serif" font-weight="900" font-size="16" fill="#ffffff" text-anchor="middle" transform="rotate(14, 1020, 200)">GRAND OPENING</text>
+            </g>
+
+            <rect x="1150" y="130" width="90" height="180" rx="4" fill="#ffffff" stroke="#e0e0e0" stroke-width="4">
+                <rect x="1165" y="150" width="60" height="80" rx="4" fill="#eeeeee"/>
+                <circle cx="1175" cy="220" r="5" fill="#9e9e9e"/>
+            </rect>
+            <path d="M 1135 130 L 1150 100 L 1250 100 L 1265 130 Z" fill="#ffca28" filter="url(#shadow-sm)"/>
+
+            <rect x="960" y="110" width="120" height="20" rx="10" fill="#ffffff" opacity="0.5"/>
+
+            <path d="M 870 310 L 880 280 L 890 280 L 900 310 Z" fill="#ff7043" filter="url(#shadow-sm)"/>
+            <rect x="875" y="290" width="20" height="8" fill="#ffffff"/>
+            <path d="M 1280 310 L 1290 280 L 1300 280 L 1310 310 Z" fill="#ff7043" filter="url(#shadow-sm)"/>
+            <rect x="1285" y="290" width="20" height="8" fill="#ffffff"/>
+        </g>
+
+        <!-- CUSTOMER 1 -->
+        <g style="animation: c1Pos 12s infinite;">
+            <ellipse cx="0" cy="0" rx="18" ry="4" fill="#000000" opacity="0.15"/>
+            <g style="animation: c1Bounce 12s infinite;">
+                <rect x="-10" y="-20" width="8" height="20" rx="4" fill="#004d40"/>
+                <rect x="2" y="-20" width="8" height="20" rx="4" fill="#004d40"/>
+                <rect x="-16" y="-56" width="32" height="42" rx="12" fill="#00897b" filter="url(#shadow-sm)"/>
+                <circle cx="0" cy="-74" r="14" fill="#ffb74d"/>
+            </g>
+        </g>
+
+        <!-- CUSTOMER 2 -->
+        <g style="animation: c2Pos 12s infinite;">
+            <ellipse cx="0" cy="0" rx="18" ry="4" fill="#000000" opacity="0.15"/>
+            <g style="animation: c2Bounce 12s infinite;">
+                <rect x="-10" y="-20" width="8" height="20" rx="4" fill="#bf360c"/>
+                <rect x="2" y="-20" width="8" height="20" rx="4" fill="#bf360c"/>
+                <rect x="-16" y="-56" width="32" height="42" rx="12" fill="#f4511e" filter="url(#shadow-sm)"/>
+                
+                <g style="animation: c2Head 12s infinite; transform-origin: 0px -74px;">
+                    <circle cx="0" cy="-74" r="14" fill="#8d6e63"/>
+                </g>
+                
+                <g style="animation: qMark 12s infinite; transform-origin: 0px -105px;">
+                    <circle cx="0" cy="-105" r="14" fill="#ffffff" filter="url(#shadow-sm)"/>
+                    <text x="0" y="-99" font-family="sans-serif" font-weight="900" font-size="18" fill="#e53935" text-anchor="middle">?</text>
+                </g>
+            </g>
+        </g>
+    </g>
+
+    <!-- UI Overlay / Caption -->
+    <g style="animation: captionAnim 12s infinite;">
+        <rect x="150" y="340" width="500" height="48" rx="24" fill="#263238" filter="url(#shadow-lg)"/>
+        <text x="400" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="500" fill="#ffffff" text-anchor="middle">The grading system isn't new. The restaurant is.</text>
+    </g>
+</svg>

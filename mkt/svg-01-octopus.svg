@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="800" height="418">
+    <defs>
+        <filter id="noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" result="noise" />
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.12 0" />
+        </filter>
+        <path id="p1" d="M 435 209 L 470 209 L 485 190 L 525 190" />
+        <path id="p2" d="M 425 234 L 450 259 L 450 285 L 480 315" />
+        <path id="p3" d="M 400 244 L 400 290 L 420 310 L 420 345" />
+        <path id="p4" d="M 375 234 L 350 259 L 350 285 L 320 315" />
+        <path id="p5" d="M 365 209 L 330 209 L 315 228 L 275 228" />
+        <path id="p6" d="M 375 184 L 350 159 L 350 133 L 320 103" />
+        <path id="p7" d="M 400 174 L 400 128 L 380 108 L 380 73" />
+        <path id="p8" d="M 425 184 L 450 159 L 450 133 L 480 103" />
+
+        <style>
+            .tentacle {
+                stroke-dasharray: 115;
+                stroke-dashoffset: 115;
+                stroke-width: 3;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                fill: none;
+                stroke: #1a2332;
+            }
+            .pulse-line {
+                stroke-dasharray: 12 200;
+                stroke-dashoffset: 212;
+                stroke-width: 4;
+                stroke-linecap: round;
+                fill: none;
+                opacity: 0;
+            }
+            .coral-pulse {
+                stroke: #ff6b6b;
+                animation: pulse-coral 12s infinite;
+            }
+            .alarm-pulse {
+                stroke: #ffe800;
+                animation: pulse-alarm 12s infinite;
+            }
+
+            .t1 { animation: d1 12s infinite; }
+            .t2 { animation: d2 12s infinite; }
+            .t3 { animation: d3 12s infinite; }
+            .t4 { animation: d4 12s infinite; }
+            .t5 { animation: d5 12s infinite; }
+            .t6 { animation: d6 12s infinite; }
+            .t7 { animation: d7 12s infinite; }
+            .t8 { animation: d8 12s infinite; }
+
+            @keyframes d1 { 0% { stroke-dashoffset: 115; } 8%, 85% { stroke-dashoffset: 0; } 95%, 100% { stroke-dashoffset: 115; } }
+            @keyframes d2 { 0%, 4% { stroke-dashoffset: 115; } 12%, 85% { stroke-dashoffset: 0; } 95%, 100% { stroke-dashoffset: 115; } }
+            @keyframes d3 { 0%, 8% { stroke-dashoffset: 115; } 16%, 85% { stroke-dashoffset: 0; } 95%, 100% { stroke-dashoffset: 115; } }
+            @keyframes d4 { 0%, 12% { stroke-dashoffset: 115; } 20%, 85% { stroke-dashoffset: 0; } 95%, 100% { stroke-dashoffset: 115; } }
+            @keyframes d5 { 0%, 16% { stroke-dashoffset: 115; } 24%, 85% { stroke-dashoffset: 0; } 95%, 100% { stroke-dashoffset: 115; } }
+            @keyframes d6 { 0%, 20% { stroke-dashoffset: 115; } 28%, 85% { stroke-dashoffset: 0; } 95%, 100% { stroke-dashoffset: 115; } }
+            @keyframes d7 { 0%, 24% { stroke-dashoffset: 115; } 32%, 85% { stroke-dashoffset: 0; } 95%, 100% { stroke-dashoffset: 115; } }
+            @keyframes d8 { 0%, 28% { stroke-dashoffset: 115; } 36%, 85% { stroke-dashoffset: 0; } 95%, 100% { stroke-dashoffset: 115; } }
+
+            @keyframes pulse-coral {
+                0%, 45% { stroke-dashoffset: 212; opacity: 0; }
+                46% { opacity: 1; }
+                55% { stroke-dashoffset: -15; opacity: 1; }
+                56%, 100% { stroke-dashoffset: -15; opacity: 0; }
+            }
+            @keyframes pulse-alarm {
+                0%, 60% { stroke-dashoffset: 212; opacity: 0; }
+                61% { opacity: 1; }
+                70% { stroke-dashoffset: -15; opacity: 1; }
+                71%, 100% { stroke-dashoffset: -15; opacity: 0; }
+            }
+
+            .i1 { transform-origin: 545px 190px; animation: a_i1 12s infinite; }
+            .i2 { transform-origin: 495px 330px; animation: a_i2 12s infinite; }
+            .i3 { transform-origin: 420px 365px; animation: a_i3 12s infinite; }
+            .i4 { transform-origin: 305px 330px; animation: a_i4 12s infinite; }
+            .i5 { transform-origin: 255px 228px; animation: a_i5 12s infinite; }
+            .i6 { transform-origin: 305px 88px; animation: a_i6 12s infinite; }
+            .i7 { transform-origin: 380px 53px; animation: a_i7 12s infinite; }
+            .i8 { transform-origin: 495px 88px; animation: a_i8 12s infinite; }
+
+            @keyframes a_i1 { 0%, 7%, 12%, 53%, 58%, 68%, 73%, 100% { transform: scale(1); } 8%, 10%, 55%, 56%, 70%, 71% { transform: scale(1.15); } }
+            @keyframes a_i2 { 0%, 11%, 16%, 53%, 58%, 68%, 73%, 100% { transform: scale(1); } 12%, 14%, 55%, 56%, 70%, 71% { transform: scale(1.15); } }
+            @keyframes a_i3 { 0%, 15%, 20%, 53%, 58%, 68%, 73%, 100% { transform: scale(1); } 16%, 18%, 55%, 56%, 70%, 71% { transform: scale(1.15); } }
+            @keyframes a_i4 { 0%, 19%, 24%, 53%, 58%, 68%, 73%, 100% { transform: scale(1); } 20%, 22%, 55%, 56%, 70%, 71% { transform: scale(1.15); } }
+            @keyframes a_i5 { 0%, 23%, 28%, 53%, 58%, 68%, 73%, 100% { transform: scale(1); } 24%, 26%, 55%, 56%, 70%, 71% { transform: scale(1.15); } }
+            @keyframes a_i6 { 0%, 27%, 32%, 53%, 58%, 68%, 73%, 100% { transform: scale(1); } 28%, 30%, 55%, 56%, 70%, 71% { transform: scale(1.15); } }
+            @keyframes a_i7 { 0%, 31%, 36%, 53%, 58%, 68%, 73%, 100% { transform: scale(1); } 32%, 34%, 55%, 56%, 70%, 71% { transform: scale(1.15); } }
+            @keyframes a_i8 { 0%, 35%, 40%, 53%, 58%, 68%, 73%, 100% { transform: scale(1); } 36%, 38%, 55%, 56%, 70%, 71% { transform: scale(1.15); } }
+        </style>
+    </defs>
+
+    <!-- Paper Base -->
+    <rect width="100%" height="100%" fill="#f4f0ea" />
+    <rect width="100%" height="100%" filter="url(#noise)" pointer-events="none" style="mix-blend-mode: multiply;" opacity="0.9" />
+
+    <!-- NAVY LAYER -->
+    <g fill="none" stroke="#1a2332" style="mix-blend-mode: multiply;" transform="translate(-1, -1)">
+        
+        <!-- Tentacles -->
+        <use href="#p1" class="tentacle t1"/>
+        <use href="#p2" class="tentacle t2"/>
+        <use href="#p3" class="tentacle t3"/>
+        <use href="#p4" class="tentacle t4"/>
+        <use href="#p5" class="tentacle t5"/>
+        <use href="#p6" class="tentacle t6"/>
+        <use href="#p7" class="tentacle t7"/>
+        <use href="#p8" class="tentacle t8"/>
+
+        <!-- Center Octopus -->
+        <polygon points="380,180 420,180 440,209 420,238 380,238 360,209" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="400" cy="209" r="14" stroke-width="2"/>
+        <path d="M 380 180 L 393 199 M 420 180 L 407 199 M 440 209 L 414 209 M 420 238 L 407 219 M 380 238 L 393 219 M 360 209 L 386 209" stroke-width="2"/>
+
+        <!-- Icons (Navy Outlines) -->
+        <!-- I1 Database -->
+        <g class="i1">
+            <ellipse cx="545" cy="178" rx="16" ry="6" stroke-width="2"/>
+            <path d="M 529 178 L 529 202 A 16 6 0 0 0 561 202 L 561 178" stroke-width="2"/>
+            <path d="M 529 190 A 16 6 0 0 0 561 190" stroke-width="2"/>
+        </g>
+        <!-- I2 Terminal -->
+        <g class="i2">
+            <rect x="475" y="315" width="40" height="30" rx="3" stroke-width="2"/>
+            <path d="M 482 325 L 488 330 L 482 335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="490" y1="335" x2="498" y2="335" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <!-- I3 Cloud -->
+        <g class="i3">
+            <path d="M 405 370 A 9 9 0 0 1 410 355 A 13 13 0 0 1 432 357 A 9 9 0 0 1 436 370 Z" stroke-width="2" stroke-linejoin="round"/>
+        </g>
+        <!-- I4 Envelope -->
+        <g class="i4">
+            <rect x="285" y="315" width="40" height="26" rx="2" stroke-width="2"/>
+            <path d="M 285 315 L 305 328 L 325 315" stroke-width="2" stroke-linejoin="round"/>
+        </g>
+        <!-- I5 Folder -->
+        <g class="i5">
+            <path d="M 235 240 L 235 215 L 245 215 L 250 220 L 275 220 L 275 240 Z" stroke-width="2" stroke-linejoin="round"/>
+        </g>
+        <!-- I6 Card -->
+        <g class="i6">
+            <rect x="285" y="73" width="40" height="26" rx="3" stroke-width="2"/>
+            <line x1="285" y1="83" x2="325" y2="83" stroke-width="4"/>
+        </g>
+        <!-- I7 Lock -->
+        <g class="i7">
+            <rect x="368" y="48" width="24" height="20" rx="2" stroke-width="2"/>
+            <path d="M 372 48 L 372 38 A 8 8 0 0 1 388 38 L 388 48" stroke-width="2"/>
+            <circle cx="380" cy="58" r="3" stroke-width="2"/>
+        </g>
+        <!-- I8 Phone -->
+        <g class="i8">
+            <rect x="480" y="68" width="24" height="40" rx="4" stroke-width="2"/>
+            <line x1="488" y1="74" x2="502" y2="74" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="492" cy="100" r="2" stroke-width="2"/>
+        </g>
+
+    </g>
+
+    <!-- CORAL LAYER -->
+    <g fill="none" stroke="#ff6b6b" style="mix-blend-mode: multiply;" transform="translate(1, 1)">
+        
+        <!-- Circuit Tracer Background (Static Detail) -->
+        <g opacity="0.4" stroke-width="1" stroke-dasharray="2 4">
+            <use href="#p1" transform="translate(0, 3)" />
+            <use href="#p2" transform="translate(-2, 2)" />
+            <use href="#p3" transform="translate(3, 0)" />
+            <use href="#p4" transform="translate(2, -2)" />
+            <use href="#p5" transform="translate(0, -3)" />
+            <use href="#p6" transform="translate(-2, -2)" />
+            <use href="#p7" transform="translate(-3, 0)" />
+            <use href="#p8" transform="translate(2, 2)" />
+        </g>
+
+        <!-- Node Accents -->
+        <g fill="#ff6b6b" stroke="none">
+            <circle cx="470" cy="209" r="1.5"/><circle cx="485" cy="190" r="1.5"/>
+            <circle cx="450" cy="259" r="1.5"/><circle cx="450" cy="285" r="1.5"/>
+            <circle cx="400" cy="290" r="1.5"/><circle cx="420" cy="310" r="1.5"/>
+            <circle cx="350" cy="259" r="1.5"/><circle cx="350" cy="285" r="1.5"/>
+            <circle cx="330" cy="209" r="1.5"/><circle cx="315" cy="228" r="1.5"/>
+            <circle cx="350" cy="159" r="1.5"/><circle cx="350" cy="133" r="1.5"/>
+            <circle cx="400" cy="128" r="1.5"/><circle cx="380" cy="108" r="1.5"/>
+            <circle cx="450" cy="159" r="1.5"/><circle cx="450" cy="133" r="1.5"/>
+        </g>
+
+        <!-- Center Octopus Fills -->
+        <polygon points="380,180 420,180 440,209 420,238 380,238 360,209" fill="#ff6b6b" fill-opacity="0.3" stroke="none"/>
+        <circle cx="390" cy="205" r="4" fill="#ff6b6b" stroke="none"/>
+        <circle cx="410" cy="205" r="4" fill="#ff6b6b" stroke="none"/>
+        <circle cx="400" cy="209" r="14" stroke-width="2" stroke-dasharray="4 4" stroke="#ff6b6b"/>
+
+        <!-- Icons (Coral Solid Overprints) -->
+        <g class="i1">
+            <ellipse cx="545" cy="178" rx="16" ry="6" fill="#ff6b6b" stroke="none"/>
+        </g>
+        <g class="i2">
+            <rect x="477" y="317" width="36" height="26" fill="#ff6b6b" fill-opacity="0.2" stroke="none"/>
+            <rect x="475" y="315" width="40" height="8" fill="#ff6b6b" stroke="none"/>
+        </g>
+        <g class="i3">
+            <path d="M 405 370 A 9 9 0 0 1 410 355 A 13 13 0 0 1 432 357 A 9 9 0 0 1 436 370 Z" fill="#ff6b6b" fill-opacity="0.4" stroke="none"/>
+        </g>
+        <g class="i4">
+            <polygon points="285,341 305,328 325,341" fill="#ff6b6b" fill-opacity="0.6" stroke="none"/>
+        </g>
+        <g class="i5">
+            <path d="M 235 220 L 275 220" stroke-width="2" stroke="#ff6b6b"/>
+            <rect x="235" y="220" width="40" height="20" fill="#ff6b6b" fill-opacity="0.3" stroke="none"/>
+        </g>
+        <g class="i6">
+            <rect x="290" y="88" width="8" height="6" rx="1" fill="#ff6b6b" stroke="none"/>
+        </g>
+        <g class="i7">
+            <rect x="368" y="48" width="24" height="20" rx="2" fill="#ff6b6b" fill-opacity="0.5" stroke="none"/>
+        </g>
+        <g class="i8">
+            <rect x="484" y="78" width="16" height="17" fill="#ff6b6b" stroke="none"/>
+        </g>
+
+        <!-- Coral Heartbeat Pulses -->
+        <use href="#p1" class="pulse-line coral-pulse"/>
+        <use href="#p2" class="pulse-line coral-pulse"/>
+        <use href="#p3" class="pulse-line coral-pulse"/>
+        <use href="#p4" class="pulse-line coral-pulse"/>
+        <use href="#p5" class="pulse-line coral-pulse"/>
+        <use href="#p6" class="pulse-line coral-pulse"/>
+        <use href="#p7" class="pulse-line coral-pulse"/>
+        <use href="#p8" class="pulse-line coral-pulse"/>
+
+    </g>
+
+    <!-- ALARM LAYER (Third Color Riso Hit) -->
+    <g fill="none" stroke="#ffe800" style="mix-blend-mode: normal;" transform="translate(0, -1)">
+        <!-- Alarm Heartbeat Pulses -->
+        <use href="#p1" class="pulse-line alarm-pulse"/>
+        <use href="#p2" class="pulse-line alarm-pulse"/>
+        <use href="#p3" class="pulse-line alarm-pulse"/>
+        <use href="#p4" class="pulse-line alarm-pulse"/>
+        <use href="#p5" class="pulse-line alarm-pulse"/>
+        <use href="#p6" class="pulse-line alarm-pulse"/>
+        <use href="#p7" class="pulse-line alarm-pulse"/>
+        <use href="#p8" class="pulse-line alarm-pulse"/>
+    </g>
+
+</svg>

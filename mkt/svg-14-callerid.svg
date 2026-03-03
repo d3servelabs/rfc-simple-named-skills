@@ -1,0 +1,203 @@
+<svg viewBox="0 0 800 418" width="800" height="418" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+
+        <pattern id="scanlines" width="10" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="10" y2="0" stroke="rgba(0, 0, 0, 0.4)" stroke-width="2" />
+            <line x1="0" y1="2" x2="10" y2="2" stroke="rgba(0, 255, 65, 0.05)" stroke-width="2" />
+        </pattern>
+
+        <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+            <stop offset="60%" stop-color="rgba(0,0,0,0)" />
+            <stop offset="100%" stop-color="rgba(0,0,0,0.85)" />
+        </radialGradient>
+
+        <clipPath id="c1-l1">
+            <rect class="c1-w1" x="0" y="30" height="40" />
+        </clipPath>
+        <clipPath id="c1-l2">
+            <rect class="c1-w2" x="0" y="80" height="40" />
+        </clipPath>
+        <clipPath id="c2-l1">
+            <rect class="c2-w1" x="0" y="30" height="40" />
+        </clipPath>
+        <clipPath id="c2-l2">
+            <rect class="c2-w2" x="0" y="80" height="40" />
+        </clipPath>
+    </defs>
+
+    <style>
+        text {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px;
+            fill: #00ff41;
+            user-select: none;
+        }
+
+        .screen {
+            animation: flicker 0.15s infinite;
+        }
+
+        .call1 { animation: fade1 24s infinite; }
+        .call2 { animation: fade2 24s infinite; }
+
+        .c1-w1 { animation: w1 24s infinite linear; }
+        .c1-w2 { animation: w2 24s infinite linear; }
+        .c2-w1 { animation: w1b 24s infinite linear; }
+        .c2-w2 { animation: w2b 24s infinite linear; }
+
+        .show1 { animation: s1 24s infinite; }
+        .show2 { animation: s2 24s infinite; }
+        .show3 { animation: s3 24s infinite; }
+        .show4 { animation: s4 24s infinite; }
+        .show5 { animation: s5 24s infinite; }
+        .show6 { animation: s6 24s infinite; }
+
+        .cursor-box { animation: cursor-move 24s infinite; }
+        .cursor-blink { animation: cursor-blink 0.8s infinite step-end; }
+
+        @keyframes flicker {
+            0% { opacity: 0.98; }
+            50% { opacity: 0.99; }
+            100% { opacity: 0.97; }
+        }
+
+        @keyframes fade1 {
+            0%, 45% { opacity: 1; }
+            46%, 100% { opacity: 0; }
+        }
+
+        @keyframes fade2 {
+            0%, 49% { opacity: 0; }
+            50%, 95% { opacity: 1; }
+            96%, 100% { opacity: 0; }
+        }
+
+        @keyframes w1 {
+            0%, 2% { width: 0px; }
+            8%, 100% { width: 480px; }
+        }
+
+        @keyframes w2 {
+            0%, 10% { width: 0px; }
+            16%, 100% { width: 480px; }
+        }
+
+        @keyframes s1 {
+            0%, 19.99% { opacity: 0; }
+            20%, 100% { opacity: 1; }
+        }
+
+        @keyframes s2 {
+            0%, 22.99% { opacity: 0; }
+            23%, 100% { opacity: 1; }
+        }
+
+        @keyframes s3 {
+            0%, 25.99% { opacity: 0; }
+            26%, 100% { opacity: 1; }
+        }
+
+        @keyframes s4 {
+            0%, 29.99% { opacity: 0; }
+            30%, 100% { opacity: 1; }
+        }
+
+        @keyframes w1b {
+            0%, 52% { width: 0px; }
+            58%, 100% { width: 480px; }
+        }
+
+        @keyframes w2b {
+            0%, 60% { width: 0px; }
+            66%, 100% { width: 520px; }
+        }
+
+        @keyframes s5 {
+            0%, 69.99% { opacity: 0; }
+            70%, 100% { opacity: 1; }
+        }
+
+        @keyframes s6 {
+            0%, 73.99% { opacity: 0; }
+            74%, 100% { opacity: 1; }
+        }
+
+        @keyframes cursor-move {
+            0%, 2% { transform: translate(40px, 40px); }
+            8% { transform: translate(472px, 40px); }
+            8.01%, 9.99% { transform: translate(472px, 40px); }
+            
+            10% { transform: translate(40px, 90px); }
+            16% { transform: translate(472px, 90px); }
+            16.01%, 19.99% { transform: translate(472px, 90px); }
+            
+            20%, 22.99% { transform: translate(141px, 140px); }
+            23%, 25.99% { transform: translate(141px, 190px); }
+            26%, 29.99% { transform: translate(242px, 240px); }
+            30%, 45% { transform: translate(328px, 300px); }
+            
+            45.01%, 50% { transform: translate(-100px, -100px); }
+            
+            50.01%, 52% { transform: translate(40px, 40px); }
+            58% { transform: translate(472px, 40px); }
+            58.01%, 59.99% { transform: translate(472px, 40px); }
+            
+            60% { transform: translate(40px, 90px); }
+            66% { transform: translate(515px, 90px); }
+            66.01%, 69.99% { transform: translate(515px, 90px); }
+            
+            70%, 73.99% { transform: translate(314px, 140px); }
+            74%, 95% { transform: translate(184px, 200px); }
+            
+            95.01%, 100% { transform: translate(-100px, -100px); }
+        }
+
+        @keyframes cursor-blink {
+            0%, 49.9% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+    </style>
+
+    <rect width="100%" height="100%" fill="#0a0a0a" />
+
+    <g class="screen" filter="url(#glow)">
+        <g class="call1">
+            <g clip-path="url(#c1-l1)">
+                <text x="40" y="60">&gt; INCOMING: Acme Support Skill</text>
+            </g>
+            <g clip-path="url(#c1-l2)">
+                <text x="40" y="110">&gt; Resolving domain... acme.com</text>
+            </g>
+            <text class="show1" x="40" y="160">&gt; DNS ✓</text>
+            <text class="show2" x="40" y="210">&gt; TLS ✓</text>
+            <text class="show3" x="40" y="260">&gt; Trust Root ✓</text>
+            <text class="show4" x="40" y="320" fill="#55ff55" font-weight="bold">&gt; IDENTITY CONFIRMED</text>
+        </g>
+
+        <g class="call2">
+            <g clip-path="url(#c2-l1)">
+                <text x="40" y="60">&gt; INCOMING: Acme Support Skill</text>
+            </g>
+            <g clip-path="url(#c2-l2)">
+                <text x="40" y="110">&gt; Resolving domain... sketchy.xyz</text>
+            </g>
+            <text class="show5" x="40" y="160" fill="#ff0040" font-weight="bold">&gt; IDENTITY MISMATCH</text>
+            <text class="show6" x="40" y="220" fill="#ff0040" font-weight="bold">&gt; BLOCKED.</text>
+        </g>
+
+        <g class="cursor-box">
+            <rect class="cursor-blink" x="0" y="0" width="14" height="20" fill="#00ff41" />
+        </g>
+    </g>
+
+    <rect width="100%" height="100%" fill="url(#scanlines)" pointer-events="none" />
+    <rect width="100%" height="100%" fill="url(#vignette)" pointer-events="none" />
+</svg>

@@ -1,0 +1,256 @@
+<svg width="800" height="418" viewBox="0 0 800 418" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e8e8e8" stroke-width="0.5"/>
+        </pattern>
+        <style>
+            /* Base Wall Animations */
+            .wall {
+                fill: rgba(255, 255, 255, 0.9);
+                stroke: #2c3e50;
+                stroke-width: 2.5;
+                stroke-dasharray: 800;
+                stroke-dashoffset: 800;
+                animation: drawWall 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+                stroke-linejoin: round;
+                stroke-linecap: round;
+            }
+            @keyframes drawWall {
+                0%, 5% { stroke-dashoffset: 800; opacity: 1; fill: transparent; }
+                15% { stroke-dashoffset: 0; fill: transparent; }
+                20%, 92% { stroke-dashoffset: 0; fill: #fcfcfc; opacity: 1; }
+                96%, 100% { stroke-dashoffset: 0; opacity: 0; fill: transparent; }
+            }
+
+            /* Trust Boundary */
+            .boundary {
+                fill: rgba(49, 130, 189, 0.05);
+                stroke: #3182bd;
+                stroke-width: 2;
+                stroke-dasharray: 8 6;
+                opacity: 0;
+                animation: fadeBoundary 12s ease infinite;
+                pointer-events: none;
+            }
+            @keyframes fadeBoundary {
+                0%, 15% { opacity: 0; }
+                20%, 92% { opacity: 1; }
+                96%, 100% { opacity: 0; }
+            }
+
+            /* Data Path Bases */
+            .path-valid-base {
+                fill: none;
+                stroke: #cccccc;
+                stroke-width: 3;
+                stroke-dasharray: 600;
+                stroke-dashoffset: 600;
+                animation: drawValidPath 12s ease infinite;
+            }
+            @keyframes drawValidPath {
+                0%, 25% { stroke-dashoffset: 600; stroke: #cccccc; opacity: 1; }
+                35% { stroke-dashoffset: 0; stroke: #cccccc; opacity: 1; }
+                40%, 92% { stroke-dashoffset: 0; stroke: #a1d99b; opacity: 1; }
+                96%, 100% { opacity: 0; }
+            }
+
+            .path-invalid-base {
+                fill: none;
+                stroke: #cccccc;
+                stroke-width: 3;
+                stroke-dasharray: 600;
+                stroke-dashoffset: 600;
+                animation: drawInvalidPath 12s ease infinite;
+            }
+            @keyframes drawInvalidPath {
+                0%, 25% { stroke-dashoffset: 600; opacity: 1; stroke: #cccccc; }
+                35%, 50% { stroke-dashoffset: 0; opacity: 1; stroke: #cccccc; }
+                55%, 65% { stroke: #d62728; opacity: 0.5; }
+                60% { stroke: #ff9896; opacity: 0.5; }
+                70%, 92% { stroke-dashoffset: 0; opacity: 1; stroke: #ff9896; }
+                96%, 100% { opacity: 0; }
+            }
+
+            /* Moving Data Flows */
+            .flow-valid {
+                fill: none;
+                stroke: #31a354;
+                stroke-width: 3;
+                stroke-dasharray: 10 10;
+                stroke-linecap: round;
+                opacity: 0;
+                animation: moveValidFlow 12s linear infinite;
+            }
+            @keyframes moveValidFlow {
+                0%, 35% { opacity: 0; stroke-dashoffset: 120; }
+                40% { opacity: 1; stroke-dashoffset: 100; }
+                92% { opacity: 1; stroke-dashoffset: -108; }
+                96%, 100% { opacity: 0; }
+            }
+
+            .flow-invalid {
+                fill: none;
+                stroke: #999;
+                stroke-width: 2.5;
+                stroke-dasharray: 10 10;
+                stroke-linecap: round;
+                opacity: 0;
+                animation: moveInvalidFlow 12s linear infinite;
+            }
+            @keyframes moveInvalidFlow {
+                0%, 35% { opacity: 0; stroke-dashoffset: 120; stroke: #999; stroke-width: 2.5;}
+                40% { opacity: 1; stroke-dashoffset: 100; stroke: #999; stroke-width: 2.5; }
+                50% { stroke: #999; stroke-width: 2.5; }
+                55%, 65% { stroke: #d62728; stroke-width: 4; }
+                60% { stroke: #ff9896; stroke-width: 4; }
+                70%, 92% { opacity: 1; stroke-dashoffset: -20; stroke: #d62728; stroke-width: 3; }
+                96%, 100% { opacity: 0; }
+            }
+
+            /* Callout Annotation */
+            .callout-line {
+                fill: none;
+                stroke: #d62728;
+                stroke-width: 1.5;
+                stroke-dasharray: 200;
+                stroke-dashoffset: 200;
+                animation: drawCallout 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            }
+            @keyframes drawCallout {
+                0%, 55% { stroke-dashoffset: 200; opacity: 1; }
+                60%, 92% { stroke-dashoffset: 0; opacity: 1; }
+                96%, 100% { stroke-dashoffset: 0; opacity: 0; }
+            }
+
+            .callout-marker, .callout-text {
+                opacity: 0;
+                animation: fadeCalloutText 12s ease infinite;
+            }
+            @keyframes fadeCalloutText {
+                0%, 58% { opacity: 0; }
+                62%, 92% { opacity: 1; }
+                96%, 100% { opacity: 0; }
+            }
+
+            /* Common Text Fades */
+            .text-fade {
+                opacity: 0;
+                animation: fadeText 12s ease infinite;
+            }
+            @keyframes fadeText {
+                0%, 20% { opacity: 0; }
+                25%, 92% { opacity: 1; }
+                96%, 100% { opacity: 0; }
+            }
+
+            /* Drop Pin */
+            .pin-icon {
+                opacity: 0;
+                transform-origin: 180px 220px;
+                animation: dropPin 12s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+            }
+            @keyframes dropPin {
+                0%, 20% { opacity: 0; transform: translateY(-40px) scale(0.5); }
+                25%, 92% { opacity: 1; transform: translateY(0) scale(1); }
+                96%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+            }
+        </style>
+    </defs>
+
+    <!-- Background & Grid -->
+    <rect width="100%" height="100%" fill="#ffffff" />
+    <rect width="100%" height="100%" fill="url(#grid)" />
+
+    <!-- D3 Style Axes -->
+    <g stroke="#d0d0d0" stroke-width="1" fill="none" pointer-events="none">
+        <path d="M 40 20 V 380 H 760" />
+        <path d="M 36 100 H 40 M 36 200 H 40 M 36 300 H 40" />
+        <path d="M 200 380 V 384 M 400 380 V 384 M 600 380 V 384" />
+    </g>
+    <g font-family="system-ui, sans-serif" font-size="10" fill="#a0a0a0" pointer-events="none">
+        <text x="30" y="104" text-anchor="end">100</text>
+        <text x="30" y="204" text-anchor="end">200</text>
+        <text x="30" y="304" text-anchor="end">300</text>
+        <text x="200" y="398" text-anchor="middle">200</text>
+        <text x="400" y="398" text-anchor="middle">400</text>
+        <text x="600" y="398" text-anchor="middle">600</text>
+    </g>
+
+    <!-- Trust Boundary -->
+    <rect class="boundary" x="70" y="50" width="460" height="340" rx="8" />
+    <g class="text-fade" font-family="system-ui, sans-serif">
+        <text x="80" y="75" font-size="12" font-weight="bold" fill="#3182bd" letter-spacing="1">TRUST BOUNDARY</text>
+        <text x="80" y="90" font-size="11" fill="#666">Corporate Intranet</text>
+    </g>
+
+    <!-- Floor Plan Walls -->
+    <g>
+        <!-- Trust Root Room -->
+        <path class="wall" d="M 260 200 V 140 H 100 V 300 H 260 V 240" />
+        <!-- Skill Room A -->
+        <path class="wall" d="M 380 200 H 340 V 80 H 460 V 200 H 420" />
+        <!-- Skill Room B -->
+        <path class="wall" d="M 380 240 H 340 V 360 H 460 V 240 H 420" />
+        <!-- Untrusted Zone -->
+        <path class="wall" d="M 620 240 V 300 H 760 V 140 H 620 V 200" />
+        
+        <!-- Corridor Upper & Lower -->
+        <path class="wall" d="M 260 200 H 380" />
+        <path class="wall" d="M 420 200 H 620" />
+        <path class="wall" d="M 260 240 H 380" />
+        <path class="wall" d="M 420 240 H 620" />
+    </g>
+
+    <!-- Floor Plan Text Labels -->
+    <g class="text-fade" font-family="system-ui, sans-serif">
+        <!-- Skill Room A -->
+        <text x="400" y="135" text-anchor="middle" font-size="14" font-weight="600" fill="#333">Skill Room A</text>
+        <text x="400" y="152" text-anchor="middle" font-size="11" fill="#666">Internal Access</text>
+        
+        <!-- Skill Room B -->
+        <text x="400" y="295" text-anchor="middle" font-size="14" font-weight="600" fill="#333">Skill Room B</text>
+        <text x="400" y="312" text-anchor="middle" font-size="11" fill="#666">Internal Access</text>
+
+        <!-- Untrusted Zone -->
+        <text x="690" y="215" text-anchor="middle" font-size="14" font-weight="600" fill="#333">Untrusted Zone</text>
+        <text x="690" y="232" text-anchor="middle" font-size="11" fill="#666">External Network</text>
+    </g>
+
+    <!-- Fire Escape Exits -->
+    <g class="text-fade" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#31a354">
+        <text x="240" y="223" text-anchor="middle">EXIT</text>
+        <text x="400" y="195" text-anchor="middle">EXIT</text>
+        <text x="400" y="249" text-anchor="middle">EXIT</text>
+        <text x="635" y="223" text-anchor="middle">EXIT</text>
+    </g>
+
+    <!-- Data Paths Base -->
+    <path class="path-valid-base" d="M 180 220 H 400 V 140" />
+    <path class="path-valid-base" d="M 180 220 H 400 V 300" />
+    <path class="path-invalid-base" d="M 180 220 H 690" />
+
+    <!-- Animated Data Flows -->
+    <path class="flow-valid" d="M 180 220 H 400 V 140" />
+    <path class="flow-valid" d="M 180 220 H 400 V 300" />
+    <path class="flow-invalid" d="M 180 220 H 690" />
+
+    <!-- Out of Scope Annotation Callout -->
+    <g>
+        <path class="callout-line" d="M 530 220 L 560 120 H 640" />
+        <circle class="callout-marker" cx="530" cy="220" r="4" fill="#d62728" />
+        <text class="callout-text" x="645" y="124" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#d62728">Out of scope.</text>
+    </g>
+
+    <!-- Trust Root Pin & Label -->
+    <g class="text-fade">
+        <rect x="110" y="245" width="140" height="24" fill="rgba(255,255,255,0.9)" stroke="#ccc" stroke-width="1" rx="4"/>
+        <text x="180" y="261" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#333">Trust Root: acme.com</text>
+        <text x="180" y="165" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#d62728">You Are Here</text>
+    </g>
+
+    <g class="pin-icon">
+        <path d="M 180 220 C 180 220 166 200 166 186 A 14 14 0 1 1 194 186 C 194 200 180 220 180 220 Z" fill="#d62728" />
+        <circle cx="180" cy="186" r="5" fill="#fff" />
+    </g>
+
+</svg>

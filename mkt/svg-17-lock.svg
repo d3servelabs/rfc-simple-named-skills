@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="100%" height="100%">
+<style>
+  * { font-family: system-ui, -apple-system, sans-serif; }
+  .scene { animation: sceneFade 12s infinite; }
+  
+  .l1 { animation: lock1 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .l2 { animation: lock2 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .l3 { animation: lock3 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .l4 { animation: lock4 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+  .sh1 { animation: shack1 12s infinite; transform-origin: center; }
+  .sh2 { animation: shack2 12s infinite; transform-origin: center; }
+  .sh3 { animation: shack3 12s infinite; transform-origin: center; }
+  .sh4 { animation: shack4 12s infinite; transform-origin: center; }
+
+  .sp1 { animation: spark1 12s ease-out infinite; transform-origin: center -10px; }
+  .sp2 { animation: spark2 12s ease-out infinite; transform-origin: center -10px; }
+  .sp3 { animation: spark3 12s ease-out infinite; transform-origin: center -10px; }
+  .sp4 { animation: spark4 12s ease-out infinite; transform-origin: center -10px; }
+
+  .a1 { animation: arc1 12s ease-in-out infinite; stroke-dasharray: 500; stroke-dashoffset: 500; }
+  .a2 { animation: arc2 12s ease-in-out infinite; stroke-dasharray: 500; stroke-dashoffset: 500; }
+  .a3 { animation: arc3 12s ease-in-out infinite; stroke-dasharray: 500; stroke-dashoffset: 500; }
+
+  .main-txt { animation: textIn 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+  @keyframes sceneFade {
+    0%, 90% { opacity: 1; }
+    95%, 100% { opacity: 0; }
+  }
+
+  @keyframes lock1 {
+    0%, 4% { opacity: 0; transform: translate(195px, 200px); }
+    6%, 100% { opacity: 1; transform: translate(195px, 230px); }
+  }
+  @keyframes lock2 {
+    0%, 15% { opacity: 0; transform: translate(425px, 240px); }
+    17%, 100% { opacity: 1; transform: translate(425px, 270px); }
+  }
+  @keyframes lock3 {
+    0%, 27% { opacity: 0; transform: translate(285px, 245px); }
+    29%, 100% { opacity: 1; transform: translate(285px, 275px); }
+  }
+  @keyframes lock4 {
+    0%, 39% { opacity: 0; transform: translate(530px, 190px); }
+    41%, 100% { opacity: 1; transform: translate(530px, 220px); }
+  }
+
+  @keyframes arc1 {
+    0%, 10% { stroke-dashoffset: 500; opacity: 0; }
+    11% { opacity: 1; stroke-dashoffset: 500; }
+    16%, 100% { stroke-dashoffset: 0; opacity: 1; }
+  }
+  @keyframes arc2 {
+    0%, 22% { stroke-dashoffset: 500; opacity: 0; }
+    23% { opacity: 1; stroke-dashoffset: 500; }
+    28%, 100% { stroke-dashoffset: 0; opacity: 1; }
+  }
+  @keyframes arc3 {
+    0%, 34% { stroke-dashoffset: 500; opacity: 0; }
+    35% { opacity: 1; stroke-dashoffset: 500; }
+    40%, 100% { stroke-dashoffset: 0; opacity: 1; }
+  }
+
+  @keyframes shack1 {
+    0%, 7% { transform: translateY(-4px); }
+    9%, 100% { transform: translateY(0); }
+  }
+  @keyframes shack2 {
+    0%, 18% { transform: translateY(-4px); }
+    20%, 100% { transform: translateY(0); }
+  }
+  @keyframes shack3 {
+    0%, 30% { transform: translateY(-4px); }
+    32%, 100% { transform: translateY(0); }
+  }
+  @keyframes shack4 {
+    0%, 42% { transform: translateY(-4px); }
+    44%, 100% { transform: translateY(0); }
+  }
+
+  @keyframes spark1 {
+    0%, 8% { opacity: 0; transform: scale(0.5); }
+    9% { opacity: 1; transform: scale(1); }
+    13%, 100% { opacity: 0; transform: scale(1.5); }
+  }
+  @keyframes spark2 {
+    0%, 19% { opacity: 0; transform: scale(0.5); }
+    20% { opacity: 1; transform: scale(1); }
+    24%, 100% { opacity: 0; transform: scale(1.5); }
+  }
+  @keyframes spark3 {
+    0%, 31% { opacity: 0; transform: scale(0.5); }
+    32% { opacity: 1; transform: scale(1); }
+    36%, 100% { opacity: 0; transform: scale(1.5); }
+  }
+  @keyframes spark4 {
+    0%, 43% { opacity: 0; transform: scale(0.5); }
+    44% { opacity: 1; transform: scale(1); }
+    48%, 100% { opacity: 0; transform: scale(1.5); }
+  }
+
+  @keyframes textIn {
+    0%, 50% { opacity: 0; transform: translateY(15px); }
+    55%, 100% { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<rect width="100%" height="100%" fill="#FFFFFF" />
+
+<g class="scene">
+  <!-- Ground Plot -->
+  <polygon points="350,380 80,245 400,85 670,220" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8 4" />
+
+  <!-- Base Shadow -->
+  <polygon points="350,340 150,240 0,315 200,415" fill="#E2E8F0" />
+
+  <!-- Right Wall -->
+  <polygon points="350,340 600,215 600,115 350,240" fill="#0EA5E9" />
+  
+  <!-- Left Wall -->
+  <polygon points="350,340 150,240 150,140 350,240" fill="#0284C7" />
+
+  <!-- Window 1 (Right Wall) -->
+  <polygon points="400,205 450,180 450,155 400,180" fill="#BAE6FD" />
+  <polygon points="400,205 450,180 450,155 400,180" fill="none" stroke="#0284C7" stroke-width="2" />
+
+  <!-- Window 2 (Right Wall) -->
+  <polygon points="500,155 550,130 550,105 500,130" fill="#BAE6FD" />
+  <polygon points="500,155 550,130 550,105 500,130" fill="none" stroke="#0284C7" stroke-width="2" />
+
+  <!-- Door 1: DNS + TLS (Left Wall) -->
+  <polygon points="170,250 220,275 220,215 170,190" fill="#0369A1" />
+  <polygon points="172,251 218,274 218,216 172,193" fill="#F8FAFC" />
+
+  <!-- Door 2: Webhook / Garage (Left Wall) -->
+  <polygon points="250,290 320,325 320,270 250,235" fill="#0369A1" />
+  <polygon points="252,291 318,324 318,271 252,238" fill="#F8FAFC" />
+  <line x1="252" y1="277" x2="318" y2="310" stroke="#CBD5E1" stroke-width="1.5" />
+  <line x1="252" y1="263" x2="318" y2="296" stroke="#CBD5E1" stroke-width="1.5" />
+  <line x1="252" y1="249" x2="318" y2="282" stroke="#CBD5E1" stroke-width="1.5" />
+
+  <!-- Door 3: API (Right Wall) -->
+  <polygon points="400,315 450,290 450,230 400,255" fill="#0284C7" />
+  <polygon points="402,314 448,291 448,232 402,255" fill="#F8FAFC" />
+
+  <!-- Door 4: SKILL.md (Right Wall) -->
+  <polygon points="500,265 560,235 560,175 500,205" fill="#0284C7" />
+  <polygon points="502,264 558,236 558,177 502,205" fill="#F8FAFC" />
+
+  <!-- Roof -->
+  <polygon points="350,240 150,140 400,15 600,115" fill="#38BDF8" />
+  <polyline points="150,140 350,240 600,115" fill="none" stroke="#E0F2FE" stroke-width="2" />
+  <line x1="350" y1="340" x2="350" y2="240" stroke="#0369A1" stroke-width="1" />
+
+  <!-- Connection Lines & Dots -->
+  <path d="M195,190 L195,130" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" />
+  <circle cx="195" cy="190" r="2.5" fill="#94A3B8" />
+
+  <path d="M285,235 L285,80" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" />
+  <circle cx="285" cy="235" r="2.5" fill="#94A3B8" />
+
+  <path d="M425,225 L425,130" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" />
+  <circle cx="425" cy="225" r="2.5" fill="#94A3B8" />
+
+  <path d="M530,175 L530,70" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" />
+  <circle cx="530" cy="175" r="2.5" fill="#94A3B8" />
+
+  <!-- Tags -->
+  <rect x="145" y="100" width="100" height="30" rx="15" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+  <text x="195" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">DNS + TLS</text>
+
+  <rect x="235" y="50" width="100" height="30" rx="15" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+  <text x="285" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Webhook</text>
+
+  <rect x="385" y="100" width="80" height="30" rx="15" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+  <text x="425" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">API</text>
+
+  <rect x="480" y="40" width="100" height="30" rx="15" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+  <text x="530" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">SKILL.md</text>
+
+  <!-- Arcs -->
+  <path class="a1" d="M 195,230 Q 310,50 425,270" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" />
+  <path class="a2" d="M 425,270 Q 355,100 285,275" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" />
+  <path class="a3" d="M 285,275 Q 407,50 530,220" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Locks -->
+  <g class="l1">
+    <ellipse cx="0" cy="5" rx="10" ry="3" fill="#000000" opacity="0.15" />
+    <g class="sp1"><circle cx="0" cy="-10" r="15" fill="none" stroke="#FBBF24" stroke-width="3" /></g>
+    <path class="sh1" d="M -6,-16 L -6,-23 A 6 6 0 0 1 6,-23 L 6,-16" fill="none" stroke="#CBD5E1" stroke-width="3.5" stroke-linecap="round" />
+    <rect x="-11" y="-16" width="22" height="16" rx="3" fill="#F59E0B" />
+    <rect x="-9" y="-14" width="18" height="12" rx="2" fill="#FBBF24" />
+    <circle cx="0" cy="-10" r="2.5" fill="#78350F" />
+    <polygon points="-1.5,-10 1.5,-10 2.5,-3 -2.5,-3" fill="#78350F" />
+  </g>
+
+  <g class="l2">
+    <ellipse cx="0" cy="5" rx="10" ry="3" fill="#000000" opacity="0.15" />
+    <g class="sp2"><circle cx="0" cy="-10" r="15" fill="none" stroke="#FBBF24" stroke-width="3" /></g>
+    <path class="sh2" d="M -6,-16 L -6,-23 A 6 6 0 0 1 6,-23 L 6,-16" fill="none" stroke="#CBD5E1" stroke-width="3.5" stroke-linecap="round" />
+    <rect x="-11" y="-16" width="22" height="16" rx="3" fill="#F59E0B" />
+    <rect x="-9" y="-14" width="18" height="12" rx="2" fill="#FBBF24" />
+    <circle cx="0" cy="-10" r="2.5" fill="#78350F" />
+    <polygon points="-1.5,-10 1.5,-10 2.5,-3 -2.5,-3" fill="#78350F" />
+  </g>
+
+  <g class="l3">
+    <ellipse cx="0" cy="5" rx="10" ry="3" fill="#000000" opacity="0.15" />
+    <g class="sp3"><circle cx="0" cy="-10" r="15" fill="none" stroke="#FBBF24" stroke-width="3" /></g>
+    <path class="sh3" d="M -6,-16 L -6,-23 A 6 6 0 0 1 6,-23 L 6,-16" fill="none" stroke="#CBD5E1" stroke-width="3.5" stroke-linecap="round" />
+    <rect x="-11" y="-16" width="22" height="16" rx="3" fill="#F59E0B" />
+    <rect x="-9" y="-14" width="18" height="12" rx="2" fill="#FBBF24" />
+    <circle cx="0" cy="-10" r="2.5" fill="#78350F" />
+    <polygon points="-1.5,-10 1.5,-10 2.5,-3 -2.5,-3" fill="#78350F" />
+  </g>
+
+  <g class="l4">
+    <ellipse cx="0" cy="5" rx="10" ry="3" fill="#000000" opacity="0.15" />
+    <g class="sp4"><circle cx="0" cy="-10" r="15" fill="none" stroke="#FBBF24" stroke-width="3" /></g>
+    <path class="sh4" d="M -6,-16 L -6,-23 A 6 6 0 0 1 6,-23 L 6,-16" fill="none" stroke="#CBD5E1" stroke-width="3.5" stroke-linecap="round" />
+    <rect x="-11" y="-16" width="22" height="16" rx="3" fill="#F59E0B" />
+    <rect x="-9" y="-14" width="18" height="12" rx="2" fill="#FBBF24" />
+    <circle cx="0" cy="-10" r="2.5" fill="#78350F" />
+    <polygon points="-1.5,-10 1.5,-10 2.5,-3 -2.5,-3" fill="#78350F" />
+  </g>
+
+  <!-- Main Text -->
+  <g class="main-txt">
+    <text x="580" y="320" font-size="34" font-weight="900" fill="#0F172A">Same lock.</text>
+    <text x="580" y="365" font-size="34" font-weight="900" fill="#0284C7">New door.</text>
+  </g>
+</g>
+</svg>

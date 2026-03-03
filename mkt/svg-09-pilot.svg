@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="800" height="418">
+  <defs>
+    <style>
+      .passport { animation: passAnim 12s infinite cubic-bezier(0.25, 1, 0.5, 1); }
+      .stamp1 { animation: stamp1Anim 12s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: 367px 234px; }
+      .stamp2 { animation: stamp2Anim 12s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: 432px 224px; }
+      .stamp3 { animation: stamp3Anim 12s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: 400px 290px; }
+      .door-left { animation: doorL 12s infinite cubic-bezier(0.4, 0, 0.2, 1); }
+      .door-right { animation: doorR 12s infinite cubic-bezier(0.4, 0, 0.2, 1); }
+      .sunburst { animation: sunburstAnim 12s infinite linear; transform-origin: 400px 190px; }
+      .boarding-pass { animation: bpAnim 12s infinite cubic-bezier(0.2, 0.8, 0.2, 1); }
+      .glow-text { animation: glowText 12s infinite ease-in-out; }
+
+      @keyframes passAnim {
+        0%, 5% { transform: translateY(-250px); opacity: 0; }
+        12%, 85% { transform: translateY(0); opacity: 1; }
+        90%, 100% { transform: translateY(200px); opacity: 0; }
+      }
+      @keyframes stamp1Anim {
+        0%, 14% { opacity: 0; transform: scale(2.5); }
+        16%, 85% { opacity: 1; transform: scale(1); }
+        90%, 100% { opacity: 0; transform: scale(1); }
+      }
+      @keyframes stamp2Anim {
+        0%, 18% { opacity: 0; transform: scale(2.5); }
+        20%, 85% { opacity: 1; transform: scale(1); }
+        90%, 100% { opacity: 0; transform: scale(1); }
+      }
+      @keyframes stamp3Anim {
+        0%, 22% { opacity: 0; transform: scale(2.5); }
+        24%, 85% { opacity: 1; transform: scale(1); }
+        90%, 100% { opacity: 0; transform: scale(1); }
+      }
+      @keyframes doorL {
+        0%, 26% { transform: translateX(0); }
+        35%, 85% { transform: translateX(-180px); }
+        92%, 100% { transform: translateX(0); }
+      }
+      @keyframes doorR {
+        0%, 26% { transform: translateX(0); }
+        35%, 85% { transform: translateX(180px); }
+        92%, 100% { transform: translateX(0); }
+      }
+      @keyframes sunburstAnim {
+        0%, 26% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+        35% { opacity: 1; transform: scale(1) rotate(15deg); }
+        85% { opacity: 1; transform: scale(1.1) rotate(80deg); }
+        92%, 100% { opacity: 0; transform: scale(0.2) rotate(100deg); }
+      }
+      @keyframes bpAnim {
+        0%, 40% { transform: translateY(120px); opacity: 0; }
+        45%, 85% { transform: translateY(0); opacity: 1; }
+        90%, 100% { transform: translateY(120px); opacity: 0; }
+      }
+      @keyframes glowText {
+        0%, 55% { fill: #050505; }
+        60%, 80% { fill: #ffffff; }
+        85%, 100% { fill: #050505; }
+      }
+    </style>
+
+    <radialGradient id="sun-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f4c430" />
+      <stop offset="100%" stop-color="#d4a017" />
+    </radialGradient>
+
+    <clipPath id="slot-clip">
+      <rect x="0" y="0" width="800" height="300" />
+    </clipPath>
+  </defs>
+
+  <!-- Base Background -->
+  <rect width="800" height="418" fill="#050505" />
+
+  <!-- Sunburst Layer -->
+  <g class="sunburst">
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(22.5 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(45 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(67.5 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(90 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(112.5 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(135 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(157.5 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(180 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(202.5 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(225 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(247.5 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(270 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(292.5 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(315 400 190)" />
+    <polygon points="400,190 385,-100 415,-100" fill="#d4a017" transform="rotate(337.5 400 190)" />
+    
+    <circle cx="400" cy="190" r="60" fill="url(#sun-glow)" />
+    <circle cx="400" cy="190" r="45" fill="#050505" />
+    <circle cx="400" cy="190" r="35" fill="none" stroke="#d4a017" stroke-width="2" stroke-dasharray="4 4" />
+  </g>
+
+  <!-- Gate Doors -->
+  <g class="door-left">
+    <path d="M 200 60 L 350 60 L 350 80 L 375 80 L 375 100 L 400 100 L 400 320 L 200 320 Z" fill="#0a0a0a" stroke="#d4a017" stroke-width="2" />
+    <path d="M 220 80 L 330 80 L 330 100 L 355 100 L 355 120 L 380 120 L 380 300 L 220 300 Z" fill="none" stroke="#d4a017" stroke-width="1" />
+    <line x1="240" y1="80" x2="240" y2="300" stroke="#d4a017" stroke-width="1" />
+    <line x1="270" y1="80" x2="270" y2="300" stroke="#d4a017" stroke-width="1" />
+    <line x1="300" y1="80" x2="300" y2="300" stroke="#d4a017" stroke-width="1" />
+    <!-- Center Left Medallion -->
+    <path d="M 400 160 A 40 40 0 0 0 400 240 Z" fill="none" stroke="#d4a017" stroke-width="2" />
+    <path d="M 400 180 A 20 20 0 0 0 400 220 Z" fill="#d4a017" />
+  </g>
+
+  <g class="door-right">
+    <path d="M 600 60 L 450 60 L 450 80 L 425 80 L 425 100 L 400 100 L 400 320 L 600 320 Z" fill="#0a0a0a" stroke="#d4a017" stroke-width="2" />
+    <path d="M 580 80 L 470 80 L 470 100 L 445 100 L 445 120 L 420 120 L 420 300 L 580 300 Z" fill="none" stroke="#d4a017" stroke-width="1" />
+    <line x1="560" y1="80" x2="560" y2="300" stroke="#d4a017" stroke-width="1" />
+    <line x1="530" y1="80" x2="530" y2="300" stroke="#d4a017" stroke-width="1" />
+    <line x1="500" y1="80" x2="500" y2="300" stroke="#d4a017" stroke-width="1" />
+    <!-- Center Right Medallion -->
+    <path d="M 400 160 A 40 40 0 0 1 400 240 Z" fill="none" stroke="#d4a017" stroke-width="2" />
+    <path d="M 400 180 A 20 20 0 0 1 400 220 Z" fill="#d4a017" />
+  </g>
+
+  <!-- Surrounding Architecture (Hides the sliding doors) -->
+  <!-- Left Wall -->
+  <path d="M 0 0 L 150 0 L 150 418 L 0 418 Z" fill="#050505" />
+  <path d="M 50 100 L 100 100 L 100 300 L 50 300 Z" fill="none" stroke="#d4a017" stroke-width="1" />
+  <path d="M 60 110 L 90 110 L 90 290 L 60 290 Z" fill="none" stroke="#d4a017" stroke-width="1" />
+  <line x1="75" y1="110" x2="75" y2="290" stroke="#d4a017" stroke-width="1" />
+  
+  <!-- Right Wall -->
+  <path d="M 650 0 L 800 0 L 800 418 L 650 418 Z" fill="#050505" />
+  <path d="M 700 100 L 750 100 L 750 300 L 700 300 Z" fill="none" stroke="#d4a017" stroke-width="1" />
+  <path d="M 710 110 L 740 110 L 740 290 L 710 290 Z" fill="none" stroke="#d4a017" stroke-width="1" />
+  <line x1="725" y1="110" x2="725" y2="290" stroke="#d4a017" stroke-width="1" />
+
+  <!-- Top Wall -->
+  <rect x="150" y="0" width="500" height="40" fill="#050505" />
+  
+  <!-- Top Lintel -->
+  <rect x="150" y="40" width="500" height="20" fill="#0a0a0a" stroke="#d4a017" stroke-width="2" />
+  <rect x="160" y="45" width="480" height="10" fill="none" stroke="#d4a017" stroke-width="1" />
+  <!-- Lintel Diamonds -->
+  <polygon points="400,45 405,50 400,55 395,50" fill="#d4a017" />
+  <polygon points="380,45 385,50 380,55 375,50" fill="#d4a017" />
+  <polygon points="420,45 425,50 420,55 415,50" fill="#d4a017" />
+
+  <!-- Left Pillar -->
+  <rect x="150" y="60" width="50" height="260" fill="#0a0a0a" stroke="#d4a017" stroke-width="2" />
+  <rect x="160" y="60" width="30" height="260" fill="none" stroke="#d4a017" stroke-width="1" />
+  <rect x="170" y="60" width="10" height="260" fill="#d4a017" />
+  
+  <!-- Right Pillar -->
+  <rect x="600" y="60" width="50" height="260" fill="#0a0a0a" stroke="#d4a017" stroke-width="2" />
+  <rect x="610" y="60" width="30" height="260" fill="none" stroke="#d4a017" stroke-width="1" />
+  <rect x="620" y="60" width="10" height="260" fill="#d4a017" />
+
+  <!-- Lower Base Wall -->
+  <rect x="150" y="320" width="500" height="98" fill="#050505" stroke="#d4a017" stroke-width="2" />
+
+  <!-- Sliding Passport & Boarding Pass with Clip Path -->
+  <g clip-path="url(#slot-clip)">
+    <!-- Passport -->
+    <g class="passport">
+      <rect x="350" y="170" width="100" height="140" fill="#111" stroke="#d4a017" stroke-width="2" rx="4" />
+      <rect x="355" y="175" width="90" height="130" fill="none" stroke="#d4a017" stroke-width="1" stroke-dasharray="2 2" />
+      
+      <!-- Passport Emblem -->
+      <circle cx="400" cy="210" r="16" fill="none" stroke="#d4a017" stroke-width="1.5" />
+      <polygon points="400,198 404,210 396,210" fill="#d4a017" />
+      <path d="M 390 210 L 410 210 M 400 200 L 400 220" stroke="#d4a017" stroke-width="1.5" />
+      
+      <!-- Passport Text -->
+      <text x="400" y="250" font-family="Arial, sans-serif" font-size="14" fill="#d4a017" font-weight="bold" text-anchor="middle" letter-spacing="1">SKILL.md</text>
+      <line x1="365" y1="265" x2="435" y2="265" stroke="#d4a017" stroke-width="1" />
+      <line x1="365" y1="275" x2="435" y2="275" stroke="#d4a017" stroke-width="1" />
+      <line x1="365" y1="285" x2="435" y2="285" stroke="#d4a017" stroke-width="1" />
+
+      <!-- Stamps -->
+      <g class="stamp1">
+        <g transform="rotate(-15 367 234)">
+          <rect x="345" y="225" width="45" height="18" fill="#0a0a0a" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="4 2" rx="2" />
+          <text x="367" y="238" font-family="Arial, sans-serif" font-size="10" fill="#d4a017" font-weight="bold" text-anchor="middle">DNS ✓</text>
+        </g>
+      </g>
+      
+      <g class="stamp2">
+        <g transform="rotate(20 432 224)">
+          <rect x="410" y="215" width="45" height="18" fill="#0a0a0a" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="4 2" rx="2" />
+          <text x="432" y="228" font-family="Arial, sans-serif" font-size="10" fill="#d4a017" font-weight="bold" text-anchor="middle">TLS ✓</text>
+        </g>
+      </g>
+      
+      <g class="stamp3">
+        <g transform="rotate(-5 400 290)">
+          <rect x="355" y="280" width="90" height="20" fill="#0a0a0a" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="5 2" rx="2" />
+          <text x="400" y="294" font-family="Arial, sans-serif" font-size="11" fill="#d4a017" font-weight="bold" text-anchor="middle">TRUST ROOT ✓</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Boarding Pass -->
+    <g class="boarding-pass">
+      <rect x="330" y="210" width="140" height="100" fill="#d4a017" rx="4" />
+      <rect x="334" y="214" width="132" height="92" fill="none" stroke="#050505" stroke-width="1.5" stroke-dasharray="3 3" />
+      
+      <!-- Ticket Cutouts -->
+      <path d="M 330 250 L 340 250 A 10 10 0 0 1 340 270 L 330 270 Z" fill="#050505" />
+      <path d="M 470 250 L 460 250 A 10 10 0 0 0 460 270 L 470 270 Z" fill="#050505" />
+      
+      <!-- Text -->
+      <text class="glow-text" x="400" y="245" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" letter-spacing="1">VERIFIED.</text>
+      <text x="400" y="265" font-family="Arial, sans-serif" font-size="12" fill="#050505" font-weight="bold" text-anchor="middle" letter-spacing="2">PROCEED</text>
+      
+      <!-- Barcode -->
+      <path d="M 350 280 v 15 m 5 -15 v 15 m 3 -15 v 15 m 7 -15 v 15 m 2 -15 v 15 m 6 -15 v 15 m 4 -15 v 15 m 5 -15 v 15 m 2 -15 v 15 m 8 -15 v 15 m 3 -15 v 15 m 5 -15 v 15 m 5 -15 v 15 m 2 -15 v 15" stroke="#050505" stroke-width="2" />
+    </g>
+  </g>
+
+  <!-- Passport Reader Station (Pedestal Front) -->
+  <path d="M 280 418 L 280 320 L 320 300 L 480 300 L 520 320 L 520 418 Z" fill="#0a0a0a" stroke="#d4a017" stroke-width="2" />
+  <path d="M 320 300 L 480 300 L 520 320 L 280 320 Z" fill="#111" />
+  
+  <!-- Reader Slot -->
+  <line x1="330" y1="300" x2="470" y2="300" stroke="#000" stroke-width="6" />
+  <line x1="330" y1="302" x2="470" y2="302" stroke="#d4a017" stroke-width="1" />
+  
+  <!-- Pedestal Deco Lines -->
+  <line x1="300" y1="330" x2="500" y2="330" stroke="#d4a017" stroke-width="1" />
+  <line x1="300" y1="340" x2="500" y2="340" stroke="#d4a017" stroke-width="2" />
+  
+  <line x1="370" y1="340" x2="370" y2="418" stroke="#d4a017" stroke-width="1" />
+  <line x1="385" y1="340" x2="385" y2="418" stroke="#d4a017" stroke-width="2" />
+  <line x1="400" y1="340" x2="400" y2="418" stroke="#d4a017" stroke-width="3" />
+  <line x1="415" y1="340" x2="415" y2="418" stroke="#d4a017" stroke-width="2" />
+  <line x1="430" y1="340" x2="430" y2="418" stroke="#d4a017" stroke-width="1" />
+  
+  <!-- Pedestal Diamond -->
+  <polygon points="400,350 410,380 400,410 390,380" fill="#d4a017" />
+
+  <!-- Outer Art Deco Border Frame -->
+  <g id="border">
+    <rect x="10" y="10" width="780" height="398" fill="none" stroke="#d4a017" stroke-width="2" />
+    <rect x="18" y="18" width="764" height="382" fill="none" stroke="#d4a017" stroke-width="1" />
+    
+    <!-- Top Left Corner -->
+    <path d="M 10 10 L 50 10 L 50 20 L 30 20 L 30 50 L 10 50 Z" fill="#d4a017" />
+    <!-- Top Right Corner -->
+    <path d="M 790 10 L 750 10 L 750 20 L 770 20 L 770 50 L 790 50 Z" fill="#d4a017" />
+    <!-- Bottom Left Corner -->
+    <path d="M 10 408 L 50 408 L 50 398 L 30 398 L 30 368 L 10 368 Z" fill="#d4a017" />
+    <!-- Bottom Right Corner -->
+    <path d="M 790 408 L 750 408 L 750 398 L 770 398 L 770 368 L 790 368 Z" fill="#d4a017" />
+  </g>
+</svg>

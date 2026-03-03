@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" style="background-color:#F0F0ED" shape-rendering="crispEdges">
+  <defs>
+    <style>
+      .treads {
+        animation: moveTreads 0.4s linear infinite;
+      }
+      .box {
+        animation: slideBox 4s linear infinite;
+      }
+      .box-1 { animation-delay: 0s; }
+      .box-2 { animation-delay: -1s; }
+      .box-glitch { animation-delay: -2s; }
+      .box-4 { animation-delay: -3s; }
+
+      .stamp-normal {
+        animation: stampNormal 4s infinite;
+      }
+      .stamp-glitch-skull {
+        animation: stampGlitchSkull 4s infinite;
+      }
+      .stamp-glitch-normal {
+        animation: stampGlitchNormal 4s infinite;
+      }
+
+      .scanner-flash {
+        animation: stampFlash 1s infinite;
+      }
+      .siren-light {
+        animation: stampFlash 1s infinite;
+      }
+      .crack {
+        stroke-dasharray: 100;
+        animation: crackAnim 4s infinite;
+      }
+
+      @keyframes moveTreads {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(120px); }
+      }
+      @keyframes slideBox {
+        0% { transform: translate(-600px, -300px); }
+        100% { transform: translate(600px, 300px); }
+      }
+      @keyframes stampNormal {
+        0%, 49.9% { opacity: 0; }
+        50%, 100% { opacity: 1; }
+      }
+      @keyframes stampGlitchSkull {
+        0%, 42% { opacity: 0; }
+        42.1%, 49.9% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      @keyframes stampGlitchNormal {
+        0%, 49.9% { opacity: 0; }
+        50%, 100% { opacity: 1; }
+      }
+      @keyframes stampFlash {
+        0%, 15% { fill: #F0F0ED; }
+        16%, 100% { fill: #40A080; }
+      }
+      @keyframes crackAnim {
+        0%, 7% { stroke-dashoffset: 100; opacity: 0; }
+        7.1% { opacity: 1; stroke-dashoffset: 100; }
+        15%, 80% { stroke-dashoffset: 0; opacity: 1; }
+        80.1%, 100% { stroke-dashoffset: 100; opacity: 0; }
+      }
+    </style>
+
+    <pattern id="box-dark" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#DDA95A"/>
+      <rect width="2" height="2" fill="#222323"/>
+      <rect x="2" y="2" width="2" height="2" fill="#222323"/>
+    </pattern>
+
+    <g id="box-geometry">
+      <polygon points="0,0 -48,-24 0,-48 48,-24" fill="#5C6370"/>
+      <polygon points="0,-48 48,-24 0,0 -48,-24" fill="#EFCA86" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+      <polygon points="-48,-24 0,0 0,48 -48,24" fill="#DDA95A" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+      <polygon points="0,0 48,-24 48,24 0,48" fill="url(#box-dark)" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+
+    <g id="stamp-normal" fill="#40A080">
+      <g transform="matrix(1, 0.5, 0, 1, -48, -24)">
+        <rect x="8" y="32" width="6" height="6"/>
+        <rect x="14" y="38" width="6" height="6"/>
+        <rect x="20" y="44" width="6" height="6"/>
+        <rect x="26" y="38" width="6" height="6"/>
+        <rect x="32" y="32" width="6" height="6"/>
+        <rect x="38" y="26" width="6" height="6"/>
+        <rect x="44" y="20" width="6" height="6"/>
+      </g>
+    </g>
+
+    <g id="stamp-skull" fill="#D95763">
+      <g transform="matrix(1, 0.5, 0, 1, -48, -24)">
+        <rect x="14" y="8" width="24" height="6"/>
+        <rect x="8" y="14" width="36" height="6"/>
+        <rect x="2" y="20" width="12" height="6"/>
+        <rect x="20" y="20" width="12" height="6"/>
+        <rect x="38" y="20" width="12" height="6"/>
+        <rect x="2" y="26" width="48" height="6"/>
+        <rect x="14" y="32" width="6" height="6"/>
+        <rect x="32" y="32" width="6" height="6"/>
+        <rect x="14" y="38" width="24" height="6"/>
+      </g>
+    </g>
+  </defs>
+
+  <g id="belt">
+    <polygon points="-260,-61 940,539 940,559 -260,-41" fill="#5C6370" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+    <g transform="matrix(1, 0.5, -1, 0.5, 400, 209)">
+      <polygon points="-600,-60 600,-60 600,60 -600,60" fill="#9A9FA9" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+      <g class="treads">
+        <rect x="-720" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="-600" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="-480" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="-360" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="-240" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="-120" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="0" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="120" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="240" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="360" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="480" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+        <rect x="600" y="-60" width="8" height="120" fill="#5C6370" stroke="#222323" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+
+  <g id="scanner-back">
+    <polygon points="448,13 416,29 416,169 448,153" fill="#40A080" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="480,61 512,45 512,185 480,201" fill="#5C6370" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+
+  <g id="boxes" transform="translate(400, 209)">
+    <g class="box box-1">
+      <use href="#box-geometry"/>
+      <use href="#stamp-normal" class="stamp-normal"/>
+    </g>
+    <g class="box box-2">
+      <use href="#box-geometry"/>
+      <use href="#stamp-normal" class="stamp-normal"/>
+    </g>
+    <g class="box box-glitch">
+      <use href="#box-geometry"/>
+      <use href="#stamp-skull" class="stamp-glitch-skull"/>
+      <use href="#stamp-normal" class="stamp-glitch-normal"/>
+    </g>
+    <g class="box box-4">
+      <use href="#box-geometry"/>
+      <use href="#stamp-normal" class="stamp-normal"/>
+    </g>
+  </g>
+
+  <g id="scanner-front-and-bridge">
+    <polygon points="288,93 320,77 320,217 288,233" fill="#40A080" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="384,109 352,125 352,265 384,249" fill="#5C6370" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="416,69 480,101 384,149 320,117" fill="#222323" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="416,29 320,77 320,117 416,69" fill="#40A080" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+    <polygon points="448,13 288,93 352,125 512,45" fill="#9A9FA9" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+
+    <g transform="translate(400, 69)">
+      <polygon points="0,-30 16,-22 0,-14 -16,-22" fill="#D95763" stroke="#222323" stroke-width="2" stroke-linejoin="round" class="siren-light"/>
+      <polygon points="-16,-22 0,-14 0,6 -16,-2" fill="#D95763" stroke="#222323" stroke-width="2" stroke-linejoin="round" class="siren-light"/>
+      <polygon points="0,-14 16,-22 16,-2 0,6" fill="#D95763" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+
+    <g transform="matrix(1, -0.5, 0, 1, 320, 77)">
+      <rect x="8" y="8" width="80" height="24" fill="#222323" stroke="#222323" stroke-width="2" stroke-linejoin="round"/>
+      <rect class="scanner-flash" x="12" y="12" width="72" height="16" fill="#40A080"/>
+      <path class="crack" d="M 85,32 L 65,18 L 72,12 L 40,0" stroke="#D95763" stroke-width="3" fill="none" pathLength="100" stroke-linecap="square" stroke-linejoin="miter"/>
+    </g>
+  </g>
+</svg>

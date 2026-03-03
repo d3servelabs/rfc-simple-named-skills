@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="100%" height="100%">
+    <defs>
+        <filter id="watercolor-paper" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" result="noise" />
+            <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="1.4" result="light">
+                <feDistantLight azimuth="55" elevation="60" />
+            </feDiffuseLighting>
+            <feBlend mode="multiply" in="SourceGraphic" in2="light" />
+        </filter>
+
+        <filter id="wc-edge" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+            <feGaussianBlur in="displaced" stdDeviation="0.6" result="blurred" />
+            <feMerge>
+                <feMergeNode in="blurred" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+
+        <filter id="glow-blur" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="35" />
+        </filter>
+
+        <filter id="large-blur" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="60" />
+        </filter>
+
+        <linearGradient id="mbox-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#73857F" />
+            <stop offset="100%" stop-color="#55635F" />
+        </linearGradient>
+
+        <linearGradient id="post-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#736458" />
+            <stop offset="100%" stop-color="#544940" />
+        </linearGradient>
+
+        <style>
+            .env1, .env2, .hand, .glow, .trust-signal, .letter {
+                transform-box: fill-box;
+            }
+            
+            .env1 {
+                transform-origin: center;
+                animation: env1-anim 12s infinite ease-in-out;
+            }
+            @keyframes env1-anim {
+                0%, 5% { transform: translateX(300px); opacity: 0; }
+                12%, 35% { transform: translateX(0); opacity: 1; }
+                42%, 100% { transform: translateX(-150px); opacity: 0; }
+            }
+
+            .qmark {
+                transform-origin: center bottom;
+                animation: qmark-anim 12s infinite ease-in-out;
+            }
+            @keyframes qmark-anim {
+                0%, 14% { transform: translateY(20px) scale(0.8); opacity: 0; }
+                18% { transform: translateY(-5px) scale(1.1); opacity: 1; }
+                22% { transform: translateY(0) scale(1); opacity: 1; }
+                28% { transform: translateY(-6px) scale(1.03); opacity: 1; }
+                35% { transform: translateY(0) scale(1); opacity: 1; }
+                42%, 100% { transform: translateY(15px) scale(0.9); opacity: 0; }
+            }
+
+            .env2 {
+                transform-origin: center;
+                animation: env2-anim 12s infinite ease-in-out;
+            }
+            @keyframes env2-anim {
+                0%, 42% { transform: translateX(300px); opacity: 0; }
+                50%, 88% { transform: translateX(0); opacity: 1; }
+                96%, 100% { transform: translateX(-150px); opacity: 0; }
+            }
+
+            .glow {
+                transform-origin: center;
+                animation: glow-anim 12s infinite ease-in-out;
+            }
+            @keyframes glow-anim {
+                0%, 48% { opacity: 0; transform: scale(0.8); }
+                54% { opacity: 0.8; transform: scale(1); }
+                70% { opacity: 0.6; transform: scale(0.95); }
+                88% { opacity: 0.8; transform: scale(1); }
+                96%, 100% { opacity: 0; transform: scale(1.1); }
+            }
+
+            .hand {
+                transform-origin: bottom right;
+                animation: hand-anim 12s infinite ease-in-out;
+            }
+            @keyframes hand-anim {
+                0%, 52% { transform: translate(150px, 150px); opacity: 0; }
+                62%, 88% { transform: translate(0, 0); opacity: 1; }
+                96%, 100% { transform: translate(-150px, 20px); opacity: 0; }
+            }
+
+            .letter {
+                animation: letter-anim 12s infinite ease-in-out;
+            }
+            @keyframes letter-anim {
+                0%, 65% { transform: translateY(0); }
+                72%, 100% { transform: translateY(-45px); }
+            }
+
+            .trust-signal {
+                transform-origin: center;
+                animation: trust-anim 12s infinite ease-in-out;
+            }
+            @keyframes trust-anim {
+                0%, 52% { transform: scale(1); }
+                55% { transform: scale(1.05); }
+                58%, 100% { transform: scale(1); }
+            }
+        </style>
+    </defs>
+
+    <g filter="url(#watercolor-paper)">
+        <!-- Watercolor Background Wash -->
+        <rect width="100%" height="100%" fill="#EBE5DC" />
+        <circle cx="200" cy="100" r="300" fill="#D5CFC5" opacity="0.7" filter="url(#large-blur)" />
+        <circle cx="650" cy="350" r="350" fill="#C3CAC6" opacity="0.6" filter="url(#large-blur)" />
+        <circle cx="450" cy="200" r="250" fill="#E6DCD1" opacity="0.7" filter="url(#large-blur)" />
+        <circle cx="100" cy="350" r="200" fill="#D0C2B8" opacity="0.5" filter="url(#large-blur)" />
+
+        <!-- Rustic Mailbox (Left) -->
+        <g class="mailbox">
+            <!-- Post -->
+            <path d="M 160 250 L 180 250 L 180 450 L 160 450 Z" fill="url(#post-grad)" filter="url(#wc-edge)" />
+            <!-- Box Body -->
+            <path d="M 110 190 C 110 130, 230 130, 230 190 L 230 250 L 110 250 Z" fill="url(#mbox-grad)" filter="url(#wc-edge)" />
+            <!-- Box Interior -->
+            <path d="M 120 195 C 120 145, 220 145, 220 195 L 220 245 L 120 245 Z" fill="#3A4340" filter="url(#wc-edge)" />
+            <!-- Open Door -->
+            <path d="M 110 250 L 230 250 L 240 320 L 100 320 Z" fill="#667571" filter="url(#wc-edge)" />
+            <!-- Flag (Down/Resting) -->
+            <path d="M 225 200 L 245 200 L 245 220 L 310 220 L 310 240 L 245 240 L 245 250 L 225 250 Z" fill="#B0655B" filter="url(#wc-edge)" />
+            <!-- Detail Lines -->
+            <path d="M 110 250 L 230 250" stroke="#4A5652" stroke-width="3" filter="url(#wc-edge)" opacity="0.8"/>
+            <path d="M 120 195 C 120 145, 220 145, 220 195" stroke="#252A28" stroke-width="2" filter="url(#wc-edge)" opacity="0.5" fill="none"/>
+        </g>
+
+        <!-- Envelope 1 (Unknown Sender) -->
+        <g class="env1">
+            <!-- Back Sleeve -->
+            <path d="M 350 140 L 550 142 L 548 260 L 352 261 Z" fill="#9BA7B3" filter="url(#wc-edge)" />
+            <!-- Front Sleeve -->
+            <path d="M 350 140 Q 450 165 550 142 L 548 260 Q 450 264 352 261 Z" fill="#A8B4C0" filter="url(#wc-edge)" />
+            <!-- Shading line -->
+            <path d="M 350 140 Q 450 165 550 142" stroke="#8A97A3" stroke-width="2" fill="none" opacity="0.6" filter="url(#wc-edge)"/>
+            
+            <!-- Floating Question Mark -->
+            <g class="qmark">
+                <text x="450" y="120" font-family="'Georgia', serif" font-size="76" font-weight="bold" fill="#3B4856" text-anchor="middle" filter="url(#wc-edge)">?</text>
+            </g>
+        </g>
+
+        <!-- Envelope 2 (Trusted Sender) -->
+        <g class="env2">
+            <!-- Warm Glow -->
+            <ellipse class="glow" cx="450" cy="200" rx="150" ry="100" fill="#F0C784" filter="url(#glow-blur)" />
+
+            <!-- Back Sleeve -->
+            <path d="M 350 140 L 550 142 L 548 260 L 352 261 Z" fill="#DCC6A0" filter="url(#wc-edge)" />
+            
+            <!-- The Letter -->
+            <g class="letter">
+                <path d="M 360 145 L 540 147 L 538 250 L 362 248 Z" fill="#FCF7F0" filter="url(#wc-edge)" />
+                <path d="M 380 170 L 520 172 M 380 190 L 500 192 M 380 210 L 470 210" stroke="#C2B5A5" stroke-width="4" stroke-linecap="round" fill="none" filter="url(#wc-edge)"/>
+                <circle cx="400" cy="230" r="10" fill="#C79F5E" opacity="0.6" filter="url(#wc-edge)"/>
+            </g>
+
+            <!-- Front Sleeve -->
+            <path d="M 350 140 Q 450 165 550 142 L 548 260 Q 450 264 352 261 Z" fill="#F4E9D5" filter="url(#wc-edge)" />
+            <path d="M 350 140 Q 450 165 550 142" stroke="#D1BE99" stroke-width="2" fill="none" opacity="0.6" filter="url(#wc-edge)"/>
+
+            <!-- Trust Signals (Return Address & Stamp) -->
+            <g class="trust-signal">
+                <!-- Return Address Text -->
+                <text x="370" y="195" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#4D3A29" filter="url(#wc-edge)">acme.com</text>
+                <path d="M 370 202 L 442 202" stroke="#B86E59" stroke-width="2.5" stroke-linecap="round" opacity="0.8" filter="url(#wc-edge)" />
+            </g>
+
+            <!-- Postal Stamp -->
+            <g filter="url(#wc-edge)">
+                <rect x="505" y="165" width="28" height="34" fill="#B86E59" rx="1" />
+                <circle cx="519" cy="182" r="7" stroke="#F4E9D5" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <path d="M 515 182 L 523 182 M 519 178 L 519 186" stroke="#F4E9D5" stroke-width="1.5" opacity="0.7"/>
+            </g>
+        </g>
+
+        <!-- Hand Reaching In -->
+        <g class="hand">
+            <!-- Arm and Palm Background -->
+            <path d="M 520 250 C 495 240, 475 260, 480 280 C 485 300, 495 310, 515 320 C 525 350, 545 390, 535 450 L 660 450 C 660 350, 610 300, 590 280 Z" fill="#D6BAA6" filter="url(#wc-edge)" />
+            <!-- Thumb Crease/Detail -->
+            <path d="M 505 265 C 510 285, 530 295, 545 295" stroke="#BF9D89" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.7" filter="url(#wc-edge)" />
+            <path d="M 485 275 C 490 290, 505 300, 520 305" stroke="#BF9D89" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5" filter="url(#wc-edge)" />
+        </g>
+    </g>
+</svg>

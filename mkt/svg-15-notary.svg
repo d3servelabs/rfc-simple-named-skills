@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="800" height="418">
+    <defs>
+        <!-- Wobble filter for hand-drawn organic feel -->
+        <filter id="wobble" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+
+        <!-- Heavy wobble for wood grain -->
+        <filter id="heavyWobble" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+
+        <!-- Paper filter: wobble + drop shadow -->
+        <filter id="paperFilter" x="-10%" y="-10%" width="130%" height="130%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" result="wobbled" />
+            <feDropShadow dx="3" dy="5" stdDeviation="5" flood-color="#1a1a1a" flood-opacity="0.5" in="wobbled" result="shadow" />
+            <feMerge>
+                <feMergeNode in="shadow" />
+                <feMergeNode in="wobbled" />
+            </feMerge>
+        </filter>
+
+        <!-- Ink bleed filter for spreading ink effect -->
+        <filter id="inkBleedFilter" x="-30%" y="-30%" width="160%" height="160%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+            <feGaussianBlur in="displaced" stdDeviation="3" result="blurred" />
+            <feColorMatrix in="blurred" type="matrix" values="
+                1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 5 -1.5" />
+        </filter>
+
+        <!-- Wood Desk Gradient -->
+        <linearGradient id="deskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8b6914" />
+            <stop offset="50%" stop-color="#7a5810" />
+            <stop offset="100%" stop-color="#604308" />
+        </linearGradient>
+
+        <!-- Document Glow Radial Gradient -->
+        <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c47a5a" stop-opacity="0.7" />
+            <stop offset="60%" stop-color="#c47a5a" stop-opacity="0.2" />
+            <stop offset="100%" stop-color="#c47a5a" stop-opacity="0" />
+        </radialGradient>
+
+        <!-- Reusable Leaf Shape -->
+        <path id="leaf" d="M 0,0 C -12,-16 -28,-12 -32,0 C -28,12 -12,16 0,0" />
+
+        <!-- Text Paths for Stamp -->
+        <!-- Outer rings (Radius 52) -->
+        <path id="outerTop" d="M 468,260 A 52 52 0 0 1 572 260" />
+        <path id="outerBot" d="M 572,260 A 52 52 0 0 1 468 260" />
+        <!-- Inner rings (Radius 36) -->
+        <path id="innerTop" d="M 484,260 A 36 36 0 0 1 556 260" />
+        <path id="innerBot" d="M 556,260 A 36 36 0 0 1 484 260" />
+    </defs>
+
+    <style>
+        /* Master fade in/out for seamless loop */
+        @keyframes masterFade {
+            0%, 2% { opacity: 0; transform: translateY(10px); }
+            10%, 92% { opacity: 1; transform: translateY(0); }
+            98%, 100% { opacity: 0; transform: translateY(-10px); }
+        }
+
+        /* Document Glow Pulse */
+        @keyframes glowPulse {
+            0%, 18% { opacity: 0; }
+            30%, 100% { opacity: 0.6; }
+        }
+
+        /* Vine Growth */
+        @keyframes vineGrow {
+            0%, 19% { stroke-dashoffset: 1500; opacity: 1; }
+            45%, 100% { stroke-dashoffset: 0; opacity: 1; }
+        }
+
+        /* Leaf Appearance */
+        @keyframes leafFade {
+            0%, 35% { opacity: 0; }
+            50%, 100% { opacity: 1; }
+        }
+
+        /* Stamp Descend and Impact */
+        @keyframes stampLand {
+            0%, 12% { transform: translateY(-200px) scale(1.3) rotate(-15deg); opacity: 0; }
+            17% { transform: translateY(-40px) scale(1.1) rotate(5deg); opacity: 1; }
+            19% { transform: translateY(0) scale(0.95) rotate(-2deg); opacity: 1; }
+            21% { transform: translateY(0) scale(1.02) rotate(1deg); opacity: 1; }
+            23%, 100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        /* Ink Spread Dynamics */
+        @keyframes bleedAnim {
+            0%, 18% { opacity: 0; transform: scale(0.8); }
+            20% { opacity: 0.9; transform: scale(1.02); }
+            40%, 100% { opacity: 0.7; transform: scale(1.15); }
+        }
+
+        /* Text Verification Fade */
+        @keyframes textFade {
+            0%, 45% { opacity: 0; }
+            55%, 100% { opacity: 1; }
+        }
+
+        /* Animation Assignments */
+        .document-master { animation: masterFade 8s infinite ease-in-out; }
+        .doc-glow { animation: glowPulse 8s infinite ease-in-out; }
+        .vine-path {
+            stroke-dasharray: 1500;
+            stroke-dashoffset: 1500;
+            animation: vineGrow 8s infinite ease-in-out;
+        }
+        .leaf-group { animation: leafFade 8s infinite ease-out; }
+        .stamp { animation: stampLand 8s infinite ease-out; transform-origin: 520px 260px; }
+        .ink-bleed { animation: bleedAnim 8s infinite ease-out; transform-origin: 520px 260px; }
+        .verification-text { animation: textFade 8s infinite ease-out; }
+    </style>
+
+    <!-- Desk Background -->
+    <rect width="100%" height="100%" fill="url(#deskGrad)" />
+    
+    <!-- Desk Wood Grain Elements -->
+    <g stroke="#3a2a08" stroke-width="3" opacity="0.35" filter="url(#heavyWobble)" fill="none">
+        <line x1="-50" y1="40" x2="850" y2="50" />
+        <line x1="-50" y1="90" x2="850" y2="85" />
+        <line x1="-50" y1="140" x2="850" y2="150" />
+        <line x1="-50" y1="190" x2="850" y2="180" />
+        <line x1="-50" y1="240" x2="850" y2="250" />
+        <line x1="-50" y1="290" x2="850" y2="285" />
+        <line x1="-50" y1="340" x2="850" y2="350" />
+        <line x1="-50" y1="390" x2="850" y2="380" />
+        <!-- Wood Knots -->
+        <ellipse cx="150" cy="115" rx="40" ry="12" />
+        <ellipse cx="150" cy="115" rx="15" ry="4" />
+        <ellipse cx="680" cy="305" rx="45" ry="15" />
+        <ellipse cx="680" cy="305" rx="20" ry="6" />
+        <path d="M 90,115 C 90,80 210,80 210,115 C 210,150 90,150 90,115" />
+    </g>
+
+    <!-- Subtle background desk smudges -->
+    <path d="M 50,300 C 40,280 20,285 15,300 C 20,315 40,320 50,300 Z" fill="#36454f" opacity="0.1" />
+    <path d="M 720,100 C 740,80 760,85 765,100 C 760,115 740,120 720,100 Z" fill="#36454f" opacity="0.1" />
+
+    <!-- Document and All Animated Elements -->
+    <g class="document-master">
+        
+        <!-- Warm Earthy Glow behind the document -->
+        <ellipse class="doc-glow" cx="400" cy="210" rx="300" ry="220" fill="url(#glowGrad)" pointer-events="none" />
+
+        <!-- The Paper Document -->
+        <path d="M 190,45 L 610,55 L 600,375 L 200,365 Z" fill="#F9F6F0" stroke="#36454f" stroke-width="3" filter="url(#paperFilter)" />
+
+        <!-- Hand-drawn Document Content -->
+        <g class="doc-text" fill="#36454f" filter="url(#wobble)">
+            <!-- Title -->
+            <text x="400" y="110" font-family="monospace, sans-serif" font-size="34" font-weight="bold" text-anchor="middle">SKILL.md</text>
+            <!-- Squiggly lines representing handwritten text -->
+            <path d="M 240,150 Q 260,145 280,155 T 320,145 T 360,155 T 400,145 T 440,155 T 480,145 T 520,155 T 560,150" fill="none" stroke="#36454f" stroke-width="4" stroke-linecap="round" />
+            <path d="M 230,180 Q 250,175 270,185 T 310,175 T 350,185 T 390,175 T 430,185 T 470,175 T 510,185 T 550,180" fill="none" stroke="#36454f" stroke-width="4" stroke-linecap="round" />
+            <path d="M 250,210 Q 270,205 290,215 T 330,205 T 370,215 T 410,205 T 450,215 T 490,205 T 530,210" fill="none" stroke="#36454f" stroke-width="4" stroke-linecap="round" />
+            <path d="M 240,240 Q 260,235 280,245 T 320,235 T 360,245 T 400,235 T 440,245 T 480,240" fill="none" stroke="#36454f" stroke-width="4" stroke-linecap="round" />
+            <path d="M 235,270 Q 255,265 275,275 T 315,265 T 355,275 T 395,265 T 435,275" fill="none" stroke="#36454f" stroke-width="4" stroke-linecap="round" />
+        </g>
+
+        <!-- Growing Green Vine Path -->
+        <path class="vine-path" d="M 180,90 Q 170,40 250,45 T 400,50 T 600,45 Q 620,70 610,150 T 610,280 Q 610,380 500,370 T 300,375 Q 180,380 190,250 T 180,90" fill="none" stroke="#5a7247" stroke-width="6" stroke-linecap="round" filter="url(#wobble)" />
+
+        <!-- Leaves blooming along the vine -->
+        <g class="leaf-group" fill="#5a7247" filter="url(#wobble)">
+            <use href="#leaf" transform="translate(250, 45) rotate(200)" />
+            <use href="#leaf" transform="translate(400, 50) rotate(180)" />
+            <use href="#leaf" transform="translate(580, 47) rotate(130)" />
+            <use href="#leaf" transform="translate(610, 150) rotate(100)" />
+            <use href="#leaf" transform="translate(605, 280) rotate(70)" />
+            <use href="#leaf" transform="translate(500, 370) rotate(20)" />
+            <use href="#leaf" transform="translate(300, 375) rotate(-10)" />
+            <use href="#leaf" transform="translate(190, 250) rotate(-60)" />
+            <use href="#leaf" transform="translate(185, 120) rotate(-100)" />
+        </g>
+
+        <!-- Verification Text (Fades in last) -->
+        <text class="verification-text" x="400" y="340" font-family="Georgia, serif" font-size="20" font-style="italic" fill="#5a7247" text-anchor="middle" filter="url(#wobble)">
+            verified, rooted, trusted
+        </text>
+
+        <!-- The spreading ink effect behind the stamp -->
+        <g class="ink-bleed" filter="url(#inkBleedFilter)">
+            <circle cx="520" cy="260" r="56" fill="#c47a5a" />
+            <circle cx="510" cy="255" r="50" fill="#c47a5a" />
+            <circle cx="530" cy="265" r="52" fill="#c47a5a" />
+        </g>
+
+        <!-- The Descending Notary Stamp -->
+        <g class="stamp">
+            <!-- Stamp base background to cover document lines -->
+            <circle cx="520" cy="260" r="58" fill="#F9F6F0" opacity="0.95" />
+            
+            <!-- Stamp Outer and Inner Rings -->
+            <circle cx="520" cy="260" r="60" fill="none" stroke="#c47a5a" stroke-width="4" filter="url(#wobble)" />
+            <circle cx="520" cy="260" r="46" fill="none" stroke="#c47a5a" stroke-width="2" filter="url(#wobble)" stroke-dasharray="6 3" />
+            
+            <!-- Concentric Ring Text -->
+            <text font-family="monospace, sans-serif" font-size="14" fill="#c47a5a" font-weight="bold" filter="url(#wobble)">
+                <textPath href="#outerTop" startOffset="50%" text-anchor="middle">DNS ❋ DNS ❋ DNS</textPath>
+                <textPath href="#outerBot" startOffset="50%" text-anchor="middle">DNS ❋ DNS ❋ DNS</textPath>
+            </text>
+            <text font-family="monospace, sans-serif" font-size="11" fill="#c47a5a" filter="url(#wobble)">
+                <textPath href="#innerTop" startOffset="50%" text-anchor="middle">TLS • TLS</textPath>
+                <textPath href="#innerBot" startOffset="50%" text-anchor="middle">TLS • TLS</textPath>
+            </text>
+            
+            <!-- Inner Center Text -->
+            <text x="520" y="264" font-family="monospace, sans-serif" font-size="14" fill="#c47a5a" text-anchor="middle" font-weight="bold" filter="url(#wobble)">acme.com</text>
+        </g>
+    </g>
+</svg>

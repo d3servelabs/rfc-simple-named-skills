@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="800" height="418" font-family="Futura, Helvetica, Arial, sans-serif">
+<style>
+    .fake-phone-g { animation: phoneShake 12s infinite; }
+    .ringer-wave { animation: ringWave 12s infinite; }
+    .hand-g { animation: handAnim 12s infinite; }
+    .q-mark { animation: qMarkAnim 12s infinite; }
+    .dir-cover-g { animation: dirCoverAnim 12s infinite; }
+    .key-pulse { animation: keyPulseAnim 12s infinite; }
+    .check-mark-g { animation: checkAnim 12s infinite; }
+    .fake-screen-rect { animation: fakeScreenAnim 12s infinite; }
+    .fake-x-g { animation: fakeXAnim 12s infinite; }
+    .fake-text { animation: fakeTextAnim 12s infinite; }
+
+    @keyframes phoneShake {
+        0%, 2% { transform: translate(150px, 150px) rotate(-15deg); }
+        3% { transform: translate(145px, 150px) rotate(-18deg); }
+        5% { transform: translate(155px, 150px) rotate(-12deg); }
+        7% { transform: translate(145px, 150px) rotate(-18deg); }
+        9% { transform: translate(155px, 150px) rotate(-12deg); }
+        11% { transform: translate(150px, 150px) rotate(-15deg); }
+        100% { transform: translate(150px, 150px) rotate(-15deg); }
+    }
+
+    @keyframes ringWave {
+        0%, 4%, 8%, 12% { opacity: 0; }
+        2%, 6%, 10% { opacity: 1; }
+        13%, 100% { opacity: 0; }
+    }
+
+    @keyframes handAnim {
+        0%, 10% { transform: translate(400px, 550px); }
+        20% { transform: translate(180px, 240px) rotate(-15deg); }
+        30% { transform: translate(180px, 240px) rotate(-15deg); }
+        37% { transform: translate(400px, 380px) rotate(0deg); }
+        45% { transform: translate(400px, 380px) rotate(0deg); }
+        52% { transform: translate(650px, 280px) rotate(15deg); }
+        55% { transform: translate(650px, 260px) rotate(15deg); }
+        57% { transform: translate(650px, 280px) rotate(15deg); }
+        59% { transform: translate(650px, 260px) rotate(15deg); }
+        61% { transform: translate(650px, 280px) rotate(15deg); }
+        63% { transform: translate(650px, 260px) rotate(15deg); }
+        65% { transform: translate(650px, 280px) rotate(15deg); }
+        72%, 100% { transform: translate(650px, 550px); }
+    }
+
+    @keyframes qMarkAnim {
+        0%, 20% { opacity: 0; transform: scale(0.5) translateY(20px); }
+        22%, 28% { opacity: 1; transform: scale(1) translateY(0); }
+        30%, 100% { opacity: 0; transform: scale(1) translateY(0); }
+    }
+
+    @keyframes dirCoverAnim {
+        0%, 36% { transform: translateX(0); }
+        40%, 90% { transform: translateX(-140px); }
+        94%, 100% { transform: translateX(0); }
+    }
+
+    @keyframes keyPulseAnim {
+        0%, 54% { fill: #fff; }
+        55%, 56% { fill: #1a5bb8; }
+        57%, 58% { fill: #fff; }
+        59%, 60% { fill: #1a5bb8; }
+        61%, 62% { fill: #fff; }
+        63%, 64% { fill: #1a5bb8; }
+        65%, 100% { fill: #fff; }
+    }
+
+    @keyframes checkAnim {
+        0%, 68% { opacity: 0; transform: scale(0); }
+        72%, 92% { opacity: 1; transform: scale(1); }
+        96%, 100% { opacity: 0; transform: scale(0); }
+    }
+
+    @keyframes fakeScreenAnim {
+        0%, 70% { fill: #fff; }
+        72%, 92% { fill: #e03526; }
+        96%, 100% { fill: #fff; }
+    }
+
+    @keyframes fakeXAnim {
+        0%, 70% { opacity: 0; transform: scale(0); }
+        72%, 92% { opacity: 1; transform: scale(1); }
+        96%, 100% { opacity: 0; transform: scale(0); }
+    }
+
+    @keyframes fakeTextAnim {
+        0%, 70% { opacity: 1; }
+        72%, 92% { opacity: 0; }
+        96%, 100% { opacity: 1; }
+    }
+</style>
+
+<rect width="800" height="418" fill="#f5f0e8"/>
+
+<polygon points="0,0 150,0 0,150" fill="#e03526" opacity="0.9"/>
+<path d="M 800,268 A 150,150 0 0,0 650,418 L 800,418 Z" fill="#f6c414" opacity="0.9"/>
+<circle cx="330" cy="418" r="80" fill="#1a5bb8" opacity="0.9"/>
+<line x1="-50" y1="500" x2="850" y2="-100" stroke="#111" stroke-width="3" opacity="0.1"/>
+
+<rect x="70" y="50" width="15" height="120" fill="#f6c414" stroke="#111" stroke-width="4"/>
+<circle cx="77.5" cy="35" r="10" fill="#111"/>
+
+<g class="fake-phone-g" transform="translate(150, 150) rotate(-15)">
+    <g class="ringer-wave" stroke="#e03526" stroke-width="6" fill="none" stroke-linecap="round">
+        <path d="M -80,-70 Q -110,-100 -80,-130" />
+        <path d="M -95,-55 Q -140,-100 -95,-145" />
+        <path d="M 80,-70 Q 110,-100 80,-130" />
+        <path d="M 95,-55 Q 140,-100 95,-145" />
+    </g>
+
+    <rect x="-65" y="-105" width="130" height="210" rx="15" fill="#111" stroke="#111" stroke-width="4"/>
+    <rect class="fake-screen-rect" x="-55" y="-85" width="110" height="170" fill="#fff" stroke="#111" stroke-width="4"/>
+    <rect x="-20" y="-75" width="40" height="6" rx="3" fill="#111"/>
+    
+    <g class="fake-text">
+        <text x="0" y="-20" font-size="24" text-anchor="middle" font-weight="900" fill="#111" letter-spacing="1">YOUR</text>
+        <text x="0" y="10" font-size="24" text-anchor="middle" font-weight="900" fill="#111" letter-spacing="1">BANK</text>
+        <text x="0" y="40" font-size="14" text-anchor="middle" font-weight="bold" fill="#e03526">CALLING...</text>
+    </g>
+
+    <g class="fake-x-g" style="transform-origin: 0px 0px;">
+        <line x1="-35" y1="-35" x2="35" y2="35" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+        <line x1="35" y1="-35" x2="-35" y2="35" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+        <line x1="-35" y1="-35" x2="35" y2="35" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+        <line x1="35" y1="-35" x2="-35" y2="35" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    </g>
+</g>
+
+<g transform="translate(250, 160)">
+    <g class="q-mark" style="transform-origin: 0px 0px;">
+        <circle cx="0" cy="0" r="25" fill="#f6c414" stroke="#111" stroke-width="4"/>
+        <text x="0" y="9" font-size="28" font-weight="900" fill="#111" text-anchor="middle">?</text>
+    </g>
+</g>
+
+<g transform="translate(330, 340)">
+    <rect x="-140" y="-70" width="140" height="140" fill="#f6c414" stroke="#111" stroke-width="4"/>
+    <rect x="-135" y="-60" width="130" height="120" fill="#fff" stroke="#111" stroke-width="3"/>
+    <line x1="-120" y1="-30" x2="-20" y2="-30" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-120" y1="-5" x2="-50" y2="-5" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-120" y1="20" x2="-30" y2="20" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-120" y1="45" x2="-70" y2="45" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+
+    <rect x="0" y="-70" width="140" height="140" fill="#f6c414" stroke="#111" stroke-width="4"/>
+    <rect x="5" y="-60" width="130" height="120" fill="#fff" stroke="#111" stroke-width="3"/>
+    
+    <text x="70" y="-20" font-size="16" text-anchor="middle" font-weight="900" fill="#111">REAL BANK</text>
+    <text x="70" y="5" font-size="14" text-anchor="middle" font-weight="bold" fill="#111">NUMBER:</text>
+    <rect x="15" y="15" width="110" height="30" fill="#e03526" stroke="#111" stroke-width="3"/>
+    <text x="70" y="36" font-size="18" text-anchor="middle" font-weight="900" fill="#fff" letter-spacing="1">555-TRUE</text>
+
+    <line x1="0" y1="-70" x2="0" y2="70" stroke="#111" stroke-width="6"/>
+
+    <g class="dir-cover-g" style="transform-origin: 0px 0px;">
+        <rect x="0" y="-70" width="140" height="140" fill="#1a5bb8" stroke="#111" stroke-width="4"/>
+        <line x1="15" y1="-70" x2="15" y2="70" stroke="#111" stroke-width="3"/>
+        <rect x="35" y="-40" width="85" height="80" fill="#f5f0e8" stroke="#111" stroke-width="4"/>
+        <text x="77" y="5" font-size="16" text-anchor="middle" font-weight="900" fill="#111" transform="rotate(-90, 77, 5)" letter-spacing="2">DIRECTORY</text>
+    </g>
+</g>
+
+<g transform="translate(650, 240)">
+    <rect x="-75" y="-125" width="150" height="230" fill="#111" rx="10"/>
+    
+    <rect x="-65" y="-115" width="130" height="210" fill="#f5f0e8" stroke="#111" stroke-width="5" rx="10"/>
+    
+    <rect x="-55" y="-100" width="110" height="50" fill="#1a5bb8" stroke="#111" stroke-width="4"/>
+    <text x="0" y="-70" font-size="18" text-anchor="middle" font-weight="900" fill="#fff" letter-spacing="1">REAL BANK</text>
+
+    <g class="keypad">
+        <rect class="key-pulse" x="-40" y="-30" width="22" height="22" fill="#fff" stroke="#111" stroke-width="4"/>
+        <rect x="-11" y="-30" width="22" height="22" fill="#fff" stroke="#111" stroke-width="4"/>
+        <rect x="18" y="-30" width="22" height="22" fill="#fff" stroke="#111" stroke-width="4"/>
+        
+        <rect x="-40" y="2" width="22" height="22" fill="#fff" stroke="#111" stroke-width="4"/>
+        <rect class="key-pulse" x="-11" y="2" width="22" height="22" fill="#fff" stroke="#111" stroke-width="4"/>
+        <rect x="18" y="2" width="22" height="22" fill="#fff" stroke="#111" stroke-width="4"/>
+        
+        <rect x="-40" y="34" width="22" height="22" fill="#fff" stroke="#111" stroke-width="4"/>
+        <rect x="-11" y="34" width="22" height="22" fill="#fff" stroke="#111" stroke-width="4"/>
+        <rect class="key-pulse" x="18" y="34" width="22" height="22" fill="#fff" stroke="#111" stroke-width="4"/>
+    </g>
+</g>
+
+<g transform="translate(650, 70)">
+    <g class="check-mark-g" style="transform-origin: 0px 0px;">
+        <circle cx="0" cy="0" r="35" fill="#0f9d58" stroke="#111" stroke-width="5"/>
+        <polyline points="-15,2 -3,14 17,-8" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+</g>
+
+<g class="hand-g" stroke-linejoin="round" transform="translate(400, 550)">
+    <path d="M -15,0 L -15,200 L 15,200 L 15,0 Z" fill="#f6c414" stroke="#111" stroke-width="5"/>
+    
+    <circle cx="0" cy="0" r="28" fill="#e03526" stroke="#111" stroke-width="5"/>
+    
+    <rect x="-40" y="-15" width="25" height="20" rx="10" fill="#e03526" stroke="#111" stroke-width="5"/>
+    
+    <rect x="-12" y="-65" width="20" height="50" rx="10" fill="#e03526" stroke="#111" stroke-width="5"/>
+    
+    <rect x="10" y="-20" width="18" height="15" rx="7.5" fill="#e03526" stroke="#111" stroke-width="5"/>
+    <rect x="16" y="-3" width="18" height="15" rx="7.5" fill="#e03526" stroke="#111" stroke-width="5"/>
+    <rect x="10" y="14" width="18" height="15" rx="7.5" fill="#e03526" stroke="#111" stroke-width="5"/>
+</g>
+
+</svg>

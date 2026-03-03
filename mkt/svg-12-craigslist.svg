@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="800" height="418">
+  <defs>
+    <!-- Background Blur Filters -->
+    <filter id="bg-blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+    
+    <filter id="text-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+
+    <!-- Glass Drop Shadow -->
+    <filter id="glass-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+
+    <!-- Linear Gradients for Glass -->
+    <linearGradient id="glass-stroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <!-- Icons -->
+    <g id="icon-warning">
+      <path d="M12 2L1 21h22L12 2zm0 3.5l7.5 13.5h-15L12 5.5zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z" fill="#FF3B30"/>
+    </g>
+
+    <g id="icon-lock">
+      <path d="M17 9V7c0-2.76-2.24-5-5-5S7 4.24 7 7v2H5v12h14V9h-2zm-5-5c1.65 0 3 1.35 3 3v2H9V7c0-1.65 1.35-3 3-3zm0 11c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="#34C759"/>
+    </g>
+
+    <g id="icon-shield">
+      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14.5l-4-4 1.41-1.41L11 12.67l6.59-6.59L19 7.5l-8 8z" fill="#34C759"/>
+    </g>
+
+    <g id="icon-verified">
+      <path d="M12 2l3.09 3.09L19.27 6l-1.09 4.18L21.27 13l-2.18 3.27L18.18 20l-4.18-1.09L12 22l-2-3.09L5.82 20l-1.09-4.18L1.64 13l2.18-3.27L4.91 6 9 7.09z" fill="#34C759"/>
+      <path d="M10 15l-3-3 1.4-1.4 1.6 1.6 4.6-4.6L16 9l-6 6z" fill="#FFF"/>
+    </g>
+
+    <g id="icon-trash">
+      <rect x="4" y="6" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+      <line x1="2" y1="4" x2="22" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="8" y1="2" x2="16" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="8" y1="9" x2="8" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="12" y1="9" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="16" y1="9" x2="16" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <style>
+    /* Typography */
+    text {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Blob Animations */
+    .blob1 { animation: drift1 10s infinite alternate ease-in-out; }
+    .blob2 { animation: drift2 14s infinite alternate ease-in-out; }
+    .blob3 { animation: drift3 12s infinite alternate ease-in-out; }
+
+    @keyframes drift1 {
+      0% { transform: translate(0px, 0px) scale(1); }
+      100% { transform: translate(40px, -30px) scale(1.1); }
+    }
+    @keyframes drift2 {
+      0% { transform: translate(0px, 0px) scale(1); }
+      100% { transform: translate(-50px, 40px) scale(0.9); }
+    }
+    @keyframes drift3 {
+      0% { transform: translate(0px, 0px) scale(1); }
+      100% { transform: translate(30px, 50px) scale(1.05); }
+    }
+
+    /* Glass Panels */
+    .glass-panel {
+      fill: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Glitch Effect */
+    .glitch {
+      animation: glitchAnim 2s infinite;
+    }
+    @keyframes glitchAnim {
+      0%, 100% { opacity: 0.9; }
+      10% { opacity: 0.3; }
+      20% { opacity: 0.8; }
+      30% { opacity: 0.4; }
+      40% { opacity: 0.9; }
+      50% { opacity: 0.5; }
+      60% { opacity: 0.9; }
+      70% { opacity: 0.2; }
+      80% { opacity: 0.8; }
+      90% { opacity: 0.4; }
+    }
+
+    /* Main Timeline Animations (12s total) */
+    .cursor-anim {
+      animation: cursorMove 12s infinite ease-in-out;
+    }
+    .anon-card {
+      animation: anonCardDrag 12s infinite ease-in-out;
+    }
+    .veri-card {
+      animation: veriCardEnter 12s infinite ease-in-out;
+    }
+    .trash-bin {
+      color: #8E8E93;
+      animation: trashBounce 12s infinite ease-in-out;
+    }
+    .pulse-rect {
+      fill: none;
+      stroke: #34C759;
+      transform-origin: 140px 120px;
+      animation: pulseRing 12s infinite;
+    }
+    .veri-card-bg {
+      animation: veriGlow 12s infinite ease-in-out;
+    }
+
+    /* Keyframes for Main Sequence */
+    @keyframes cursorMove {
+      0%, 10%  { transform: translate(850px, 450px); }
+      18%, 32% { transform: translate(220px, 200px); } /* Hover left card */
+      40%, 46% { transform: translate(145px, 320px); } /* Drag to trash */
+      55%, 63% { transform: translate(580px, 200px); } /* Hover right card */
+      65%      { transform: translate(580px, 200px) scale(0.9); } /* Click */
+      68%, 85% { transform: translate(580px, 200px) scale(1); } /* Hold */
+      95%, 100%{ transform: translate(850px, 450px); }
+    }
+
+    @keyframes anonCardDrag {
+      0%, 32% { transform: translate(80px, 80px) rotate(0deg) scale(1); opacity: 1; }
+      33%     { transform: translate(80px, 80px) rotate(-3deg) scale(1.02); opacity: 1; }
+      40%     { transform: translate(130px, 310px) rotate(10deg) scale(0.2); opacity: 0.5; }
+      41%, 90%{ transform: translate(130px, 310px) rotate(10deg) scale(0.2); opacity: 0; }
+      95%, 100%{ transform: translate(80px, 80px) rotate(0deg) scale(1); opacity: 1; }
+    }
+
+    @keyframes trashBounce {
+      0%, 38%  { transform: translate(135px, 320px) scale(1.8); color: #8E8E93; }
+      40%      { transform: translate(135px, 320px) scale(2.1); color: #FF3B30; }
+      45%, 100%{ transform: translate(135px, 320px) scale(1.8); color: #8E8E93; }
+    }
+
+    @keyframes veriCardEnter {
+      0%, 5%   { transform: translate(460px, 80px); opacity: 0; }
+      15%, 95% { transform: translate(440px, 80px); opacity: 1; }
+      100%     { transform: translate(460px, 80px); opacity: 0; }
+    }
+
+    @keyframes pulseRing {
+      0%, 64%  { transform: scale(1); opacity: 0; stroke-width: 4px; }
+      65%      { transform: scale(1); opacity: 1; stroke-width: 4px; }
+      72%      { transform: scale(1.08); opacity: 0; stroke-width: 1px; }
+      100%     { transform: scale(1.08); opacity: 0; }
+    }
+
+    @keyframes veriGlow {
+      0%, 64%  { fill: rgba(255, 255, 255, 0.6); }
+      65%      { fill: rgba(52, 199, 89, 0.15); }
+      75%, 100%{ fill: rgba(255, 255, 255, 0.6); }
+    }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="800" height="418" fill="#FFFFFF"/>
+  <g filter="url(#bg-blur)">
+    <circle cx="200" cy="100" r="160" fill="#FF5E3A" opacity="0.4" class="blob1"/>
+    <circle cx="650" cy="300" r="180" fill="#00F2FE" opacity="0.4" class="blob2"/>
+    <circle cx="400" cy="180" r="140" fill="#D53369" opacity="0.3" class="blob3"/>
+    <circle cx="100" cy="350" r="130" fill="#4FACFE" opacity="0.3" class="blob1"/>
+  </g>
+
+  <!-- Left Card (Anonymous) -->
+  <g class="anon-card" filter="url(#glass-shadow)">
+    <rect width="280" height="240" rx="24" class="glass-panel" stroke="url(#glass-stroke)" stroke-width="1.5"/>
+    <circle cx="44" cy="44" r="24" fill="#E5E5EA"/>
+    <text x="37" y="52" font-size="22" font-weight="bold" fill="#8E8E93">?</text>
+    
+    <text x="80" y="38" font-size="18" font-weight="bold" fill="#1C1C1E">AI Skill</text>
+    <rect x="80" y="46" width="46" height="20" rx="10" fill="#E5E5EA"/>
+    <text x="103" y="60" font-size="12" font-weight="bold" fill="#8E8E93" text-anchor="middle">Free</text>
+    
+    <line x1="20" y1="84" x2="260" y2="84" stroke="#D1D1D6" stroke-width="1"/>
+    
+    <!-- Details -->
+    <text x="20" y="115" font-size="14" fill="#8E8E93">Seller:</text>
+    <text x="90" y="115" font-size="14" font-weight="bold" fill="#1C1C1E" class="glitch" filter="url(#text-blur)">Unknown Entity</text>
+    <use href="#icon-warning" x="236" y="100" transform="scale(0.8) translate(60, 20)"/>
+    
+    <text x="20" y="150" font-size="14" fill="#8E8E93">Domain:</text>
+    <text x="90" y="150" font-size="14" font-weight="bold" fill="#1C1C1E" class="glitch" filter="url(#text-blur)">Hidden</text>
+    
+    <text x="20" y="185" font-size="14" fill="#8E8E93">Identity:</text>
+    <text x="90" y="185" font-size="14" font-weight="bold" fill="#1C1C1E" class="glitch" filter="url(#text-blur)">Unverified</text>
+    
+    <text x="20" y="220" font-size="14" font-weight="bold" fill="#FF3B30">Trust Level: 0 / 100</text>
+  </g>
+
+  <!-- Trash Bin -->
+  <g class="trash-bin">
+    <use href="#icon-trash" />
+  </g>
+
+  <!-- Right Card (Verified) -->
+  <g class="veri-card" filter="url(#glass-shadow)">
+    <rect width="280" height="240" rx="24" class="pulse-rect"/>
+    <rect width="280" height="240" rx="24" class="glass-panel veri-card-bg" stroke="url(#glass-stroke)" stroke-width="1.5"/>
+    
+    <circle cx="44" cy="44" r="24" fill="#E5F9E0"/>
+    <use href="#icon-verified" transform="translate(32, 32)"/>
+    
+    <text x="80" y="38" font-size="18" font-weight="bold" fill="#1C1C1E">AI Skill</text>
+    <rect x="80" y="46" width="46" height="20" rx="10" fill="#E5F9E0"/>
+    <text x="103" y="60" font-size="12" font-weight="bold" fill="#34C759" text-anchor="middle">Free</text>
+    
+    <line x1="20" y1="84" x2="260" y2="84" stroke="#D1D1D6" stroke-width="1"/>
+    
+    <!-- Details -->
+    <text x="20" y="115" font-size="14" fill="#8E8E93">Seller:</text>
+    <text x="90" y="115" font-size="14" font-weight="bold" fill="#1C1C1E">Acme Corp</text>
+    <use href="#icon-verified" transform="translate(166, 102) scale(0.65)"/>
+
+    <text x="20" y="150" font-size="14" fill="#8E8E93">Domain:</text>
+    <use href="#icon-lock" transform="translate(86, 136) scale(0.7)"/>
+    <text x="108" y="150" font-size="14" font-weight="bold" fill="#1C1C1E">acme.com</text>
+    
+    <text x="20" y="185" font-size="14" fill="#8E8E93">Identity:</text>
+    <text x="90" y="185" font-size="14" font-weight="bold" fill="#1C1C1E">KYC Completed</text>
+    
+    <use href="#icon-shield" transform="translate(16, 204) scale(0.8)"/>
+    <text x="40" y="220" font-size="14" font-weight="bold" fill="#34C759">Verified Trust Root</text>
+  </g>
+
+  <!-- Animated Hand Cursor -->
+  <g class="cursor-anim">
+    <path d="M17.5 11.5c0-.83-.67-1.5-1.5-1.5h-1V7.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5V10h-1V3.5c0-.83-.67-1.5-1.5-1.5S8 2.67 8 3.5V10H7V5.5C7 4.67 6.33 4 5.5 4S4 4.67 4 5.5v7.66c0 2.76 2.24 5.09 5 5.09h3.76c2.5 0 4.74-1.85 4.74-4.35V11.5z" 
+          fill="#FFFFFF" stroke="#111111" stroke-width="1.5" transform="scale(1.8)"/>
+  </g>
+</svg>

@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="800" height="418">
+    <defs>
+        <pattern id="slats" width="16" height="16" patternUnits="userSpaceOnUse">
+            <rect width="8" height="16" fill="#2f3234"/>
+            <rect x="8" width="8" height="16" fill="#1a1c1d"/>
+        </pattern>
+    </defs>
+    <style>
+        @keyframes walkIn {
+            0% { transform: translateX(-60px); opacity: 0; }
+            5% { transform: translateX(-40px); opacity: 1; }
+            40% { transform: translateX(180px); opacity: 1; }
+            45% { transform: translateX(200px); opacity: 0; }
+            100% { transform: translateX(200px); opacity: 0; }
+        }
+        @keyframes hesitateWalk {
+            0% { transform: translateX(60px); opacity: 0; }
+            10% { transform: translateX(40px); opacity: 1; }
+            30% { transform: translateX(-80px); opacity: 1; }
+            60% { transform: translateX(-80px); opacity: 1; }
+            80% { transform: translateX(60px); opacity: 1; }
+            90% { transform: translateX(60px); opacity: 0; }
+            100% { transform: translateX(60px); opacity: 0; }
+        }
+        @keyframes lookAround {
+            0%, 30% { transform: rotate(0deg); }
+            35% { transform: rotate(15deg); }
+            45% { transform: rotate(-15deg); }
+            50% { transform: rotate(5deg); }
+            55% { transform: rotate(-10deg); }
+            60%, 100% { transform: rotate(0deg); }
+        }
+        @keyframes questionFade {
+            0%, 30% { opacity: 0; transform: translateY(10px); }
+            35% { opacity: 1; transform: translateY(0px); }
+            55% { opacity: 1; transform: translateY(0px); }
+            60%, 100% { opacity: 0; transform: translateY(-10px); }
+        }
+        @keyframes wobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1.5deg); }
+            75% { transform: rotate(-1.5deg); }
+        }
+        .customer-left { animation: walkIn 6s infinite ease-in-out; }
+        .customer-right { animation: hesitateWalk 6s infinite ease-in-out; }
+        .head-right { animation: lookAround 6s infinite ease-in-out; transform-origin: 760px 180px; }
+        .question-mark { animation: questionFade 6s infinite ease-in-out; }
+        .table-group { animation: wobble 3s infinite ease-in-out; transform-origin: 560px 320px; }
+    </style>
+
+    <!-- Background -->
+    <rect width="800" height="418" fill="#f8f5e6"/>
+
+    <!-- Mid-Century Abstract Background Shapes -->
+    <path d="M -50 50 Q 150 -50 250 100 T 50 250 Z" fill="#e2d8b8" opacity="0.6"/>
+    <circle cx="680" cy="140" r="110" fill="#d8a027" opacity="0.15"/>
+    <g transform="translate(360, 60)">
+        <line x1="-15" y1="0" x2="15" y2="0" stroke="#c85a32" stroke-width="3"/>
+        <line x1="0" y1="-15" x2="0" y2="15" stroke="#c85a32" stroke-width="3"/>
+        <line x1="-10" y1="-10" x2="10" y2="10" stroke="#c85a32" stroke-width="3"/>
+        <line x1="-10" y1="10" x2="10" y2="-10" stroke="#c85a32" stroke-width="3"/>
+    </g>
+
+    <!-- Divider Line -->
+    <line x1="400" y1="40" x2="400" y2="380" stroke="#2f3234" stroke-width="2" stroke-dasharray="10,10" opacity="0.2"/>
+
+    <!-- Left Scene: The Proper Storefront -->
+    <g id="storefront">
+        <!-- Building Base Wall -->
+        <rect x="30" y="80" width="260" height="240" fill="#6b7a4b"/>
+        <!-- Roof Trim -->
+        <rect x="20" y="70" width="280" height="10" fill="#2f3234"/>
+        
+        <!-- Store Signage -->
+        <rect x="80" y="20" width="160" height="40" fill="#d8a027"/>
+        <line x1="100" y1="60" x2="100" y2="70" stroke="#2f3234" stroke-width="4"/>
+        <line x1="220" y1="60" x2="220" y2="70" stroke="#2f3234" stroke-width="4"/>
+        <text x="160" y="47" font-family="Futura, 'Century Gothic', sans-serif" font-weight="bold" font-size="20" fill="#2f3234" text-anchor="middle" letter-spacing="3">ACME SKILLS</text>
+        
+        <!-- Store Facade (Slats) -->
+        <rect x="60" y="110" width="200" height="210" fill="url(#slats)"/>
+        
+        <!-- Address Text -->
+        <text x="240" y="130" font-family="Futura, 'Century Gothic', sans-serif" font-weight="bold" font-size="12" fill="#f8f5e6" text-anchor="middle" letter-spacing="1">NO. 123</text>
+        
+        <!-- Window -->
+        <rect x="70" y="150" width="90" height="100" fill="#f8f5e6" stroke="#2f3234" stroke-width="4"/>
+        <text x="115" y="165" font-family="Futura, sans-serif" font-size="8" fill="#2f3234" text-anchor="middle" font-weight="bold">EST. 1955</text>
+        
+        <!-- Products in Window -->
+        <circle cx="85" cy="235" r="12" fill="#d8a027"/>
+        <polygon points="115,223 125,247 105,247" fill="#c85a32"/>
+        <rect x="135" y="227" width="18" height="18" fill="#6b7a4b"/>
+        
+        <!-- Awning -->
+        <polygon points="50,150 170,150 150,170 30,170" fill="#c85a32"/>
+        
+        <!-- Doorway -->
+        <rect x="190" y="140" width="70" height="180" fill="#1a1c1d"/>
+        <!-- Door Opened Inward -->
+        <polygon points="190,140 230,150 230,310 190,320" fill="#d8a027"/>
+        <polygon points="230,150 235,152 235,312 230,310" fill="#c85a32"/>
+        <circle cx="220" cy="230" r="3" fill="#2f3234"/>
+        
+        <!-- Potted Plant -->
+        <polygon points="265,320 285,320 280,285 270,285" fill="#c85a32"/>
+        <path d="M 275 285 Q 255 265 265 245 Q 280 265 275 285" fill="#6b7a4b"/>
+        <path d="M 275 285 Q 290 255 300 250 Q 295 270 275 285" fill="#6b7a4b"/>
+        <path d="M 275 285 Q 250 270 240 280 Q 260 290 275 285" fill="#6b7a4b"/>
+    </g>
+
+    <!-- Right Scene: The Wobbly Parking Lot Table -->
+    <g id="parking-lot-table">
+        <!-- Parking Lines -->
+        <line x1="460" y1="390" x2="520" y2="320" stroke="#d8a027" stroke-width="4"/>
+        <line x1="660" y1="390" x2="720" y2="320" stroke="#d8a027" stroke-width="4"/>
+
+        <g class="table-group">
+            <!-- Wobbly Legs -->
+            <line x1="500" y1="266" x2="480" y2="320" stroke="#2f3234" stroke-width="4" stroke-linecap="round"/>
+            <line x1="520" y1="266" x2="510" y2="320" stroke="#2f3234" stroke-width="4" stroke-linecap="round"/>
+            <line x1="610" y1="266" x2="600" y2="320" stroke="#2f3234" stroke-width="4" stroke-linecap="round"/>
+            <line x1="620" y1="266" x2="640" y2="320" stroke="#2f3234" stroke-width="4" stroke-linecap="round"/>
+            <!-- Folding Crossbars -->
+            <line x1="490" y1="293" x2="515" y2="293" stroke="#2f3234" stroke-width="2"/>
+            <line x1="605" y1="293" x2="630" y2="293" stroke="#2f3234" stroke-width="2"/>
+            
+            <!-- Table Top -->
+            <rect x="490" y="260" width="140" height="6" rx="2" fill="#d8a027"/>
+            
+            <!-- Products on Table -->
+            <circle cx="520" cy="245" r="12" fill="#d8a027"/>
+            <polygon points="560,233 570,257 550,257" fill="#c85a32"/>
+            <rect x="590" y="237" width="18" height="18" fill="#6b7a4b"/>
+
+            <!-- Hand-scrawled Sign -->
+            <line x1="530" y1="266" x2="520" y2="290" stroke="#2f3234" stroke-width="1"/>
+            <line x1="590" y1="266" x2="600" y2="290" stroke="#2f3234" stroke-width="1"/>
+            <polygon points="510,290 610,285 605,325 515,330" fill="#e2d8b8"/>
+            
+            <!-- ACME Text Paths -->
+            <path d="M 530 310 L 535 295 L 540 310 M 532 305 L 538 304" stroke="#2f3234" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 552 298 C 542 295, 542 312, 552 310" stroke="#2f3234" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 555 310 L 558 296 L 562 305 L 566 296 L 568 310" stroke="#2f3234" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 580 296 L 573 298 L 576 310 L 582 308 M 574 304 L 579 303" stroke="#2f3234" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Skills Squiggle Path -->
+            <path d="M 535 320 Q 550 312 560 320 T 585 316" stroke="#2f3234" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+    </g>
+
+    <!-- Ground Lines (Minimalist Mid-Century Style) -->
+    <line x1="20" y1="320" x2="380" y2="320" stroke="#2f3234" stroke-width="4" stroke-linecap="round"/>
+    <line x1="40" y1="328" x2="360" y2="328" stroke="#2f3234" stroke-width="2" stroke-linecap="round"/>
+    
+    <line x1="420" y1="320" x2="780" y2="320" stroke="#2f3234" stroke-width="4" stroke-linecap="round"/>
+    <line x1="440" y1="328" x2="760" y2="328" stroke="#2f3234" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Left Customer (Confident, entering store) -->
+    <g class="customer-left">
+        <!-- Body Teardrop -->
+        <path d="M -15 260 C -15 200, -5 195, 0 195 C 5 195, 15 200, 15 260 Z" fill="#c85a32"/>
+        <!-- Legs -->
+        <polyline points="0,260 20,290 20,320" stroke="#2f3234" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <polyline points="10,260 -10,290 -5,320" stroke="#2f3234" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Arm & Briefcase -->
+        <polyline points="0,205 20,230 35,230" stroke="#2f3234" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <rect x="25" y="220" width="20" height="15" rx="2" fill="#d8a027"/>
+        <!-- Head -->
+        <circle cx="0" cy="180" r="14" fill="#2f3234"/>
+        <polygon points="12,180 18,184 12,188" fill="#2f3234"/>
+    </g>
+
+    <!-- Right Customer (Hesitant, evaluating table) -->
+    <g class="customer-right">
+        <!-- Question Mark -->
+        <text x="760" y="145" font-family="Futura, 'Century Gothic', sans-serif" font-weight="bold" font-size="28" fill="#c85a32" class="question-mark" text-anchor="middle">?</text>
+        
+        <!-- Body Teardrop -->
+        <path d="M 745 260 C 745 200, 755 195, 760 195 C 765 195, 775 200, 775 260 Z" fill="#6b7a4b"/>
+        <!-- Legs -->
+        <polyline points="750,260 740,290 740,320" stroke="#2f3234" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <polyline points="760,260 770,290 765,320" stroke="#2f3234" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Arm (Hand near chin) -->
+        <polyline points="765,205 770,230 750,195" stroke="#2f3234" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        
+        <!-- Animated Head -->
+        <g class="head-right">
+            <circle cx="760" cy="180" r="14" fill="#2f3234"/>
+            <polygon points="748,180 742,184 748,188" fill="#2f3234"/>
+        </g>
+    </g>
+
+</svg>

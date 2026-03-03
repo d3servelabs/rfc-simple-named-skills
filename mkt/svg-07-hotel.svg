@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="800" height="418">
+    <defs>
+        <style>
+            .bldg-shell { animation: animShell 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; stroke-dasharray: 1000; fill: transparent; }
+            .bldg-rooms { animation: animRooms 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; stroke-dasharray: 5000; }
+            .acme-room { animation: animAcme 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; stroke-dasharray: 130; fill: transparent; }
+            .docs { animation: animDocs 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; stroke-dasharray: 50; }
+            .callout-line { animation: animCalloutLine 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+            .callout-text { animation: animCalloutText 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+            .mask-anim { animation: animRedMask 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+            .red-perimeter { animation: animRedPerim 12s linear infinite; }
+            .warning-label { animation: animWarning 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+            
+            .frag { animation-duration: 12s; animation-iteration-count: infinite; animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1); opacity: 0; }
+            .f1 { animation-name: sh1; } .f2 { animation-name: sh2; } .f3 { animation-name: sh3; }
+            .f4 { animation-name: sh4; } .f5 { animation-name: sh5; } .f6 { animation-name: sh6; }
+            .f7 { animation-name: sh7; } .f8 { animation-name: sh8; } .f9 { animation-name: sh9; }
+            .f10 { animation-name: sh10; } .f11 { animation-name: sh11; } .f12 { animation-name: sh12; }
+
+            @keyframes animShell {
+                0% { stroke-dashoffset: 1000; fill: transparent; }
+                8% { stroke-dashoffset: 0; fill: transparent; }
+                12%, 85% { stroke-dashoffset: 0; fill: rgba(165, 180, 252, 0.03); }
+                92%, 100% { stroke-dashoffset: 1000; fill: transparent; }
+            }
+            @keyframes animRooms {
+                0%, 4% { stroke-dashoffset: 5000; opacity: 1; }
+                14%, 85% { stroke-dashoffset: 0; opacity: 1; }
+                92%, 100% { stroke-dashoffset: 5000; opacity: 0; }
+            }
+            @keyframes animAcme {
+                0%, 12% { stroke-dashoffset: 130; fill: transparent; }
+                18% { stroke-dashoffset: 0; fill: transparent; }
+                22%, 85% { stroke-dashoffset: 0; fill: rgba(16, 185, 129, 0.15); }
+                92%, 100% { stroke-dashoffset: 130; fill: transparent; }
+            }
+            @keyframes animDocs {
+                0%, 18% { stroke-dashoffset: 50; opacity: 0; }
+                22%, 85% { stroke-dashoffset: 0; opacity: 1; }
+                92%, 100% { stroke-dashoffset: 50; opacity: 0; }
+            }
+            @keyframes animCalloutLine {
+                0%, 15% { stroke-dashoffset: 200; opacity: 0; }
+                16% { opacity: 1; stroke-dashoffset: 200; }
+                22%, 85% { stroke-dashoffset: 0; opacity: 1; }
+                92%, 100% { stroke-dashoffset: 200; opacity: 0; }
+            }
+            @keyframes animCalloutText {
+                0%, 20% { opacity: 0; transform: translateX(-5px); }
+                24%, 85% { opacity: 1; transform: translateX(0); }
+                92%, 100% { opacity: 0; transform: translateX(-5px); }
+            }
+            @keyframes animRedMask {
+                0%, 25% { stroke-dashoffset: 1050; }
+                40%, 100% { stroke-dashoffset: 0; }
+            }
+            @keyframes animRedPerim {
+                0%, 25% { opacity: 1; }
+                40%, 49.9% { opacity: 1; }
+                50%, 100% { opacity: 0; }
+            }
+            @keyframes animWarning {
+                0%, 49% { opacity: 0; transform: translateY(5px); }
+                52%, 85% { opacity: 1; transform: translateY(0); }
+                90%, 100% { opacity: 0; transform: translateY(-5px); }
+            }
+            @keyframes sh1 {
+                0%, 49.9% { opacity:0; transform:translate(330px,50px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(330px,50px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(270px,-10px) scale(0.5) rotate(-75deg); }
+                100% { opacity:0; transform:translate(330px,50px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh2 {
+                0%, 49.9% { opacity:0; transform:translate(410px,50px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(410px,50px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(410px,-30px) scale(0.5) rotate(45deg); }
+                100% { opacity:0; transform:translate(410px,50px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh3 {
+                0%, 49.9% { opacity:0; transform:translate(480px,50px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(480px,50px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(540px,-10px) scale(0.5) rotate(90deg); }
+                100% { opacity:0; transform:translate(480px,50px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh4 {
+                0%, 49.9% { opacity:0; transform:translate(510px,110px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(510px,110px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(590px,80px) scale(0.5) rotate(45deg); }
+                100% { opacity:0; transform:translate(510px,110px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh5 {
+                0%, 49.9% { opacity:0; transform:translate(510px,190px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(510px,190px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(600px,190px) scale(0.5) rotate(120deg); }
+                100% { opacity:0; transform:translate(510px,190px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh6 {
+                0%, 49.9% { opacity:0; transform:translate(510px,290px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(510px,290px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(590px,340px) scale(0.5) rotate(-45deg); }
+                100% { opacity:0; transform:translate(510px,290px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh7 {
+                0%, 49.9% { opacity:0; transform:translate(460px,350px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(460px,350px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(510px,420px) scale(0.5) rotate(-60deg); }
+                100% { opacity:0; transform:translate(460px,350px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh8 {
+                0%, 49.9% { opacity:0; transform:translate(400px,350px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(400px,350px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(400px,430px) scale(0.5) rotate(80deg); }
+                100% { opacity:0; transform:translate(400px,350px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh9 {
+                0%, 49.9% { opacity:0; transform:translate(320px,350px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(320px,350px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(260px,410px) scale(0.5) rotate(-90deg); }
+                100% { opacity:0; transform:translate(320px,350px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh10 {
+                0%, 49.9% { opacity:0; transform:translate(290px,280px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(290px,280px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(210px,320px) scale(0.5) rotate(45deg); }
+                100% { opacity:0; transform:translate(290px,280px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh11 {
+                0%, 49.9% { opacity:0; transform:translate(290px,180px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(290px,180px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(200px,180px) scale(0.5) rotate(-60deg); }
+                100% { opacity:0; transform:translate(290px,180px) scale(1) rotate(0deg); }
+            }
+            @keyframes sh12 {
+                0%, 49.9% { opacity:0; transform:translate(290px,100px) scale(1) rotate(0deg); }
+                50% { opacity:1; transform:translate(290px,100px) scale(1) rotate(0deg); }
+                55%, 85% { opacity:0; transform:translate(220px,60px) scale(0.5) rotate(60deg); }
+                100% { opacity:0; transform:translate(290px,100px) scale(1) rotate(0deg); }
+            }
+        </style>
+
+        <pattern id="gridLarge" width="40" height="40" patternUnits="userSpaceOnUse">
+            <rect width="40" height="40" fill="none" />
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2e386b" stroke-width="1" />
+        </pattern>
+        <pattern id="gridSmall" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#252a55" stroke-width="0.5" />
+        </pattern>
+
+        <filter id="glow-green" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <mask id="red-line-mask">
+            <rect class="mask-anim" x="290" y="50" width="220" height="300" rx="4" stroke="white" stroke-width="5" fill="none" stroke-dasharray="1050" stroke-linecap="square" />
+        </mask>
+    </defs>
+
+    <rect width="100%" height="100%" fill="#1e1b4b" />
+    <rect width="100%" height="100%" fill="url(#gridSmall)" />
+    <rect width="100%" height="100%" fill="url(#gridLarge)" />
+
+    <!-- Static Technical Annotations -->
+    <g font-family="monospace" font-size="10" fill="#a5b4fc">
+        <path d="M 50 50 v 20 M 40 60 h 20 M 750 50 v 20 M 740 60 h 20" stroke="#4338ca" stroke-width="1" fill="none"/>
+        <text x="55" y="55" font-size="8" fill="#4338ca">0,0</text>
+        <text x="715" y="55" font-size="8" fill="#4338ca">800,0</text>
+
+        <path d="M 285 60 L 295 60 M 285 340 L 295 340" stroke="#6366f1" stroke-width="1" fill="none" />
+        <line x1="290" y1="60" x2="290" y2="340" stroke="#6366f1" stroke-width="1" stroke-dasharray="4 4" />
+        <text x="280" y="200" transform="rotate(-90 280 200)" text-anchor="middle">ELEVATION 280.00'</text>
+
+        <path d="M 300 345 L 300 355 M 500 345 L 500 355" stroke="#6366f1" stroke-width="1" fill="none" />
+        <line x1="300" y1="350" x2="500" y2="350" stroke="#6366f1" stroke-width="1" stroke-dasharray="4 4" />
+        <text x="400" y="365" text-anchor="middle">WIDTH 200.00'</text>
+        
+        <g fill="#4f46e5" font-size="8">
+            <rect x="650" y="360" width="130" height="40" fill="#1e1b4b" stroke="#3730a3" stroke-width="1"/>
+            <line x1="650" y1="375" x2="780" y2="375" stroke="#3730a3" stroke-width="1"/>
+            <text x="655" y="371">SYSTEM ARCHITECTURE</text>
+            <text x="655" y="386">REV: 1.0.4</text>
+            <text x="655" y="396">DATE: 2024-10-24</text>
+        </g>
+    </g>
+
+    <!-- Main Building Outline -->
+    <rect class="bldg-shell" x="300" y="60" width="200" height="280" stroke="#c7d2fe" stroke-width="2" />
+
+    <!-- Standard Rooms Grid -->
+    <path class="bldg-rooms" d="
+        M305 65 h30 v30 h-30 Z M345 65 h30 v30 h-30 Z M385 65 h30 v30 h-30 Z M425 65 h30 v30 h-30 Z M465 65 h30 v30 h-30 Z
+        M305 105 h30 v30 h-30 Z M345 105 h30 v30 h-30 Z M385 105 h30 v30 h-30 Z M425 105 h30 v30 h-30 Z M465 105 h30 v30 h-30 Z
+        M305 145 h30 v30 h-30 Z M345 145 h30 v30 h-30 Z M385 145 h30 v30 h-30 Z M425 145 h30 v30 h-30 Z M465 145 h30 v30 h-30 Z
+        M305 185 h30 v30 h-30 Z M345 185 h30 v30 h-30 Z M425 185 h30 v30 h-30 Z M465 185 h30 v30 h-30 Z
+        M305 225 h30 v30 h-30 Z M345 225 h30 v30 h-30 Z M385 225 h30 v30 h-30 Z M425 225 h30 v30 h-30 Z M465 225 h30 v30 h-30 Z
+        M305 265 h30 v30 h-30 Z M345 265 h30 v30 h-30 Z M385 265 h30 v30 h-30 Z M425 265 h30 v30 h-30 Z M465 265 h30 v30 h-30 Z
+        M305 305 h30 v30 h-30 Z M345 305 h30 v30 h-30 Z M385 305 h30 v30 h-30 Z M425 305 h30 v30 h-30 Z M465 305 h30 v30 h-30 Z" 
+        stroke="#818cf8" stroke-width="1.2" fill="none" />
+
+    <!-- Protected Acme Room -->
+    <rect class="acme-room" x="385" y="185" width="30" height="30" stroke="#10b981" stroke-width="2" filter="url(#glow-green)" />
+    
+    <!-- Documents Inside Acme -->
+    <path class="docs" d="M394 193 h12 M394 199 h8 M394 205 h12" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" fill="none" />
+
+    <!-- Acme Annotation Callout -->
+    <polyline class="callout-line" points="415,200 480,200 495,170 590,170" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="200" />
+    <g class="callout-text" filter="url(#glow-green)">
+        <text x="505" y="165" font-family="monospace" font-size="12" fill="#10b981" font-weight="bold">SECURE ENCLAVE</text>
+        <text x="505" y="182" font-family="monospace" font-size="10" fill="#34d399">TENANT: acme-org</text>
+    </g>
+
+    <!-- The Red Threat Perimeter -->
+    <rect class="red-perimeter" x="290" y="50" width="220" height="300" rx="4" stroke="#ef4444" stroke-width="3" fill="none" stroke-dasharray="10 8" mask="url(#red-line-mask)" />
+
+    <!-- Shattered Threat Fragments -->
+    <g stroke="#ef4444" stroke-width="3" stroke-linecap="round" fill="none">
+        <g class="frag f1"><path d="M-10 0 h20"/></g>
+        <g class="frag f2"><path d="M-10 0 h20"/></g>
+        <g class="frag f3"><path d="M-10 0 h20"/></g>
+        <g class="frag f4"><path d="M0 -10 v20"/></g>
+        <g class="frag f5"><path d="M0 -10 v20"/></g>
+        <g class="frag f6"><path d="M0 -10 v20"/></g>
+        <g class="frag f7"><path d="M-10 0 h20"/></g>
+        <g class="frag f8"><path d="M-10 0 h20"/></g>
+        <g class="frag f9"><path d="M-10 0 h20"/></g>
+        <g class="frag f10"><path d="M0 -10 v20"/></g>
+        <g class="frag f11"><path d="M0 -10 v20"/></g>
+        <g class="frag f12"><path d="M0 -10 v20"/></g>
+    </g>
+
+    <!-- Final Message Label -->
+    <text class="warning-label" x="400" y="390" text-anchor="middle" font-family="monospace" font-size="18" fill="#fca5a5" font-weight="bold" letter-spacing="1" filter="url(#glow-red)">Trust your room, not the building.</text>
+
+</svg>

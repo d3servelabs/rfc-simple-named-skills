@@ -1,0 +1,274 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap');
+      
+      :root {
+        --bg: #f4f0e6;
+        --navy: #1a2332;
+        --coral: #ff6b6b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .font-mono { font-family: 'Space Mono', monospace; }
+      .fw-bold { font-weight: 700; }
+      
+      .fill-bg { fill: var(--bg); }
+      .fill-navy { fill: var(--navy); }
+      .fill-coral { fill: var(--coral); }
+      .fill-none { fill: none; }
+      
+      .navy { fill: var(--navy); }
+      .coral { fill: var(--coral); }
+      
+      .navy-stroke { stroke: var(--navy); fill: none; }
+      .coral-stroke { stroke: var(--coral); fill: none; }
+      
+      .blend { mix-blend-mode: multiply; }
+      .offset { transform: translate(2.5px, -2.5px); }
+      .offset-sm { transform: translate(1.5px, -1.5px); }
+
+      /* Animations */
+      @keyframes beltMove {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: -20; }
+      }
+      .belt-dashes { animation: beltMove 1s linear infinite; }
+
+      @keyframes flow {
+        0% { transform: translate(140px, 175px) rotate(35deg); opacity: 0; }
+        10% { opacity: 1; }
+        70% { transform: translate(316px, 299px) rotate(35deg); }
+        80% { transform: translate(340px, 320px) rotate(10deg); }
+        90% { transform: translate(360px, 330px) rotate(-5deg); opacity: 1; }
+        100% { transform: translate(360px, 330px) rotate(-5deg); opacity: 0; }
+      }
+      
+      .stream-card { animation: flow 3s linear infinite; }
+      .sc1 { animation-delay: 0s; }
+      .sc2 { animation-delay: -0.75s; }
+      .sc3 { animation-delay: -1.5s; }
+      .sc4 { animation-delay: -2.25s; }
+
+      @keyframes zoomAnim {
+        0%, 25% { transform: translate(365px, 320px) rotate(-8deg) scale(1); }
+        33%, 75% { transform: translate(400px, 180px) rotate(2deg) scale(2.5); }
+        83%, 100% { transform: translate(365px, 320px) rotate(-8deg) scale(1); }
+      }
+      .zoom-group { animation: zoomAnim 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+      @keyframes handLocal {
+        0%, 15% { transform: translate(300px, 200px); }
+        25%, 45% { transform: translate(0px, 0px); }
+        50% { transform: translate(4px, -4px) rotate(4deg); }
+        55%, 83% { transform: translate(0px, 0px); }
+        92%, 100% { transform: translate(300px, 200px); }
+      }
+      .hand-local-anim { animation: handLocal 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+      @keyframes cardFlip {
+        0%, 45% { transform: scaleX(1); }
+        55%, 65% { transform: scaleX(-1); }
+        75%, 100% { transform: scaleX(1); }
+      }
+      .card-flip-group { animation: cardFlip 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+      @keyframes frontFade {
+        0%, 49.9% { opacity: 1; }
+        50%, 70% { opacity: 0; }
+        70.1%, 100% { opacity: 1; }
+      }
+      .card-front { animation: frontFade 12s linear infinite; }
+
+      @keyframes backFade {
+        0%, 49.9% { opacity: 0; }
+        50%, 70% { opacity: 1; }
+        70.1%, 100% { opacity: 0; }
+      }
+      .card-back { animation: backFade 12s linear infinite; }
+
+      @keyframes qmAnim {
+        0%, 55% { opacity: 0; transform: translate(-60px, -5px) rotate(-10deg); }
+        58%, 68% { opacity: 1; transform: translate(-60px, -15px) rotate(-10deg); }
+        72%, 100% { opacity: 0; transform: translate(-60px, -25px) rotate(-10deg); }
+      }
+      .qm { animation: qmAnim 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      
+      @keyframes gearSpin {
+        100% { transform: rotate(360deg); }
+      }
+      .gear { transform-origin: 50px 180px; animation: gearSpin 4s linear infinite; }
+
+    </style>
+
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.12 0" />
+    </filter>
+
+    <!-- Base stream card template to reuse structure -->
+    <g id="base-sc">
+      <rect x="-30" y="-17.5" width="60" height="35" rx="2" class="fill-bg navy-stroke blend" stroke-width="1.5" />
+      <rect x="-30" y="-17.5" width="60" height="35" rx="2" class="coral-stroke offset-sm blend fill-none" stroke-width="1.5" />
+      <rect x="-25" y="-12.5" width="10" height="12" class="navy-stroke blend" stroke-width="1"/>
+      <rect x="-25" y="-12.5" width="10" height="12" class="coral-stroke offset-sm blend" stroke-width="1"/>
+      <line x1="-10" y1="5" x2="20" y2="5" class="navy-stroke blend" stroke-width="1"/>
+      <line x1="-10" y1="10" x2="15" y2="10" class="navy-stroke blend" stroke-width="1"/>
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="var(--bg)" />
+
+  <!-- Global Riso blend group -->
+  <g class="blend">
+    
+    <!-- DESK -->
+    <line x1="280" y1="350" x2="800" y2="350" class="coral-stroke offset blend" stroke-width="3"/>
+    <line x1="280" y1="350" x2="800" y2="350" class="navy-stroke blend" stroke-width="3"/>
+
+    <!-- MACHINE -->
+    <g class="machine">
+      <!-- Back Drop Shadow -->
+      <rect x="20" y="70" width="120" height="260" class="coral-stroke offset blend fill-none" stroke-width="3"/>
+      <!-- Main Body -->
+      <rect x="20" y="70" width="120" height="260" class="navy-stroke fill-bg blend" stroke-width="3"/>
+      
+      <!-- Screen -->
+      <rect x="35" y="90" width="90" height="50" class="coral offset blend fill-coral" />
+      <rect x="35" y="90" width="90" height="50" class="navy fill-navy blend" />
+      <text x="45" y="110" font-size="9" class="font-mono fw-bold" fill="var(--bg)">BATCH CHURN</text>
+      <text x="45" y="125" font-size="7" class="font-mono" fill="var(--coral)">UNVERIFIED</text>
+      
+      <!-- Dials / Gears -->
+      <g class="gear">
+        <circle cx="50" cy="180" r="14" class="coral-stroke offset blend fill-none" stroke-width="2"/>
+        <circle cx="50" cy="180" r="14" class="navy-stroke fill-bg blend" stroke-width="2"/>
+        <line x1="50" y1="166" x2="50" y2="194" class="navy-stroke blend" stroke-width="2"/>
+        <line x1="36" y1="180" x2="64" y2="180" class="navy-stroke blend" stroke-width="2"/>
+      </g>
+      <circle cx="90" cy="180" r="8" class="navy-stroke fill-bg blend" stroke-width="2"/>
+      <circle cx="90" cy="180" r="3" class="navy fill-navy blend"/>
+
+      <!-- Output Slot -->
+      <rect x="120" y="160" width="20" height="30" class="coral-stroke offset blend fill-none" stroke-width="2"/>
+      <rect x="120" y="160" width="20" height="30" class="navy-stroke fill-bg blend" stroke-width="2"/>
+      <rect x="125" y="165" width="15" height="20" class="navy fill-navy blend"/>
+    </g>
+
+    <!-- BELT -->
+    <g class="belt">
+      <line x1="140" y1="185" x2="360" y2="340" class="coral-stroke offset blend" stroke-width="8"/>
+      <line x1="140" y1="185" x2="360" y2="340" class="navy-stroke blend" stroke-width="8"/>
+      <!-- Moving dashes -->
+      <line x1="140" y1="185" x2="360" y2="340" stroke="var(--bg)" stroke-width="6" stroke-dasharray="12 12" class="belt-dashes blend"/>
+    </g>
+
+    <!-- STREAM CARDS -->
+    <g class="stream-card sc1">
+      <use href="#base-sc" />
+      <text x="-10" y="-5" font-size="5" class="navy font-mono fw-bold blend">ACME OFFICIAL</text>
+    </g>
+    <g class="stream-card sc2">
+      <use href="#base-sc" />
+      <text x="-10" y="-5" font-size="5" class="navy font-mono fw-bold blend">ACME VERIFIED</text>
+    </g>
+    <g class="stream-card sc3">
+      <use href="#base-sc" />
+      <text x="-10" y="-5" font-size="5" class="navy font-mono fw-bold blend">ACME TRUSTED</text>
+    </g>
+    <g class="stream-card sc4">
+      <use href="#base-sc" />
+      <text x="-10" y="-5" font-size="5" class="navy font-mono fw-bold blend">ACME OFFICIAL</text>
+    </g>
+
+    <!-- STATIC PILE ON DESK -->
+    <g transform="translate(340, 310) rotate(15)">
+      <use href="#base-sc" />
+      <text x="-10" y="-5" font-size="5" class="navy font-mono fw-bold blend">ACME TRUSTED</text>
+    </g>
+    <g transform="translate(365, 305) rotate(-20)">
+      <use href="#base-sc" />
+      <text x="-10" y="-5" font-size="5" class="navy font-mono fw-bold blend">ACME VERIFIED</text>
+    </g>
+    <g transform="translate(355, 325) rotate(5)">
+      <use href="#base-sc" />
+      <text x="-10" y="-5" font-size="5" class="navy font-mono fw-bold blend">ACME OFFICIAL</text>
+    </g>
+
+    <!-- INTERACTIVE ZOOM GROUP (Hand + Main Card) -->
+    <g class="zoom-group">
+      
+      <!-- MAIN CARD FLIPPING GROUP -->
+      <g class="card-flip-group">
+        <!-- Card Base -->
+        <rect x="-40" y="-25" width="80" height="50" rx="2" class="coral-stroke offset blend fill-none" stroke-width="1.5" />
+        <rect x="-40" y="-25" width="80" height="50" rx="2" class="navy-stroke fill-bg blend" stroke-width="1.5" />
+
+        <!-- CARD FRONT -->
+        <g class="card-front">
+          <!-- Photo Box -->
+          <rect x="-35" y="-15" width="18" height="22" class="coral-stroke offset-sm blend fill-none" stroke-width="1"/>
+          <rect x="-35" y="-15" width="18" height="22" class="navy-stroke blend" stroke-width="1"/>
+          <path d="M-31,-3 A5,5 0 0,1 -21,-3 L-21,7 L-31,7 Z" class="navy fill-navy blend"/>
+          <circle cx="-26" cy="-10" r="4" class="navy fill-navy blend"/>
+          
+          <!-- Text Data -->
+          <text x="-12" y="-10" font-size="6" class="coral font-mono fw-bold blend offset-sm">MICROSOFT</text>
+          <text x="-12" y="-10" font-size="6" class="navy font-mono fw-bold blend">MICROSOFT</text>
+          <text x="-12" y="-3" font-size="4" class="navy font-mono blend">CHIEF EXECUTIVE</text>
+          <text x="-12" y="2" font-size="4" class="navy font-mono blend">OFFICER</text>
+          
+          <!-- Barcode / Lines -->
+          <path d="M-12,9 L15,9 M-12,11 L12,11 M-12,13 L18,13 M-12,15 L10,15" class="navy-stroke blend" stroke-width="0.75"/>
+          <path d="M-12,17 L16,17 M-12,19 L14,19" class="coral-stroke offset-sm blend" stroke-width="0.75"/>
+          <path d="M-12,17 L16,17 M-12,19 L14,19" class="navy-stroke blend" stroke-width="0.75"/>
+
+          <!-- Verification Badge -->
+          <circle cx="25" cy="5" r="7" class="coral-stroke offset-sm blend fill-none" stroke-width="1"/>
+          <circle cx="25" cy="5" r="7" class="navy-stroke fill-bg blend" stroke-width="1"/>
+          <text x="25" y="6.5" font-size="5" text-anchor="middle" class="navy font-mono fw-bold blend">✓</text>
+        </g>
+
+        <!-- CARD BACK (Blank, uncertain) -->
+        <g class="card-back">
+          <!-- Subtle printing smudge to indicate it's paper, but entirely blank -->
+          <path d="M-15,-5 C0,10 10,-10 20,5" class="coral-stroke blend" stroke-width="0.5" stroke-dasharray="1 3" opacity="0.6"/>
+          <circle cx="5" cy="10" r="2" class="coral blend" opacity="0.2"/>
+        </g>
+      </g>
+
+      <!-- UNCERTAINTY QUESTION MARKS -->
+      <g class="qm">
+        <text x="0" y="0" font-size="16" class="coral-stroke offset blend fw-bold fill-none font-mono">?</text>
+        <text x="0" y="0" font-size="16" class="navy fw-bold fill-navy blend font-mono">?</text>
+      </g>
+
+      <!-- THE HAND (Animates locally relative to the card) -->
+      <g class="hand-local-anim">
+        <!-- Coral offset layer for Riso style -->
+        <g class="coral-stroke offset blend fill-none" stroke-width="2">
+          <!-- Arm polygon -->
+          <path d="M180,140 L50,10 L35,20 L180,180 Z" stroke-linejoin="round"/>
+          <!-- Thumb -->
+          <rect x="25" y="-2" width="22" height="12" rx="5" transform="rotate(-15 25 0)"/>
+        </g>
+        
+        <!-- Navy lines and off-white fill to obscure items behind -->
+        <g class="navy-stroke fill-bg blend" stroke-width="2">
+          <!-- Arm polygon -->
+          <path d="M180,140 L50,10 L35,20 L180,180 Z" stroke-linejoin="round"/>
+          <!-- Thumb overlapping the card -->
+          <rect x="25" y="-2" width="22" height="12" rx="5" transform="rotate(-15 25 0)"/>
+        </g>
+      </g>
+    </g>
+    
+  </g>
+
+  <!-- Final full-screen paper texture noise overlay -->
+  <rect width="100%" height="100%" filter="url(#noiseFilter)" pointer-events="none" class="blend" />
+</svg>

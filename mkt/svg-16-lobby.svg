@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="800" height="418">
+<defs>
+    <style>
+        * { box-sizing: border-box; }
+        .scene1 { animation: s1 16s infinite; }
+        .scene2 { animation: s2 16s infinite; opacity: 0; }
+        .scene3 { animation: s3 16s infinite; opacity: 0; }
+        
+        @keyframes s1 {
+            0%, 20% { opacity: 1; pointer-events: auto; }
+            22%, 100% { opacity: 0; pointer-events: none; }
+        }
+        @keyframes s2 {
+            0%, 18% { opacity: 0; pointer-events: none; }
+            20%, 63% { opacity: 1; pointer-events: auto; }
+            65%, 100% { opacity: 0; pointer-events: none; }
+        }
+        @keyframes s3 {
+            0%, 63% { opacity: 0; pointer-events: none; }
+            65%, 95% { opacity: 1; pointer-events: auto; }
+            98%, 100% { opacity: 0; pointer-events: none; }
+        }
+
+        .det-walk { animation: walkAnim 16s linear infinite; }
+        @keyframes walkAnim {
+            0% { transform: translateX(-150px); }
+            22%, 100% { transform: translateX(550px); }
+        }
+        .det-bob { animation: bobAnim 0.5s ease-in-out infinite alternate; }
+        @keyframes bobAnim {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-6px); }
+        }
+
+        .rain { animation: rainAnim 0.4s linear infinite; }
+        @keyframes rainAnim {
+            0% { transform: translate(0, -50px); }
+            100% { transform: translate(-15px, 50px); }
+        }
+
+        .mask1 { transform: translateX(0); animation: m1 16s infinite; }
+        @keyframes m1 {
+            0%, 24% { transform: translateX(0); }
+            30%, 100% { transform: translateX(400px); }
+        }
+        .mask2 { transform: translateX(0); animation: m2 16s infinite; }
+        @keyframes m2 {
+            0%, 30% { transform: translateX(0); }
+            36%, 100% { transform: translateX(400px); }
+        }
+        .mask3 { transform: translateX(0); animation: m3 16s infinite; }
+        @keyframes m3 {
+            0%, 36% { transform: translateX(0); }
+            42%, 100% { transform: translateX(400px); }
+        }
+
+        .hand { transform: translate(500px, 450px); opacity: 0; animation: handAnim 16s infinite; }
+        @keyframes handAnim {
+            0%, 42% { transform: translate(500px, 450px); opacity: 0; }
+            45% { transform: translate(220px, 252px); opacity: 1; }
+            53% { transform: translate(480px, 252px); opacity: 1; }
+            56%, 100% { transform: translate(650px, 450px); opacity: 0; }
+        }
+
+        .txt3 { fill: #888; animation: txt3Anim 16s infinite; }
+        @keyframes txt3Anim {
+            0%, 46% { fill: #888; text-shadow: none; }
+            48%, 100% { fill: #0d9488; text-shadow: 0 0 8px rgba(13,148,136,0.8); }
+        }
+        
+        .target-ring { opacity: 0; animation: ringAnim 16s infinite; }
+        @keyframes ringAnim {
+            0%, 50% { opacity: 0; transform: scale(0.5); transform-origin: 500px 254px; }
+            52% { opacity: 1; transform: scale(1.2); }
+            54%, 100% { opacity: 0; transform: scale(1.5); }
+        }
+
+        .door-glass { fill: #000; animation: glassAnim 16s infinite; }
+        @keyframes glassAnim {
+            0%, 75% { fill: #000; }
+            76% { fill: #0d9488; opacity: 0.3; }
+            77% { fill: #000; }
+            78%, 100% { fill: #0d9488; opacity: 0.8; }
+        }
+        .verified-text { opacity: 0; animation: verAnim 16s infinite; }
+        @keyframes verAnim {
+            0%, 75% { opacity: 0; }
+            76% { opacity: 0.5; }
+            77% { opacity: 0; }
+            78%, 100% { opacity: 1; }
+        }
+        .light-spill { opacity: 0; animation: spillAnim 16s infinite; }
+        @keyframes spillAnim {
+            0%, 75% { opacity: 0; }
+            76% { opacity: 0.4; }
+            77% { opacity: 0; }
+            78%, 100% { opacity: 0.7; }
+        }
+
+        .det-front { transform-origin: 400px 418px; animation: detApproach 16s infinite; }
+        @keyframes detApproach {
+            0%, 64% { transform: scale(1.3) translateY(80px); opacity: 0; }
+            65% { opacity: 1; transform: scale(1.3) translateY(80px); }
+            75%, 100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+    </style>
+
+    <linearGradient id="lamp-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fff" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="teal-floor-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0d9488" stop-opacity="1" />
+        <stop offset="100%" stop-color="#0d9488" stop-opacity="0" />
+    </linearGradient>
+
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+        <stop offset="60%" stop-color="#000" stop-opacity="0" />
+        <stop offset="100%" stop-color="#000" stop-opacity="0.85" />
+    </radialGradient>
+
+    <pattern id="blind-pattern" width="800" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+        <rect width="800" height="18" fill="black" />
+    </pattern>
+
+    <mask id="blinds">
+        <rect width="800" height="418" fill="white" />
+        <rect width="800" height="418" fill="url(#blind-pattern)" />
+    </mask>
+
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="5" result="blur" />
+        <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+        </feMerge>
+    </filter>
+
+    <filter id="film-grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2">
+            <animate attributeName="seed" values="1;2;3;4;5;6;7;8;9;10" dur="0.8s" calcMode="discrete" repeatCount="indefinite" />
+        </feTurbulence>
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0" />
+    </filter>
+
+    <g id="det-side">
+        <path d="M 0,165 C -10,165 -15,175 -5,180 C -20,180 -25,185 -25,190 C -10,188 15,188 30,192 C 25,185 20,180 15,180 C 20,175 10,165 0,165 Z" fill="#000" />
+        <path d="M -10,190 C -15,200 -25,260 -30,310 L 20,310 C 25,260 15,200 10,190 Z" fill="#000" />
+        <path d="M -10,190 L -20,205 L 0,205 Z" fill="#111" />
+        <path d="M -15,310 L -20,350 L -5,350 L -5,310 Z" fill="#000" />
+        <path d="M 5,310 L 15,350 L 25,350 L 15,310 Z" fill="#000" />
+    </g>
+</defs>
+
+<rect width="100%" height="100%" fill="#050505" />
+
+<g class="scene1">
+    <rect width="800" height="418" fill="#080808" />
+    <line x1="0" y1="350" x2="800" y2="350" stroke="#111" stroke-width="2" />
+    <rect x="150" y="80" width="120" height="270" fill="#030303" stroke="#0a0a0a" stroke-width="4" />
+    
+    <g class="rain" stroke="#aaa" stroke-width="1" opacity="0.15">
+        <line x1="100" y1="-100" x2="50" y2="450" />
+        <line x1="300" y1="-50" x2="250" y2="450" />
+        <line x1="500" y1="-120" x2="450" y2="450" />
+        <line x1="700" y1="-80" x2="650" y2="450" />
+        <line x1="200" y1="-50" x2="150" y2="450" />
+        <line x1="400" y1="-100" x2="350" y2="450" />
+        <line x1="600" y1="-60" x2="550" y2="450" />
+    </g>
+
+    <polygon points="450,-50 800,418 50,418" fill="url(#lamp-grad)" mask="url(#blinds)" opacity="0.9" />
+
+    <g class="det-walk">
+        <g class="det-bob">
+            <use href="#det-side" />
+        </g>
+        <use href="#det-side" transform="translate(15, 455) scale(1, -0.3) skewX(-40)" fill="black" opacity="0.8" />
+    </g>
+</g>
+
+<g class="scene2">
+    <rect width="800" height="418" fill="#060606" />
+    <polygon points="-50,-50 500,418 0,418" fill="url(#lamp-grad)" opacity="0.4" />
+    
+    <rect x="180" y="80" width="440" height="250" fill="#0a0a0a" stroke="#222" stroke-width="4" />
+    <rect x="190" y="90" width="420" height="230" fill="none" stroke="#333" stroke-width="2" />
+    <rect x="200" y="100" width="400" height="210" fill="none" stroke="#111" stroke-width="1" />
+    <line x1="400" y1="80" x2="400" y2="90" stroke="#0d9488" stroke-width="2" />
+    <line x1="400" y1="320" x2="400" y2="330" stroke="#0d9488" stroke-width="2" />
+
+    <text x="400" y="135" fill="#555" font-family="Courier New, Courier, monospace" font-size="18" text-anchor="middle" letter-spacing="4" font-weight="bold">BUILDING DIRECTORY</text>
+    <line x1="260" y1="145" x2="540" y2="145" stroke="#222" stroke-width="1" />
+
+    <text x="220" y="185" fill="#888" font-family="Courier New, Courier, monospace" font-size="16" letter-spacing="1">customer-support ....... Fl 3</text>
+    <text x="220" y="225" fill="#888" font-family="Courier New, Courier, monospace" font-size="16" letter-spacing="1">returns ................ Fl 5</text>
+    <text x="220" y="265" class="txt3" font-family="Courier New, Courier, monospace" font-size="16" font-weight="bold" letter-spacing="1">billing ................ Fl 7</text>
+
+    <rect x="210" y="165" width="400" height="25" class="mask1" fill="#0a0a0a" />
+    <rect x="210" y="205" width="400" height="25" class="mask2" fill="#0a0a0a" />
+    <rect x="210" y="245" width="400" height="25" class="mask3" fill="#0a0a0a" />
+
+    <circle cx="500" cy="259" r="6" fill="none" stroke="#0d9488" stroke-width="2" class="target-ring" />
+
+    <g class="hand">
+        <path d="M 0,0 C -3,5 -5,15 -10,30 L -40,250 L 30,250 L 15,30 C 12,15 8,5 5,0 Z" fill="#000" />
+    </g>
+</g>
+
+<g class="scene3">
+    <polygon points="0,0 250,90 250,338 0,418" fill="#060606" />
+    <polygon points="800,0 550,90 550,338 800,418" fill="#080808" />
+    <polygon points="0,0 800,0 550,90 250,90" fill="#030303" />
+    <polygon points="0,418 250,338 550,338 800,418" fill="#0a0a0c" />
+
+    <rect x="270" y="90" width="260" height="248" fill="#020202" stroke="#111" stroke-width="6" />
+    <rect x="300" y="110" width="200" height="110" class="door-glass" />
+    <text x="400" y="160" font-family="Courier New, Courier, monospace" font-size="14" fill="#333" text-anchor="middle" letter-spacing="2">OFFICE 714</text>
+    <text x="400" y="190" font-family="Courier New, Courier, monospace" font-size="24" font-weight="bold" text-anchor="middle" letter-spacing="3" class="verified-text" fill="#0d9488" filter="url(#glow)">VERIFIED</text>
+    
+    <circle cx="515" cy="280" r="5" fill="#222" />
+
+    <polygon points="300,220 500,220 680,418 120,418" class="light-spill" fill="url(#teal-floor-grad)" />
+
+    <g class="det-front">
+        <path d="M 150,450 C 250,300 550,300 650,450 Z" fill="#000" />
+        <path d="M 330,360 C 330,260 470,260 470,360 Z" fill="#000" />
+        <ellipse cx="400" cy="340" rx="100" ry="22" fill="#050505" />
+        <path d="M 340,340 C 340,290 460,290 460,340 Z" fill="#080808" />
+    </g>
+</g>
+
+<rect width="100%" height="100%" fill="url(#vignette)" pointer-events="none" />
+<rect width="100%" height="100%" filter="url(#film-grain)" pointer-events="none" />
+</svg>

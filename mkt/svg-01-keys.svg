@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 418" width="100%" height="100%">
+<style>
+    #a-arm {
+        transform-origin: 300px 150px;
+        animation: a-arm-rotate 12s infinite;
+    }
+    #keyring-group {
+        animation: ring-move 12s infinite;
+    }
+    #b-translate {
+        animation: b-walk 12s infinite;
+    }
+    #b-flip {
+        transform-origin: 500px 200px;
+        animation: b-turn 12s infinite;
+    }
+    .a-normal {
+        animation: hide-late 12s infinite;
+    }
+    .a-sad {
+        opacity: 0;
+        animation: show-late 12s infinite;
+    }
+    .b-mouth-1 {
+        animation: m1 12s infinite;
+    }
+    .b-mouth-2 {
+        opacity: 0;
+        animation: m2 12s infinite;
+    }
+    .b-mouth-3 {
+        opacity: 0;
+        animation: m3 12s infinite;
+    }
+    .b-mouth-4 {
+        opacity: 0;
+        animation: m4 12s infinite;
+    }
+    .b-normal-brow {
+        animation: bn 12s infinite;
+    }
+    .b-evil-brow {
+        opacity: 0;
+        animation: be 12s infinite;
+    }
+    .drop-1 { opacity: 0; animation: drop1 12s infinite; }
+    .drop-2 { opacity: 0; animation: drop2 12s infinite; }
+    .drop-3 { opacity: 0; animation: drop3 12s infinite; }
+    .drop-4 { opacity: 0; animation: drop4 12s infinite; }
+    .drop-5 { opacity: 0; animation: drop5 12s infinite; }
+
+    @keyframes a-arm-rotate {
+        0%, 5% { transform: rotate(0deg); }
+        15%, 55% { transform: rotate(-60deg); }
+        65%, 100% { transform: rotate(0deg); }
+    }
+    @keyframes ring-move {
+        0%, 5% { transform: translate(300px, 255px); }
+        15%, 66.5% { transform: translate(391px, 203px); }
+        66.6%, 68% { transform: translate(609px, 203px); }
+        83.3%, 100% { transform: translate(1009px, 203px); }
+    }
+    @keyframes b-turn {
+        0%, 66.5% { transform: scaleX(1); }
+        66.6%, 100% { transform: scaleX(-1); }
+    }
+    @keyframes b-walk {
+        0%, 66.5% { transform: translateX(0); }
+        83.3%, 100% { transform: translateX(400px); }
+    }
+    @keyframes hide-late {
+        0%, 83.2% { opacity: 1; }
+        83.3%, 100% { opacity: 0; }
+    }
+    @keyframes show-late {
+        0%, 83.2% { opacity: 0; }
+        83.3%, 100% { opacity: 1; }
+    }
+    @keyframes m1 {
+        0%, 26.9% { opacity: 1; }
+        27%, 100% { opacity: 0; }
+    }
+    @keyframes m2 {
+        0%, 26.9% { opacity: 0; }
+        27%, 40.9% { opacity: 1; }
+        41%, 100% { opacity: 0; }
+    }
+    @keyframes m3 {
+        0%, 40.9% { opacity: 0; }
+        41%, 47.9% { opacity: 1; }
+        48%, 100% { opacity: 0; }
+    }
+    @keyframes m4 {
+        0%, 47.9% { opacity: 0; }
+        48%, 100% { opacity: 1; }
+    }
+    @keyframes bn {
+        0%, 47.9% { opacity: 1; }
+        48%, 100% { opacity: 0; }
+    }
+    @keyframes be {
+        0%, 47.9% { opacity: 0; }
+        48%, 100% { opacity: 1; }
+    }
+    @keyframes drop1 {
+        0%, 16% { transform: translateY(-80px); opacity: 0; }
+        18% { transform: translateY(5px); opacity: 1; }
+        20%, 100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes drop2 {
+        0%, 24% { transform: translateY(-80px); opacity: 0; }
+        26% { transform: translateY(5px); opacity: 1; }
+        28%, 100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes drop3 {
+        0%, 32% { transform: translateY(-80px); opacity: 0; }
+        34% { transform: translateY(5px); opacity: 1; }
+        36%, 100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes drop4 {
+        0%, 40% { transform: translateY(-80px); opacity: 0; }
+        42% { transform: translateY(5px); opacity: 1; }
+        44%, 100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes drop5 {
+        0%, 48% { transform: translateY(-80px); opacity: 0; }
+        50% { transform: translateY(5px); opacity: 1; }
+        52%, 100% { transform: translateY(0); opacity: 1; }
+    }
+</style>
+
+<rect width="800" height="418" fill="#FFFFFF"/>
+
+<ellipse cx="300" cy="350" rx="40" ry="10" fill="#EAEDED"/>
+<line x1="0" y1="350" x2="800" y2="350" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+
+<g id="char-a">
+    <path d="M300,140 L320,230 L305,235 L285,150 Z" fill="#5DADE2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    
+    <path d="M285,240 L285,340 L305,340 L305,240 Z" fill="#616A6B" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M285,340 L295,340 L295,350 L275,350 Z" fill="#17202A" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    
+    <path d="M300,240 L300,340 L320,340 L320,240 Z" fill="#839192" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M300,340 L315,340 L320,350 L295,350 Z" fill="#273746" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    
+    <path d="M280,140 L315,140 L320,240 L280,240 Z" fill="#5DADE2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    
+    <circle cx="295" cy="115" r="24" fill="#F5CBA7" stroke="#000" stroke-width="3"/>
+    <path d="M271,115 C271,85 319,85 319,115 C319,100 295,95 271,115 Z" fill="#873600" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M275,110 C270,110 270,120 275,120 Z" fill="#F5CBA7" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+    
+    <circle cx="305" cy="110" r="2" fill="#000"/>
+    <path d="M312,115 L316,118 L312,120" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <path d="M302,126 Q307,128 310,125" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" class="a-normal"/>
+    <path d="M300,105 L310,105" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" class="a-normal"/>
+    
+    <path d="M302,128 Q307,125 310,128" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" class="a-sad"/>
+    <path d="M300,103 L310,106" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" class="a-sad"/>
+    <path d="M260,100 C260,110 255,115 250,115 C245,115 240,110 240,100 C240,90 250,85 250,85 C250,85 260,90 260,100 Z" fill="#85C1E9" stroke="#000" stroke-width="2" class="a-sad" stroke-linejoin="round"/>
+    
+    <g id="a-arm">
+        <path d="M290,150 L290,250 L310,250 L310,150 Z" fill="#5DADE2" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="300" cy="255" r="12" fill="#F5CBA7" stroke="#000" stroke-width="3"/>
+    </g>
+</g>
+
+<g id="b-translate">
+    <ellipse cx="500" cy="350" rx="40" ry="10" fill="#EAEDED"/>
+    
+    <g id="b-flip">
+        <path d="M505,240 L505,340 L525,340 L525,240 Z" fill="#873600" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M505,340 L525,340 L525,350 L495,350 Z" fill="#641E16" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        
+        <path d="M480,240 L480,340 L500,340 L500,240 Z" fill="#A04000" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M480,340 L500,340 L500,350 L465,350 Z" fill="#7B241C" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        
+        <path d="M510,140 L525,230 L510,235 L495,140 Z" fill="#FFFFFF" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        
+        <path d="M480,140 L520,140 L520,240 L480,240 Z" fill="#2ECC71" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        
+        <path d="M500,140 L385,193 L395,213 L510,160 Z" fill="#FFFFFF" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="391" cy="203" r="12" fill="#FAD7A1" stroke="#000" stroke-width="3"/>
+        
+        <circle cx="505" cy="115" r="24" fill="#FAD7A1" stroke="#000" stroke-width="3"/>
+        <path d="M481,115 C481,85 529,85 529,115 C529,100 505,95 481,115 Z" fill="#F1C40F" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M525,110 C530,110 530,120 525,120 Z" fill="#FAD7A1" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+        
+        <circle cx="495" cy="110" r="2" fill="#000"/>
+        <path d="M488,115 L484,118 L488,120" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <path d="M490,105 L500,105" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" class="b-normal-brow"/>
+        <path d="M490,107 L500,103" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" class="b-evil-brow"/>
+        
+        <path d="M498,126 Q493,128 490,125" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" class="b-mouth-1"/>
+        <path d="M498,125 Q493,130 488,124" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" class="b-mouth-2"/>
+        <path d="M498,125 Q493,135 486,124 Z" fill="#FFFFFF" stroke="#000" stroke-width="2" stroke-linejoin="round" class="b-mouth-3"/>
+        <g class="b-mouth-4">
+            <path d="M500,125 Q490,145 478,123 L480,120 Q490,125 500,125 Z" fill="#FFFFFF" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M480,126 L485,130 L490,127 L495,131 L500,127" fill="none" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
+        </g>
+    </g>
+</g>
+
+<g id="keyring-group">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#000" stroke-width="4"/>
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#BDC3C7" stroke-width="2"/>
+    
+    <g class="drop-1">
+        <g transform="rotate(15, 0, 14)">
+            <path d="M-2,20 L-2,40 L-6,40 L-6,36 L-2,36 L-2,32 L-6,32 L-6,28 L-2,28 Z" fill="#F1C40F" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="-2" cy="18" r="6" fill="#F1C40F" stroke="#000" stroke-width="2"/>
+        </g>
+    </g>
+    
+    <g class="drop-2">
+        <g transform="rotate(-15, 0, 14)">
+            <rect x="-10" y="14" width="14" height="20" rx="3" fill="#34495E" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="-3" cy="20" r="1.5" fill="#FFFFFF"/>
+            <circle cx="-3" cy="25" r="1.5" fill="#FFFFFF"/>
+        </g>
+    </g>
+    
+    <g class="drop-3">
+        <g transform="rotate(35, 0, 14)">
+            <rect x="0" y="14" width="18" height="26" rx="2" fill="#ECF0F1" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="3" y="17" width="12" height="10" fill="#E74C3C" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
+            <line x1="3" y1="31" x2="15" y2="31" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+        </g>
+    </g>
+    
+    <g class="drop-4">
+        <g transform="rotate(-35, 0, 14)">
+            <rect x="-18" y="12" width="18" height="32" rx="2" fill="#2C3E50" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="-16" y="15" width="14" height="24" fill="#3498DB" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
+            <circle cx="-9" cy="27" r="3" fill="#FFFFFF"/>
+        </g>
+    </g>
+    
+    <g class="drop-5">
+        <g transform="translate(-10, 5) rotate(5, 0, 14)">
+            <rect x="-5" y="25" width="28" height="18" rx="2" fill="#F39C12" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="-5" y="28" width="28" height="3" fill="#000"/>
+            <rect x="0" y="34" width="6" height="4" fill="#F1C40F" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
+        </g>
+    </g>
+</g>
+</svg>
