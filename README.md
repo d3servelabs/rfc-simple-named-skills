@@ -52,6 +52,14 @@ make clean    # remove generated files
 
 The build pipeline: `draft-zzn-dvs.md` → `gen/draft-zzn-dvs-XX.xml` → `gen/draft-zzn-dvs-XX.txt`
 
+### Submitting to IETF Datatracker
+
+```sh
+make submit   # upload the current XML draft to the IETF submission API
+```
+
+Requires `IETF_API_KEY` and `IETF_AUTHOR_EMAIL` to be set in `.env`. Note that the IETF submission window closes during IETF meeting weeks.
+
 ### Versioning and Tagging
 
 The draft revision number is managed via `REVISION` in the Makefile.
